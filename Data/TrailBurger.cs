@@ -4,13 +4,24 @@ using System.Collections.Generic;
 namespace CowboyCafe.Data
 {
     /// <summary>
-    /// A class representing the Cowpoke Chili entree
+    /// A class representing the Trailburger entree
     /// </summary>
-    public class CowpokeChili
+    public class Trailburger
     {
+
+        private bool bun = true;
+        /// <summary>
+        /// If the burger has a bun
+        /// </summary>
+        public bool Bun
+        {
+            get { return bun; }
+            set { bun = value; }
+        }
+
         private bool cheese = true;
         /// <summary>
-        /// If the chili is topped with cheese
+        /// If the Trailburger is topped with cheese
         /// </summary>
         public bool Cheese
         {
@@ -18,60 +29,60 @@ namespace CowboyCafe.Data
             set { cheese = value; }
         }
 
-        private bool sourCream = true;
+        private bool pickle = true;
         /// <summary>
-        /// If the chili is topped with sour cream
+        /// If the Trailburger is topped with pickle
         /// </summary>
-        public bool SourCream
+        public bool Pickle
         {
-            get { return sourCream; }
-            set { sourCream = value; }
+            get { return pickle; }
+            set { pickle = value; }
         }
 
-        private bool greenOnions = true;
+        private bool mustard = true;
         /// <summary>
-        /// If the chili is topped with green onions
+        /// If the Trailburger is topped with mustard
         /// </summary>
-        public bool GreenOnions
+        public bool Mustard
         {
-            get { return greenOnions; }
-            set { greenOnions = value; }
+            get { return mustard; }
+            set { mustard = value; }
         }
 
-        private bool tortillaStrips = true;
+        private bool ketchup = true;
         /// <summary>
-        /// If the chili is topped with tortilla strips
+        /// If the Trailburger is topped with ketchup
         /// </summary>
-        public bool TortillaStrips
+        public bool Ketchup
         {
-            get { return tortillaStrips; }
-            set { tortillaStrips = value; }
+            get { return ketchup; }
+            set { ketchup = value; }
         }
 
         /// <summary>
-        /// The price of the chili
+        /// The price of the Trailburger
         /// </summary>
         public double Price
         {
             get
             {
-                return 6.10;
+                return 4.50;
             }
         }
 
         /// <summary>
-        /// The calories of the chili
+        /// The calories of the Trailburger
         /// </summary>
         public uint Calories
         {
             get
             {
-                return 171;
+                return 288;
             }
         }
 
         /// <summary>
-        /// Special instructions for the preparation of the chili
+        /// Special instructions for the preparation of the Trailburger
         /// </summary>
         public List<string> SpecialInstructions
         {
@@ -80,9 +91,10 @@ namespace CowboyCafe.Data
                 var instructions = new List<string>();
 
                 if (!cheese) instructions.Add("hold cheese");
-                if (!sourCream) instructions.Add("hold sour cream");
-                if (!greenOnions) instructions.Add("hold green onions");
-                if (!tortillaStrips) instructions.Add("hold tortilla strips");
+                if (!pickle) instructions.Add("hold pickle");
+                if (!k) instructions.Add("hold ketchup");
+                if (!mustard) instructions.Add("hold mustard");
+                if (!bun) instructions.Add("hold bun");
 
                 return instructions;
             }

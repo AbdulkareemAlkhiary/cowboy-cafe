@@ -4,74 +4,56 @@ using System.Collections.Generic;
 namespace CowboyCafe.Data
 {
     /// <summary>
-    /// A class representing the Cowpoke Chili entree
+    /// A class representing the Angry Chicken entree
     /// </summary>
-    public class CowpokeChili
+    public class AngryChicken
     {
-        private bool cheese = true;
+
+
+        private bool bread = true;
         /// <summary>
-        /// If the chili is topped with cheese
+        /// If the Angry Chicken is served with bread
         /// </summary>
-        public bool Cheese
+        public bool Bread
         {
-            get { return cheese; }
-            set { cheese = value; }
+            get { return bread; }
+            set { bread = value; }
         }
 
-        private bool sourCream = true;
+        private bool pickle = true;
         /// <summary>
-        /// If the chili is topped with sour cream
+        /// If the Angry Chicken is topped with pickles
         /// </summary>
-        public bool SourCream
+        public bool Pickle
         {
-            get { return sourCream; }
-            set { sourCream = value; }
-        }
-
-        private bool greenOnions = true;
-        /// <summary>
-        /// If the chili is topped with green onions
-        /// </summary>
-        public bool GreenOnions
-        {
-            get { return greenOnions; }
-            set { greenOnions = value; }
-        }
-
-        private bool tortillaStrips = true;
-        /// <summary>
-        /// If the chili is topped with tortilla strips
-        /// </summary>
-        public bool TortillaStrips
-        {
-            get { return tortillaStrips; }
-            set { tortillaStrips = value; }
+            get { return pickle; }
+            set { pickle = value; }
         }
 
         /// <summary>
-        /// The price of the chili
+        /// The price of the Angry Chicken
         /// </summary>
         public double Price
         {
             get
             {
-                return 6.10;
+                return 5.99;
             }
         }
 
         /// <summary>
-        /// The calories of the chili
+        /// The calories of the Angry Chicken
         /// </summary>
         public uint Calories
         {
             get
             {
-                return 171;
+                return 190;
             }
         }
 
         /// <summary>
-        /// Special instructions for the preparation of the chili
+        /// Special instructions for the preparation of the Angry Chicken
         /// </summary>
         public List<string> SpecialInstructions
         {
@@ -79,10 +61,8 @@ namespace CowboyCafe.Data
             {
                 var instructions = new List<string>();
 
-                if (!cheese) instructions.Add("hold cheese");
-                if (!sourCream) instructions.Add("hold sour cream");
-                if (!greenOnions) instructions.Add("hold green onions");
-                if (!tortillaStrips) instructions.Add("hold tortilla strips");
+                if (!bread) instructions.Add("hold bread");
+                if (!pickle) instructions.Add("hold pickle");
 
                 return instructions;
             }
