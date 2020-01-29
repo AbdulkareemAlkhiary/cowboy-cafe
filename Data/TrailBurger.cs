@@ -6,7 +6,7 @@ namespace CowboyCafe.Data
     /// <summary>
     /// A class representing the Trailburger entree
     /// </summary>
-    public class Trailburger
+    public class TrailBurger
     {
 
         private bool bun = true;
@@ -92,7 +92,7 @@ namespace CowboyCafe.Data
 
                 if (!cheese) instructions.Add("hold cheese");
                 if (!pickle) instructions.Add("hold pickle");
-                if (!k) instructions.Add("hold ketchup");
+                if (!ketchup) instructions.Add("hold ketchup");
                 if (!mustard) instructions.Add("hold mustard");
                 if (!bun) instructions.Add("hold bun");
 

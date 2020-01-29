@@ -19,9 +19,10 @@ namespace CowboyCafe.Data
             set { bun = value; }
         }
 
+
         private bool tomato = true;
         /// <summary>
-        /// If the burger is topped with tomato
+        /// If the Texas Triple Burger is topped with tomato
         /// </summary>
         public bool Tomato
         {
@@ -31,7 +32,7 @@ namespace CowboyCafe.Data
 
         private bool lettuce = true;
         /// <summary>
-        /// If the burger is topped with lettuce
+        /// If the Dakota Double Burger is topped with lettuce
         /// </summary>
         public bool Lettuce
         {
@@ -41,7 +42,7 @@ namespace CowboyCafe.Data
 
         private bool mayo = true;
         /// <summary>
-        /// If the burger is topped with mayo
+        /// If the Texas Triple Burger is topped with mayo
         /// </summary>
         public bool Mayo
         {
@@ -49,9 +50,49 @@ namespace CowboyCafe.Data
             set { mayo = value; }
         }
 
+        private bool cheese = true;
+        /// <summary>
+        /// If the Texas Triple Burger is topped with cheese
+        /// </summary>
+        public bool Cheese
+        {
+            get { return cheese; }
+            set { cheese = value; }
+        }
+
+        private bool pickle = true;
+        /// <summary>
+        /// If the Texas Triple Burger is topped with pickle
+        /// </summary>
+        public bool Pickle
+        {
+            get { return pickle; }
+            set { pickle = value; }
+        }
+
+        private bool mustard = true;
+        /// <summary>
+        /// If the Texas Triple Burger is topped with mustard
+        /// </summary>
+        public bool Mustard
+        {
+            get { return mustard; }
+            set { mustard = value; }
+        }
+
+        private bool ketchup = true;
+        /// <summary>
+        /// If the Texas Triple Burger is topped with ketchup
+        /// </summary>
+        public bool Ketchup
+        {
+            get { return ketchup; }
+            set { ketchup = value; }
+        }
+
         private bool bacon = true;
         /// <summary>
-        /// If the burger is topped with bacon
+        /// If the Texas Triple Burger is topped with bacon
         /// </summary>
         public bool Bacon
         {
@@ -61,7 +102,7 @@ namespace CowboyCafe.Data
 
         private bool egg = true;
         /// <summary>
-        /// If the burger is topped with egg
+        /// If the Texas Triple Burger is topped with egg
         /// </summary>
         public bool Egg
         {
@@ -104,6 +145,10 @@ namespace CowboyCafe.Data
                 if (!tomato) instructions.Add("hold tomato");
                 if (!lettuce) instructions.Add("hold lettuce");
                 if (!mayo) instructions.Add("hold mayo");
+                if (!ketchup) instructions.Add("hold ketchup");
+                if (!pickle) instructions.Add("hold pickle");
+                if (!cheese) instructions.Add("hold cheese");
+                if (!mustard) instructions.Add("hold mustard");
                 if (!bacon) instructions.Add("hold bacon");
                 if (!egg) instructions.Add("hold egg");
                 if (!bun) instructions.Add("hold bun");
