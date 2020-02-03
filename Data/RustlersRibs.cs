@@ -6,13 +6,13 @@ namespace CowboyCafe.Data
     /// <summary>
     /// A class representing the Rustler’s Ribs entree
     /// </summary>
-    public class RustlersRibs
+    public class RustlersRibs : Entrees
     {
 
         /// <summary>
         /// The price of the Rustler’s Ribs
         /// </summary>
-        public double Price
+        public override double Price
         {
             get
             {
@@ -23,7 +23,7 @@ namespace CowboyCafe.Data
         /// <summary>
         /// The calories of the Rustler’s Ribs
         /// </summary>
-        public uint Calories
+        public override uint Calories
         {
             get
             {
@@ -34,7 +34,7 @@ namespace CowboyCafe.Data
         /// <summary>
         /// Special instructions for the preparation of the Rustler’s Ribs
         /// </summary>
-        public List<string> SpecialInstructions
+        public override List<string> SpecialInstructions
         {
             get
             {
