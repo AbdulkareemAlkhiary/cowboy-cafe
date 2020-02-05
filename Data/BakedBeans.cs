@@ -1,4 +1,7 @@
-﻿using System;
+﻿/* Author: Abdulkareem Alkhiary
+ * Class: BakedBeans.cs 
+ * Description: Handles the Baked Beans side */
+using System;
 using System.Collections.Generic;
 
 namespace CowboyCafe.Data

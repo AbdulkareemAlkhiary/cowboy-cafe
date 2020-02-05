@@ -1,4 +1,7 @@
-﻿using System;
+﻿/* Author: Abdulkareem Alkhiary
+ * Class: Side.cs 
+ * Description: Handles side properties */
+using System;
 using System.Collections.Generic;
 using System.Text;
 

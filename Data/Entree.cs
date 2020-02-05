@@ -1,4 +1,7 @@
-﻿using System;
+﻿/* Author: Abdulkareem Alkhiary
+ * Class: Entree.cs 
+ * Description: Handles the Entree properties */
+using System;
 using System.Collections.Generic;
 
 namespace CowboyCafe.Data
@@ -6,7 +9,7 @@ namespace CowboyCafe.Data
     /// <summary>
     /// A class representing the Entrees
     /// </summary>
-    public abstract class Entrees
+    public abstract class Entree
     {
 
         /// <summary>

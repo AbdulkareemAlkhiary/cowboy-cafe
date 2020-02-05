@@ -1,4 +1,7 @@
-﻿using System;
+﻿/* Author: Abdulkareem Alkhiary
+ * Class: AngryChicken.cs 
+ * Description: Handles the Angry Chicken entree */
+using System;
 using System.Collections.Generic;
 
 namespace CowboyCafe.Data
@@ -6,7 +9,7 @@ namespace CowboyCafe.Data
     /// <summary>
     /// A class representing the Angry Chicken entree
     /// </summary>
-    public class AngryChicken : Entrees
+    public class AngryChicken : Entree
     {
 
 

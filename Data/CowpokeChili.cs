@@ -1,4 +1,7 @@
-﻿using System;
+﻿/* Author: Abdulkareem Alkhiary
+ * Class: CowpokeChili.cs 
+ * Description: Handles the Cowpoke Chili entree */
+using System;
 using System.Collections.Generic;
 
 namespace CowboyCafe.Data
@@ -6,7 +9,7 @@ namespace CowboyCafe.Data
     /// <summary>
     /// A class representing the Cowpoke Chili entree
     /// </summary>
-    public class CowpokeChili : Entrees
+    public class CowpokeChili : Entree
     {
         private bool cheese = true;
         /// <summary>

@@ -1,4 +1,7 @@
-﻿using System;
+﻿/* Author: Abdulkareem Alkhiary
+ * Class: PanDeCampo.cs 
+ * Description: Handles the Pan de Campo side */
+using System;
 using System.Collections.Generic;
 
 namespace CowboyCafe.Data

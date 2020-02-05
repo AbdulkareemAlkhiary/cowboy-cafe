@@ -1,4 +1,7 @@
-﻿using System;
+﻿/* Author: Abdulkareem Alkhiary
+ * Class: TexasTripleBurger.cs 
+ * Description: Handles Texas Triple Burger entree*/
+using System;
 using System.Collections.Generic;
 
 namespace CowboyCafe.Data
@@ -6,7 +9,7 @@ namespace CowboyCafe.Data
     /// <summary>
     /// A class representing the Texas Triple Burger entree
     /// </summary>
-    public class TexasTripleBurger : Entrees
+    public class TexasTripleBurger : Entree
     {
 
         private bool bun = true;
@@ -32,7 +35,7 @@ namespace CowboyCafe.Data
 
         private bool lettuce = true;
         /// <summary>
-        /// If the Dakota Double Burger is topped with lettuce
+        /// If the Texas Triple Burger is topped with lettuce
         /// </summary>
         public bool Lettuce
         {

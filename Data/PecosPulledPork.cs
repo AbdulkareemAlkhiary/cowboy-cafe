@@ -1,4 +1,7 @@
-﻿using System;
+﻿/* Author: Abdulkareem Alkhiary
+ * Class: PecosPulledPork.cs 
+ * Description: Handles Pecos Pulled Pork entree */
+using System;
 using System.Collections.Generic;
 
 namespace CowboyCafe.Data
@@ -6,7 +9,7 @@ namespace CowboyCafe.Data
     /// <summary>
     /// A class representing the Pecos Pulled Pork entree
     /// </summary>
-    public class PecosPulledPork : Entrees
+    public class PecosPulledPork : Entree
     {
 
         private bool bread = true;

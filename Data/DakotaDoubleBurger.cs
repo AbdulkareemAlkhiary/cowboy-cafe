@@ -1,4 +1,7 @@
-﻿using System;
+﻿/* Author: Abdulkareem Alkhiary
+ * Class: DakotaDoubleBurger.cs 
+ * Description: Handles the Dakota Double Burger entree */
+using System;
 using System.Collections.Generic;
 
 namespace CowboyCafe.Data
@@ -6,7 +9,7 @@ namespace CowboyCafe.Data
     /// <summary>
     /// A class representing the Dakota Double Burger entree
     /// </summary>
-    public class DakotaDoubleBurger : Entrees
+    public class DakotaDoubleBurger : Entree
     {
 
         private bool bun = true;

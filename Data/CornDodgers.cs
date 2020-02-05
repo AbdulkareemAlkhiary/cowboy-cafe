@@ -1,4 +1,7 @@
-﻿using System;
+﻿/* Author: Abdulkareem Alkhiary
+ * Class: CornDodgers.cs 
+ * Description: Handles the Corn Dodgers side */
+using System;
 using System.Collections.Generic;
 
 namespace CowboyCafe.Data

@@ -1,4 +1,7 @@
-﻿using System;
+﻿/* Author: Abdulkareem Alkhiary
+ * Class: RustlersRibs.cs 
+ * Description: Handles Rustler’s Ribs entree */
+using System;
 using System.Collections.Generic;
 
 namespace CowboyCafe.Data
@@ -6,7 +9,7 @@ namespace CowboyCafe.Data
     /// <summary>
     /// A class representing the Rustler’s Ribs entree
     /// </summary>
-    public class RustlersRibs : Entrees
+    public class RustlersRibs : Entree
     {
 
         /// <summary>

@@ -1,4 +1,7 @@
-﻿using System;
+﻿/* Author: Abdulkareem Alkhiary
+ * Class: ChiliCheeseFries.cs 
+ * Description: Handles the Chili Cheese Fries side */
+using System;
 using System.Collections.Generic;
 
 namespace CowboyCafe.Data
