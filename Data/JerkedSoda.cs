@@ -7,13 +7,13 @@ using System.Collections.Generic;
 namespace CowboyCafe.Data
 {
     /// <summary>
-    /// A class representing the Pan De Campo
+    /// A class representing the Jerked Soda
     /// </summary>
-    public class PanDeCampo : Side
+    public class JerkedSoda : Side
     {
 
         /// <summary>
-        /// The price of the Pan De Campo
+        /// The price of the Jerked Soda
         /// </summary>
         public override double Price
         {
@@ -35,7 +35,7 @@ namespace CowboyCafe.Data
         }
 
         /// <summary>
-        /// The calories of the Pan De Campo
+        /// The calories of the Jerked Soda
         /// </summary>
         public override uint Calories
         {
@@ -52,6 +52,31 @@ namespace CowboyCafe.Data
                     default:
                         throw new NotImplementedException();
                 }
+            }
+        }
+
+        private bool ice = true;
+        /// <summary>
+        /// If the Jerked Soda is served with ice
+        /// </summary>
+        public bool Ice
+        {
+            get { return ice; }
+            set { ice = value; }
+        }
+
+        /// <summary>
+        /// Special instructions for the preparation of the Jerked Soda
+        /// </summary>
+        public override List<string> SpecialInstructions
+        {
+            get
+            {
+                var instructions = new List<string>();
+
+                if (!ice) instructions.Add("Hold ice");
+
+                return instructions;
             }
         }
     }
