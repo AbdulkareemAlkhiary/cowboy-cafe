@@ -17,6 +17,7 @@ namespace CowboyCafe.Data
         /// </summary>
         public SodaFlavor Flavor { get; set; }
 
+
         /// <summary>
         /// The price of the Jerked Soda
         /// </summary>
@@ -81,7 +82,7 @@ namespace CowboyCafe.Data
             {
                 var instructions = new List<string>();
 
-                if (!ice) instructions.Add("Hold ice");
+                if (!ice) instructions.Add("Hold Ice");
 
                 return instructions;
             }

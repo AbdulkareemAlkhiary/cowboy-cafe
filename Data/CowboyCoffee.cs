@@ -18,6 +18,11 @@ namespace CowboyCafe.Data
         public bool RoomForCream { get; set; } = false;
 
         /// <summary>
+        /// Sets true if the coffee is decaf
+        /// </summary>
+        public bool Decaf { get; set; } = false;
+
+        /// <summary>
         /// The price of the Cowboy Coffee
         /// </summary>
         public override double Price
@@ -79,8 +84,8 @@ namespace CowboyCafe.Data
             {
                 var instructions = new List<string>();
 
-                if (ice) instructions.Add("Add ice");
-                if (RoomForCream) instructions.Add("Leave room for cream");
+                if (ice) instructions.Add("Add Ice");
+                if (RoomForCream) instructions.Add("Room for Cream");
 
                 return instructions;
             }

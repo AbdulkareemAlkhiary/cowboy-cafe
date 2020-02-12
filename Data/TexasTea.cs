@@ -54,14 +54,15 @@ namespace CowboyCafe.Data
                 switch (Size)
                 {
                     case Size.Small:
-                        if (Sweet) { return 5; }
-                        return 10;
+                        if (Sweet) 
+                        { return 10; }
+                        return 5;
                     case Size.Medium:
-                        if (Sweet) { return 11; }
-                        return 22;
+                        if (Sweet) { return 22; }
+                        return 11;
                     case Size.Large:
-                        if (Sweet) { return 18; }
-                        return 36;
+                        if (Sweet) { return 36; }
+                        return 18;
                     default:
                         throw new NotImplementedException();
                 }
@@ -87,7 +88,7 @@ namespace CowboyCafe.Data
             {
                 var instructions = new List<string>();
 
-                if (!ice) instructions.Add("Hold ice");
+                if (!ice) instructions.Add("Hold Ice");
                 if (Lemon) instructions.Add("Add Lemon");
 
                 return instructions;
