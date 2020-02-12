@@ -1,24 +1,24 @@
 ﻿/* Author: Abdulkareem Alkhiary
- * Class: JerkedSoda.cs 
- * Description: Handles the Jerked Soda */
+ * Class: CowboyCoffee.cs 
+ * Description: Handles the Cowboy Coffee */
 using System;
 using System.Collections.Generic;
 
 namespace CowboyCafe.Data
 {
     /// <summary>
-    /// A class representing the Jerked Soda
+    /// A class representing the Cowboy Coffee
     /// </summary>
-    public class JerkedSoda : Drink
+    public class CowboyCoffee : Drink
     {
 
         /// <summary>
-        /// Gets/Sets soda flavor
+        /// Sets true if the drink needs room for cream
         /// </summary>
-        public SodaFlavor Flavor { get; set; }
+        public bool RoomForCream { get; set; } = false;
 
         /// <summary>
-        /// The price of the Jerked Soda
+        /// The price of the Cowboy Coffee
         /// </summary>
         public override double Price
         {
@@ -27,11 +27,11 @@ namespace CowboyCafe.Data
                 switch (Size)
                 {
                     case Size.Small:
-                        return 1.59;
+                        return .60;
                     case Size.Medium:
-                        return 2.10;
+                        return 1.10;
                     case Size.Large:
-                        return 2.59;
+                        return 1.60;
                     default:
                         throw new NotImplementedException();
                 }
@@ -40,7 +40,7 @@ namespace CowboyCafe.Data
         }
 
         /// <summary>
-        /// The calories of the Jerked Soda
+        /// The calories of the Cowboy Coffee
         /// </summary>
         public override uint Calories
         {
@@ -49,20 +49,20 @@ namespace CowboyCafe.Data
                 switch (Size)
                 {
                     case Size.Small:
-                        return 110;
+                        return 3;
                     case Size.Medium:
-                        return 146;
+                        return 5;
                     case Size.Large:
-                        return 198;
+                        return 7;
                     default:
                         throw new NotImplementedException();
                 }
             }
         }
 
-        private bool ice = true;
+        private bool ice = false;
         /// <summary>
-        /// If the Jerked Soda is served with ice
+        /// If the Cowboy Coffee is served with ice
         /// </summary>
         public bool Ice
         {
@@ -70,10 +70,8 @@ namespace CowboyCafe.Data
             set { ice = value; }
         }
 
-
-
         /// <summary>
-        /// Special instructions for the preparation of the Jerked Soda
+        /// Special instructions for the preparation of the Cowboy Coffee
         /// </summary>
         public override List<string> SpecialInstructions
         {
@@ -81,7 +79,8 @@ namespace CowboyCafe.Data
             {
                 var instructions = new List<string>();
 
-                if (!ice) instructions.Add("Hold ice");
+                if (ice) instructions.Add("Add ice");
+                if (RoomForCream) instructions.Add("Leave room for cream");
 
                 return instructions;
             }

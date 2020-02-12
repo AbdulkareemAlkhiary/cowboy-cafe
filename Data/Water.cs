@@ -1,24 +1,24 @@
 ﻿/* Author: Abdulkareem Alkhiary
- * Class: JerkedSoda.cs 
- * Description: Handles the Jerked Soda */
+ * Class: Water.cs 
+ * Description: Handles the Water */
 using System;
 using System.Collections.Generic;
 
 namespace CowboyCafe.Data
 {
     /// <summary>
-    /// A class representing the Jerked Soda
+    /// A class representing the Water
     /// </summary>
-    public class JerkedSoda : Drink
+    public class Water : Drink
     {
 
         /// <summary>
-        /// Gets/Sets soda flavor
+        /// Sets true if the drink needs lemons
         /// </summary>
-        public SodaFlavor Flavor { get; set; }
+        public bool Lemon { get; set; } = false;
 
         /// <summary>
-        /// The price of the Jerked Soda
+        /// The price of the Water
         /// </summary>
         public override double Price
         {
@@ -27,11 +27,11 @@ namespace CowboyCafe.Data
                 switch (Size)
                 {
                     case Size.Small:
-                        return 1.59;
+                        return 0.12;
                     case Size.Medium:
-                        return 2.10;
+                        return 0.12;
                     case Size.Large:
-                        return 2.59;
+                        return 0.12;
                     default:
                         throw new NotImplementedException();
                 }
@@ -40,7 +40,7 @@ namespace CowboyCafe.Data
         }
 
         /// <summary>
-        /// The calories of the Jerked Soda
+        /// The calories of the Water
         /// </summary>
         public override uint Calories
         {
@@ -49,11 +49,11 @@ namespace CowboyCafe.Data
                 switch (Size)
                 {
                     case Size.Small:
-                        return 110;
+                        return 0;
                     case Size.Medium:
-                        return 146;
+                        return 0;
                     case Size.Large:
-                        return 198;
+                        return 0;
                     default:
                         throw new NotImplementedException();
                 }
@@ -62,7 +62,7 @@ namespace CowboyCafe.Data
 
         private bool ice = true;
         /// <summary>
-        /// If the Jerked Soda is served with ice
+        /// If the Water is served with ice
         /// </summary>
         public bool Ice
         {
@@ -70,10 +70,8 @@ namespace CowboyCafe.Data
             set { ice = value; }
         }
 
-
-
         /// <summary>
-        /// Special instructions for the preparation of the Jerked Soda
+        /// Special instructions for the preparation of the Water
         /// </summary>
         public override List<string> SpecialInstructions
         {
@@ -82,6 +80,7 @@ namespace CowboyCafe.Data
                 var instructions = new List<string>();
 
                 if (!ice) instructions.Add("Hold ice");
+                if (Lemon) instructions.Add("Add Lemon");
 
                 return instructions;
             }
