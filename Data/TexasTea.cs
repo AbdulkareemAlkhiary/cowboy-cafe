@@ -94,6 +94,22 @@ namespace CowboyCafe.Data
                 return instructions;
             }
         }
+
+        /// <summary>
+        /// ToString method to return readlable name
+        /// </summary>
+        public override string ToString()
+        {
+            if (Sweet)
+            {
+                return Size + " Texas Sweet Tea";
+            }
+            else
+            {
+                return Size + " Texas Plain Tea";
+            }
+        }
+
     }
 }
 

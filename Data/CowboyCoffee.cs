@@ -90,6 +90,19 @@ namespace CowboyCafe.Data
                 return instructions;
             }
         }
+
+        /// <summary>
+        /// ToString method to return readlable name
+        /// </summary>
+        public override string ToString()
+        {
+            if (Decaf)
+            {
+                return Size + " Decaf Cowboy Coffee";
+            }
+            
+            return Size + " Cowboy Coffee";
+        }
     }
 }
 

@@ -54,6 +54,14 @@ namespace CowboyCafe.Data
                 }
             }
         }
+
+        /// <summary>
+        /// ToString method to return readlable name
+        /// </summary>
+        public override string ToString()
+        {
+            return Size + " Baked Beans";
+        }
     }
 }
 

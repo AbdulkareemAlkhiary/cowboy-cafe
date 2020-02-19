@@ -136,6 +136,16 @@ namespace CowboyCafe.Data
                 return instructions;
             }
         }
+
+        /// <summary>
+        /// ToString method to return readlable name
+        /// </summary>
+        public override string ToString()
+        {
+
+            return "Dakota Double Burger";
+
+        }
     }
 }
 

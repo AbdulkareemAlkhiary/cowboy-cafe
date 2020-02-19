@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using Xunit;
 using CowboyCafe.Data;
-/*
+
 namespace CowboyCafe.DataTests
 {
     public class ToStringTests
@@ -82,12 +82,12 @@ namespace CowboyCafe.DataTests
         }
 
         [Theory]
-        [InlineData(Size.Small, false, "Small Texas Sweet Tea")]
-        [InlineData(Size.Medium, false, "Small Texas Sweet Tea")]
-        [InlineData(Size.Large, false, "Small Texas Sweet Tea")]
-        [InlineData(Size.Small, true, "Small Texas Plain Tea")]
-        [InlineData(Size.Medium, true, "Medium Texas Plain Tea")]
-        [InlineData(Size.Large, true, "Large Texas Plain Tea")]
+        [InlineData(Size.Small, true, "Small Texas Sweet Tea")]
+        [InlineData(Size.Medium, true, "Medium Texas Sweet Tea")]
+        [InlineData(Size.Large, true, "Large Texas Sweet Tea")]
+        [InlineData(Size.Small, false, "Small Texas Plain Tea")]
+        [InlineData(Size.Medium, false, "Medium Texas Plain Tea")]
+        [InlineData(Size.Large, false, "Large Texas Plain Tea")]
         public void TexasTeaToStringShouldMatchExpectations(Size size, bool sweet, string expected)
         {
             var tea = new TexasTea()
@@ -117,4 +117,4 @@ namespace CowboyCafe.DataTests
 
     }
 }
-*/
+
