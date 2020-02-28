@@ -22,15 +22,17 @@ namespace PointOfSale
     /// </summary>
     public partial class OrderControl : UserControl
     {
+        private Order OrderList;
         public OrderControl()
         {
+
             InitializeComponent();
             
         }
-
         private void Cowpoke_Chili(object sender, RoutedEventArgs e)
         {
-            OrderList.Items.Add(new CowpokeChili());
+            OrderList.Add(new CowpokeChili());
+
         }
 
         private void Rustlers_Ribs(object sender, RoutedEventArgs e)
@@ -102,5 +104,6 @@ namespace PointOfSale
         {
             OrderList.Items.Add(new Water());
         }
+
     }
 }

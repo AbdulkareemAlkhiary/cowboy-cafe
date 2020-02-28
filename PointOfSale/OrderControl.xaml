@@ -78,7 +78,7 @@
             <ColumnDefinition/>
             <ColumnDefinition Width=" 380"/>
         </Grid.ColumnDefinitions>
-        <StackPanel Grid.Column="0" Background="CadetBlue">
+        <StackPanel Grid.Column="0" >
              <TextBlock TextAlignment="Center">Entree</TextBlock>
             <Button Click="Cowpoke_Chili">Cowpoke Chili</Button>
             <Button Click="Rustlers_Ribs">Rustler's Ribs</Button>
@@ -88,23 +88,22 @@
             <Button Click="Texas_Triple_Burger">Texas Triple Burger</Button>
             <Button Click="Angry_Chicken">Angry Chicken</Button>
         </StackPanel>
-        <StackPanel Grid.Column="1" Background="CadetBlue">
+        <StackPanel Grid.Column="1" >
             <TextBlock TextAlignment="Center">Side</TextBlock>
             <Button Click="Chili_Cheese_Fries">Chili Cheese Fries</Button>
             <Button Click="Corn_Dodgers">Corn Dodgers</Button>
             <Button Click="Pan_de_Campo">Pan de Campo</Button>
             <Button Click="Baked_Beans">Baked Beans</Button>
         </StackPanel>
-        <StackPanel Grid.Column="2" Background="CadetBlue">
+        <StackPanel Grid.Column="2" >
             <TextBlock TextAlignment="Center">Drinks</TextBlock>
             <Button Click="Jerked_Soda">Jerked Soda</Button>
             <Button Click="Texas_Tea">Texas Tea</Button>
             <Button Click="Cowboy_Coffee">Cowboy Coffee</Button>
             <Button Click="Water">Water</Button>
         </StackPanel>
-        <StackPanel Grid.Column="3" Background="CadetBlue">
-            <TextBlock TextAlignment="Center">Order</TextBlock>
-            <ListView x:Name="OrderList"></ListView>
+        <StackPanel Grid.Column="3" >
+            <local:OrderSummaryControl></local:OrderSummaryControl>
         </StackPanel>
 
     </Grid>
