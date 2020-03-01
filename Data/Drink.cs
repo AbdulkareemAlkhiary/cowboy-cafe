@@ -15,7 +15,7 @@ namespace CowboyCafe.Data
         /// <summary>
         /// Gets the size of the drink
         /// </summary>
-        public virtual Size Size { get; set; } = Size.Small;
+        public virtual Size Size { get; set; }
 
         /// <summary>
         /// Gets the price of the drink
@@ -36,5 +36,10 @@ namespace CowboyCafe.Data
         /// Special instructions for the preparation of the Sodas
         /// </summary>
         public abstract List<string> SpecialInstructions { get; }
+
+        /// <summary>
+        /// Ingredients of the drink
+        /// </summary>
+        public abstract List<string> Ingredients { get; set; }
     }
 }

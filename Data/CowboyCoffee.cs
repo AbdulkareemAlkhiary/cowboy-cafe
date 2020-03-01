@@ -103,6 +103,16 @@ namespace CowboyCafe.Data
             
             return Size + " Cowboy Coffee";
         }
+
+        private List<string> ingredients;
+        /// <summary>
+        /// Cowboy Coffee Ingredients
+        /// </summary>
+        public override List<string> Ingredients
+        {
+            get { return ingredients; }
+            set { ingredients = value; }
+        }
     }
 }
 

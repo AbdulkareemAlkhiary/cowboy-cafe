@@ -11,7 +11,7 @@ namespace CowboyCafe.DataTests
     {
         public double Price { get; set; }
 
-        public IEnumerable<string> SpecialInstructions { get; set; }
+        public List<string> SpecialInstructions { get; set; }
     }
 
     public class OrderTests
@@ -47,7 +47,7 @@ namespace CowboyCafe.DataTests
         [InlineData(new double[] { 10, 15, 18 })]
         [InlineData(new double[] { 20, -4, 3.6, 8 })]
         [InlineData(new double[] { -100, -5, })]
-        public void SubtotalShouldBeTheSumOfOrderItemPrices(double[] prices)
+        public void SubtotalShouldBeTheSumOfOrderItemPrices(IEnumerable<double> prices)
         {
             var order = new Order();
             double total = 0;

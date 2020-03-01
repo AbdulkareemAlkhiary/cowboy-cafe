@@ -5,39 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PointOfSale"
         mc:Ignorable="d"
-        Title="MainWindow" Height="545" Width="945">
+        Title="MainWindow" Height="1100" Width="1350">
     <Grid>
-
-        <Grid.Background>
-            <ImageBrush ImageSource="coffee.jpg" Stretch="UniformToFill"/>
-        </Grid.Background>
-        
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="250"/>
-            <ColumnDefinition Width="250"/>
-            <ColumnDefinition Width="250"/>
-            <ColumnDefinition Width="400"/>
-        </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="50"/>
-            <RowDefinition/>
-        </Grid.RowDefinitions>
-
-        <StackPanel Grid.Row="0">
-            <Button Margin="10">Item Selected</Button>
-        </StackPanel>
-
-        <StackPanel Grid.Column="1">
-            <Button Margin="10">Cancel Order</Button>
-        </StackPanel>
-
-        <StackPanel Grid.Column="2">
-            <Button Margin="10">Complete Order</Button>
-        </StackPanel>
-
-        <StackPanel Grid.Row="1" Grid.ColumnSpan="4">
-            <local:OrderControl></local:OrderControl>
-        </StackPanel>
-        
+        <local:OrderControl Width="1350"></local:OrderControl>
     </Grid>
 </Window>

@@ -110,6 +110,16 @@ namespace CowboyCafe.Data
             }
         }
 
+        private List<string> ingredients;
+        /// <summary>
+        /// Texas Tea Ingredients
+        /// </summary>
+        public override List<string> Ingredients
+        {
+            get { return ingredients; }
+            set { ingredients = value; }
+        }
+
     }
 }
 
