@@ -51,8 +51,8 @@
         </Grid.Background>
 
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="3*"/>
-            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="600"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="100px"/>
@@ -65,7 +65,7 @@
         </StackPanel>
 
         <local:MenuItemSelectionControl Grid.Row="1" Grid.Column="0"/>
-        <local:OrderSummaryControl Grid.Row="0" Grid.Column="1" Grid.RowSpan="2"/>
+        <local:OrderSummaryControl  Height="830" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center"/>
 
     </Grid>
 </UserControl>

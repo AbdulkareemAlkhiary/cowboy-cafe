@@ -27,8 +27,7 @@ namespace PointOfSale
         {
             InitializeComponent();
 
-            OrderList = new Order();
-            this.DataContext = OrderList;
+            
         }
 
         /// <summary>
@@ -38,7 +37,10 @@ namespace PointOfSale
         /// <param name="e"></param>
         private void Cowpoke_Chili(object sender, RoutedEventArgs e)
         {
-            OrderList.Add(new CowpokeChili());
+            if (DataContext is Order order)
+            {
+                order.Add(new CowpokeChili());
+            }
 
         }
 
@@ -49,7 +51,10 @@ namespace PointOfSale
         /// <param name="e"></param>
         private void Rustlers_Ribs(object sender, RoutedEventArgs e)
         {
-            OrderList.Add(new RustlersRibs());
+            if (DataContext is Order order)
+            {
+                order.Add(new RustlersRibs());
+            }
         }
 
         /// <summary>
@@ -59,7 +64,10 @@ namespace PointOfSale
         /// <param name="e"></param>
         private void Pecos_Pulled_Pork(object sender, RoutedEventArgs e)
         {
-            OrderList.Add(new PecosPulledPork());
+            if (DataContext is Order order)
+            {
+                order.Add(new PecosPulledPork());
+            }
         }
 
         /// <summary>
@@ -69,7 +77,10 @@ namespace PointOfSale
         /// <param name="e"></param>
         private void Trail_Burger(object sender, RoutedEventArgs e)
         {
-            OrderList.Add(new TrailBurger());
+            if (DataContext is Order order)
+            {
+                order.Add(new TrailBurger());
+            }
         }
 
         /// <summary>
@@ -79,7 +90,10 @@ namespace PointOfSale
         /// <param name="e"></param>
         private void Dakota_Double_Burger(object sender, RoutedEventArgs e)
         {
-            OrderList.Add(new DakotaDoubleBurger());
+            if (DataContext is Order order)
+            {
+                order.Add(new DakotaDoubleBurger());
+            }
         }
 
         /// <summary>
@@ -89,7 +103,10 @@ namespace PointOfSale
         /// <param name="e"></param>
         private void Texas_Triple_Burger(object sender, RoutedEventArgs e)
         {
-            OrderList.Add(new TexasTripleBurger());
+            if (DataContext is Order order)
+            {
+                order.Add(new TexasTripleBurger());
+            }
         }
 
         /// <summary>
@@ -99,7 +116,10 @@ namespace PointOfSale
         /// <param name="e"></param>
         private void Angry_Chicken(object sender, RoutedEventArgs e)
         {
-            OrderList.Add(new AngryChicken());
+            if (DataContext is Order order)
+            {
+                order.Add(new AngryChicken());
+            }
         }
 
         /// <summary>
@@ -109,7 +129,10 @@ namespace PointOfSale
         /// <param name="e"></param>
         private void Chili_Cheese_Fries(object sender, RoutedEventArgs e)
         {
-            OrderList.Add(new ChiliCheeseFries());
+            if (DataContext is Order order)
+            {
+                order.Add(new ChiliCheeseFries());
+            }
         }
 
         /// <summary>
@@ -119,7 +142,10 @@ namespace PointOfSale
         /// <param name="e"></param>
         private void Corn_Dodgers(object sender, RoutedEventArgs e)
         {
-            OrderList.Add(new CornDodgers());
+            if (DataContext is Order order)
+            {
+                order.Add(new CornDodgers());
+            }
         }
 
         /// <summary>
@@ -129,7 +155,10 @@ namespace PointOfSale
         /// <param name="e"></param>
         private void Pan_de_Campo(object sender, RoutedEventArgs e)
         {
-            OrderList.Add(new PanDeCampo());
+            if (DataContext is Order order)
+            {
+                order.Add(new PanDeCampo());
+            }
         }
 
         /// <summary>
@@ -139,7 +168,10 @@ namespace PointOfSale
         /// <param name="e"></param>
         private void Baked_Beans(object sender, RoutedEventArgs e)
         {
-            OrderList.Add(new BakedBeans());
+            if (DataContext is Order order)
+            {
+                order.Add(new BakedBeans());
+            }
         }
 
         /// <summary>
@@ -149,7 +181,10 @@ namespace PointOfSale
         /// <param name="e"></param>
         private void Jerked_Soda(object sender, RoutedEventArgs e)
         {
-            OrderList.Add(new JerkedSoda());
+            if (DataContext is Order order)
+            {
+                order.Add(new JerkedSoda());
+            }
         }
 
         /// <summary>
@@ -159,7 +194,10 @@ namespace PointOfSale
         /// <param name="e"></param>
         private void Texas_Tea(object sender, RoutedEventArgs e)
         {
-            OrderList.Add(new TexasTea());
+            if (DataContext is Order order)
+            {
+                order.Add(new TexasTea());
+            }
         }
 
         /// <summary>
@@ -169,7 +207,10 @@ namespace PointOfSale
         /// <param name="e"></param>
         private void Cowboy_Coffee(object sender, RoutedEventArgs e)
         {
-            OrderList.Add(new CowboyCoffee());
+            if (DataContext is Order order)
+            {
+                order.Add(new CowboyCoffee());
+            }
         }
 
         /// <summary>
@@ -179,7 +220,10 @@ namespace PointOfSale
         /// <param name="e"></param>
         private void Water(object sender, RoutedEventArgs e)
         {
-            OrderList.Add(new Water());
+            if (DataContext is Order order)
+            {
+                order.Add(new Water());
+            }
         }
     }
 }
