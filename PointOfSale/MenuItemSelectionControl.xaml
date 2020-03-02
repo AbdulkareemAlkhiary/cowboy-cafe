@@ -11,19 +11,16 @@
 
         <Style TargetType="Button">
             <Setter Property="Width" Value="200"/>
-            <Setter Property="Height" Value="70"/>
-            <Setter Property="FontStyle" Value="Normal"/>
-            <Setter Property="FontFamily" Value="Times New Roman"/>
+            <Setter Property="Height" Value="100"/>
+            <Setter Property="Margin" Value="10"/>
             <Setter Property="FontSize" Value="20"/>
-            <Setter Property="Margin" Value="20"/>
-            <Setter Property="Background" Value="White"/>
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="Button">
                         <Border Name="border"
-                   BorderThickness="4"
+                   BorderThickness="1"
                    Padding="4,2"
-                   BorderBrush="Turquoise"
+                   BorderBrush="DarkGray"
                    CornerRadius="5"
                    Background="{TemplateBinding Background}">
                             <Grid >
@@ -41,16 +38,69 @@
                 </Setter.Value>
             </Setter>
         </Style>
+
+
+
+        <Style TargetType ="TextBlock" x:Key="TextHeader">
+            <Setter Property="FontSize" Value="25"/>
+            <Setter Property="Background" Value="White"/>
+            <Setter Property="Margin" Value="6"/>
+            <Setter Property="Foreground" Value="Black"/>
+            <Setter Property="TextAlignment" Value="Center"/>
+        </Style>
+
+        <Style TargetType="ListView">
+            <Setter Property="MinWidth" Value="300"/>
+            <Setter Property="Height" Value="400"/>
+        </Style>
+
+        <Style TargetType="ColumnDefinition">
+            <Setter Property="Width" Value="250"/>
+        </Style>
     </UserControl.Resources>
 
 
 
     <Grid>
-        <StackPanel Orientation="Horizontal">
-            <Button Name="ItemSelectButton">Item Selection</Button>
-            <Button Name="CancelOrderButton">Cancel Order</Button>
-            <Button Name="CompleteOrderButton">Complete Order</Button>
-        </StackPanel>   
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition>
+            </ColumnDefinition>
+            <ColumnDefinition>
+            </ColumnDefinition>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+
+
+
+        <StackPanel  Grid.Column="0" >
+            <TextBlock Style ="{StaticResource TextHeader}">Entree</TextBlock>
+            <Button Click="Cowpoke_Chili">Cowpoke Chili</Button>
+            <Button Click="Rustlers_Ribs">Rustler's Ribs</Button>
+            <Button Click="Pecos_Pulled_Pork">Pecos Pulled Pork</Button>
+            <Button Click="Trail_Burger">Trail Burger</Button>
+            <Button Click="Dakota_Double_Burger">Dakota Double Burger</Button>
+            <Button Click="Texas_Triple_Burger">Texas Triple Burger</Button>
+            <Button Click="Angry_Chicken">Angry Chicken</Button>
+        </StackPanel>
+
+        <StackPanel  Grid.Column="1" >
+            <TextBlock Style ="{StaticResource TextHeader}">Side</TextBlock>
+            <Button Click="Chili_Cheese_Fries">Chili Cheese Fries</Button>
+            <Button Click="Corn_Dodgers">Corn Dodgers</Button>
+            <Button Click="Pan_de_Campo">Pan de Campo</Button>
+            <Button Click="Baked_Beans">Baked Beans</Button>
+        </StackPanel>
+
+        <StackPanel  Grid.Column="2" >
+            <TextBlock Style ="{StaticResource TextHeader}">Drinks</TextBlock>
+            <Button Click="Jerked_Soda">Jerked Soda</Button>
+            <Button Click="Texas_Tea">Texas Tea</Button>
+            <Button Click="Cowboy_Coffee">Cowboy Coffee</Button>
+            <Button Click="Water">Water</Button>
+        </StackPanel>
+
+
     </Grid>
-    
+
 </UserControl>

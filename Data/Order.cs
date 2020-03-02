@@ -11,7 +11,7 @@ namespace CowboyCafe.Data
     public class Order : INotifyPropertyChanged
     {
 
-        private uint lastOrderNumber = 0;
+        static private uint lastOrderNumber = 0;
 
         /// <summary>
         /// Order
@@ -56,17 +56,8 @@ namespace CowboyCafe.Data
         /// <summary>
         /// Gets last order number
         /// </summary>
-        public uint OrderNumber
-        {
-            get
-            {
-                return lastOrderNumber;
-            }
-            set
-            {
+        public uint OrderNumber => lastOrderNumber++;
 
-            }
-        }
 
         public event PropertyChangedEventHandler PropertyChanged;
 

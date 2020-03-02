@@ -22,26 +22,164 @@ namespace PointOfSale
     /// </summary>
     public partial class MenuItemSelectionControl : UserControl
     {
+        private Order OrderList;
         public MenuItemSelectionControl()
         {
             InitializeComponent();
 
-            ItemSelectButton.Click += ItemSelectButtonClicked;
-            CompleteOrderButton.Click += CompleteOrderButtonClicked;
-            CancelOrderButton.Click += CancelOrderButtonClicked;
+            OrderList = new Order();
+            this.DataContext = OrderList;
         }
 
-        public void ItemSelectButtonClicked(object sender, RoutedEventArgs e)
+        /// <summary>
+        /// Adds Cowpoke Chili
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Cowpoke_Chili(object sender, RoutedEventArgs e)
         {
-            throw new NotImplementedException("To be implemented");
+            OrderList.Add(new CowpokeChili());
+
         }
-        public void CompleteOrderButtonClicked(object sender, RoutedEventArgs e)
+
+        /// <summary>
+        /// Adds Rustler's Ribs
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Rustlers_Ribs(object sender, RoutedEventArgs e)
         {
-            this.DataContext = new Order();
+            OrderList.Add(new RustlersRibs());
         }
-        public void CancelOrderButtonClicked(object sender, RoutedEventArgs e)
+
+        /// <summary>
+        /// Adds Pecos Pulled Pork
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Pecos_Pulled_Pork(object sender, RoutedEventArgs e)
         {
-            this.DataContext = new Order();
+            OrderList.Add(new PecosPulledPork());
+        }
+
+        /// <summary>
+        /// Adds Trail Burger
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Trail_Burger(object sender, RoutedEventArgs e)
+        {
+            OrderList.Add(new TrailBurger());
+        }
+
+        /// <summary>
+        /// Adds Dakota Double Burger
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Dakota_Double_Burger(object sender, RoutedEventArgs e)
+        {
+            OrderList.Add(new DakotaDoubleBurger());
+        }
+
+        /// <summary>
+        /// Adds Texas Triple Burger
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Texas_Triple_Burger(object sender, RoutedEventArgs e)
+        {
+            OrderList.Add(new TexasTripleBurger());
+        }
+
+        /// <summary>
+        /// Adds Angry Chicken
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Angry_Chicken(object sender, RoutedEventArgs e)
+        {
+            OrderList.Add(new AngryChicken());
+        }
+
+        /// <summary>
+        /// Adds Chili Cheese Fries
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Chili_Cheese_Fries(object sender, RoutedEventArgs e)
+        {
+            OrderList.Add(new ChiliCheeseFries());
+        }
+
+        /// <summary>
+        /// Adds Corn Dodgers
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Corn_Dodgers(object sender, RoutedEventArgs e)
+        {
+            OrderList.Add(new CornDodgers());
+        }
+
+        /// <summary>
+        /// Adds Pan de Campo
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Pan_de_Campo(object sender, RoutedEventArgs e)
+        {
+            OrderList.Add(new PanDeCampo());
+        }
+
+        /// <summary>
+        /// Adds Baked Beans
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Baked_Beans(object sender, RoutedEventArgs e)
+        {
+            OrderList.Add(new BakedBeans());
+        }
+
+        /// <summary>
+        /// Add Jerked Soda
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Jerked_Soda(object sender, RoutedEventArgs e)
+        {
+            OrderList.Add(new JerkedSoda());
+        }
+
+        /// <summary>
+        /// Add Texas Tea
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Texas_Tea(object sender, RoutedEventArgs e)
+        {
+            OrderList.Add(new TexasTea());
+        }
+
+        /// <summary>
+        /// Adds Cowboy Coffee
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Cowboy_Coffee(object sender, RoutedEventArgs e)
+        {
+            OrderList.Add(new CowboyCoffee());
+        }
+
+        /// <summary>
+        /// Adds Water
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Water(object sender, RoutedEventArgs e)
+        {
+            OrderList.Add(new Water());
         }
     }
 }
