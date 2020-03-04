@@ -18,4 +18,95 @@
     <Resource Include="images.jpg" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Compile Update="DrinkCustomizations\CustomizedWater.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="DrinkCustomizations\CustomizedJerkedSoda.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="DrinkCustomizations\CustomizedTexasTea.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="DrinkCustomizations\CustomizedCowboyCoffee.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="SideCustomizations\CustomizedBakedBeans.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="SideCustomizations\CustomizedPanDeCampo.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="SideCustomizations\CustomizedCornDodgers.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="SideCustomizations\CustomizedChiliChesseFries.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="EntreeCustomizations\CustomizedAngryChicken.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="EntreeCustomizations\CustomizedTexasTripleBurger.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="EntreeCustomizations\CustomizedDakotaDoubleBurger.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="EntreeCustomizations\CustomizedTrailBurger.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="EntreeCustomizations\CustomizedPecosPulledPork.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="EntreeCustomizations\CustomizedCowpokeChili.xaml.cs">
+      <SubType>Code</SubType>
+      <DependentUpon>CustomizedCowpokeChili.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Page Update="DrinkCustomizations\CustomizedWater.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="DrinkCustomizations\CustomizedCowboyCoffee.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="DrinkCustomizations\CustomizedTexasTea.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="DrinkCustomizations\CustomizedJerkedSoda.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="SideCustomizations\CustomizedBakedBeans.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="SideCustomizations\CustomizedPanDeCampo.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="SideCustomizations\CustomizedCornDodgers.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="SideCustomizations\CustomizedChiliChesseFries.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="EntreeCustomizations\CustomizedAngryChicken.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="EntreeCustomizations\CustomizedTexasTripleBurger.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="EntreeCustomizations\CustomizedDakotaDoubleBurger.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="EntreeCustomizations\CustomizedTrailBurger.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="EntreeCustomizations\CustomizedPecosPulledPork.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="EntreeCustomizations\CustomizedCowpokeChili.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+
 </Project>

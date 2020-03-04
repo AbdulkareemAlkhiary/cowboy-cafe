@@ -34,6 +34,13 @@ namespace PointOfSale
             ItemSelectButton.Click += ItemSelectButtonClicked;
             CompleteOrderButton.Click += CompleteOrderButtonClicked;
             CancelOrderButton.Click += CancelOrderButtonClicked;
+
+            DataContext = new Order();
+        }
+
+        public void SwapScreen(UIElement element) 
+        {
+            Container.Child = element;
         }
 
         public void ItemSelectButtonClicked(object sender, RoutedEventArgs e)

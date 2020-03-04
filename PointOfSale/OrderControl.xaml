@@ -64,8 +64,12 @@
             <Button Name="CompleteOrderButton">Complete Order</Button>
         </StackPanel>
 
-        <local:MenuItemSelectionControl Grid.Row="1" Grid.Column="0"/>
+       
         <local:OrderSummaryControl  Height="830" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center"/>
 
+        <Border x:Name="Container" Grid.Column="0" Grid.Row="1">
+             <local:MenuItemSelectionControl/>
+        </Border>
+        
     </Grid>
 </UserControl>
