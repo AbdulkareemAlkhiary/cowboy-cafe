@@ -33,7 +33,11 @@ namespace CowboyCafe.Data
         public bool Tomato
         {
             get { return tomato; }
-            set { tomato = value; }
+            set { 
+                tomato = value; 
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Tomato"));
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+            }
         }
 
         private bool lettuce = true;

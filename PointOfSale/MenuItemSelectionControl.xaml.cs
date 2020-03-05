@@ -138,7 +138,7 @@ namespace PointOfSale
             {
                 var entree = new TexasTripleBurger();
                 var screen = new CustomizedTexasTripleBurger();
-                screen.DataContext = screen;
+                screen.DataContext = entree;
                 order.Add(entree);
                 orderControl.SwapScreen(screen);
             }

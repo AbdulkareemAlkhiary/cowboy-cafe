@@ -37,24 +37,23 @@
             <TextBlock FontSize="25" Height="30" Text="{Binding Path=OrderNumber}"/>
         </StackPanel>
 
-        <StackPanel Grid.Column="0" Grid.Row="1">
-            <ListBox ItemsSource="{Binding Path=Items}" Height="820" BorderBrush="Black" BorderThickness="2">
+        <StackPanel Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2">
+            <ListBox ItemsSource="{Binding Path=Items}" Height="820" BorderBrush="Black" BorderThickness="2" HorizontalContentAlignment="Stretch">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <Grid>
-                            <TextBlock FontSize="25" Text="{Binding}"/>
-                        </Grid>
-                    </DataTemplate>
-                </ListBox.ItemTemplate>
-            </ListBox>
-        </StackPanel>
-
-        <StackPanel Grid.Row="1" Grid.Column="1">
-            <ListBox ItemsSource="{Binding Path=Items}" Height="820" BorderBrush ="Black" BorderThickness="2" >
-                <ListBox.ItemTemplate>
-                    <DataTemplate>
-                        <Grid>
-                            <TextBlock FontSize="25" Text="{Binding Path=Price, StringFormat=c}"/>
+                            <Grid.RowDefinitions>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+                            
+                            <TextBlock Grid.Row="0" Grid.Column="0" FontSize="25" Text="{Binding}"/>
+                            <TextBlock Grid.Row="0" Grid.Column="1" TextAlignment="Right" FontSize="25" Text="{Binding Path=Price, StringFormat=c}"/>
+                            <ListView Grid.Row="1" Grid.ColumnSpan="2" FontSize="25" ItemsSource="{Binding Path=SpecialInstructions}"/>
                         </Grid>
                     </DataTemplate>
                 </ListBox.ItemTemplate>
