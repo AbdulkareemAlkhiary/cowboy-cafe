@@ -7,6 +7,36 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
-        <TextBlock FontSize="30" Text="Customize Texas Tea!"/>
+
+        <StackPanel Background="White">
+            <TextBlock FontSize="30" Text="Customize Texas Tea!"/>
+
+            <StackPanel Orientation="Horizontal">
+                <Label>Sweet</Label>
+                <CheckBox IsChecked="{Binding Path=Sweet}"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal">
+                <Label>Lemon</Label>
+                <CheckBox IsChecked="{Binding Path=Lemon}"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal">
+                <Label>Small</Label>
+                <CheckBox IsChecked="{Binding Path=Small}"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal">
+                <Label>Medium</Label>
+                <CheckBox IsChecked="{Binding Path=Medium}"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal">
+                <Label>Large</Label>
+                <CheckBox IsChecked="{Binding Path=Large}"/>
+            </StackPanel>
+
+        </StackPanel>
+
     </Grid>
 </UserControl>

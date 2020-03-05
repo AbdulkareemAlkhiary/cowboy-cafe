@@ -3,14 +3,17 @@
  * Description: Handles the Angry Chicken entree */
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 
 namespace CowboyCafe.Data
 {
     /// <summary>
     /// A class representing the Angry Chicken entree
     /// </summary>
-    public class AngryChicken : Entree
+    public class AngryChicken : Entree , INotifyPropertyChanged
     {
+        
+        public event PropertyChangedEventHandler PropertyChanged;
 
 
         private bool bread = true;
@@ -24,6 +27,9 @@ namespace CowboyCafe.Data
         }
 
         private bool pickle = true;
+
+        
+
         /// <summary>
         /// If the Angry Chicken is topped with pickles
         /// </summary>

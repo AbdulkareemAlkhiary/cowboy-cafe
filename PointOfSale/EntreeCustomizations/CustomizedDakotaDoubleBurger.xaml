@@ -7,6 +7,51 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
-        <TextBlock FontSize="30" Text="Customize Dakota Double Burger!"/>
+
+        <StackPanel Background="White">
+            <TextBlock FontSize="30" Text="Customize Dakota Double Burger!"/>
+
+            <StackPanel Orientation="Horizontal">
+                <Label>Bun</Label>
+                <CheckBox IsChecked="{Binding Path=Bun}"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal">
+                <Label>Tomato</Label>
+                <CheckBox IsChecked="{Binding Path=Tomato}"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal">
+                <Label>Lettuce</Label>
+                <CheckBox IsChecked="{Binding Path=Lettuce}"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal">
+                <Label>Mayo</Label>
+                <CheckBox IsChecked="{Binding Path=Mayo}"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal">
+                <Label>Cheese</Label>
+                <CheckBox IsChecked="{Binding Path=Cheese}"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal">
+                <Label>Pickle</Label>
+                <CheckBox IsChecked="{Binding Path=Pickle}"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal">
+                <Label>Mustard</Label>
+                <CheckBox IsChecked="{Binding Path=Mustard}"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal">
+                <Label>Ketchup</Label>
+                <CheckBox IsChecked="{Binding Path=Ketchup}"/>
+            </StackPanel>
+
+        </StackPanel>
+
     </Grid>
 </UserControl>

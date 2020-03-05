@@ -16,9 +16,9 @@ namespace PointOfSale
     /// <summary>
     /// Interaction logic for CustomizedCowpokeChili.xaml
     /// </summary>
-    public partial class CustomizedChiliChesseFries : UserControl
+    public partial class CustomizedChiliCheeseFries : UserControl
     {
-        public CustomizedChiliChesseFries()
+        public CustomizedChiliCheeseFries()
         {
             InitializeComponent();
         }

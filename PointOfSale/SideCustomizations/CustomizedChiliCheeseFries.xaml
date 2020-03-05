@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="PointOfSale.CustomizedWater"
+﻿<UserControl x:Class="PointOfSale.CustomizedChiliCheeseFries"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -9,7 +9,7 @@
     <Grid>
 
         <StackPanel Background="White">
-            <TextBlock FontSize="30" Text="Customize Water!"/>
+            <TextBlock FontSize="30" Text="Customize Chili Cheese Fries!"/>
 
             <StackPanel Orientation="Horizontal">
                 <Label>Small</Label>

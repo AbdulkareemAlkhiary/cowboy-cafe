@@ -3,14 +3,17 @@
  * Description: Handles the Corn Dodgers side */
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 
 namespace CowboyCafe.Data
 {
     /// <summary>
     /// A class representing the Corn Dodgers side
     /// </summary>
-    public class CornDodgers : Side
+    public class CornDodgers : Side, INotifyPropertyChanged
     {
+
+        public event PropertyChangedEventHandler PropertyChanged;
 
         /// <summary>
         /// The price of the Corn Dodgers

@@ -3,14 +3,17 @@
  * Description: Handles the Dakota Double Burger entree */
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 
 namespace CowboyCafe.Data
 {
     /// <summary>
     /// A class representing the Dakota Double Burger entree
     /// </summary>
-    public class DakotaDoubleBurger : Entree
+    public class DakotaDoubleBurger : Entree, INotifyPropertyChanged
     {
+
+        public event PropertyChangedEventHandler PropertyChanged;
 
         private bool bun = true;
         /// <summary>

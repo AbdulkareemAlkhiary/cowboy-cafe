@@ -3,14 +3,17 @@
  * Description: Handles Texas Triple Burger entree*/
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 
 namespace CowboyCafe.Data
 {
     /// <summary>
     /// A class representing the Texas Triple Burger entree
     /// </summary>
-    public class TexasTripleBurger : Entree
+    public class TexasTripleBurger : Entree, INotifyPropertyChanged
     {
+
+        public event PropertyChangedEventHandler PropertyChanged;
 
         private bool bun = true;
         /// <summary>

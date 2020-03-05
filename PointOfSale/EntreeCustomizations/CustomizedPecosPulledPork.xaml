@@ -7,6 +7,21 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
-        <TextBlock FontSize="30" Text="Customize Pecos Pulled Pork!"/>
+
+        <StackPanel Background="White">
+            <TextBlock FontSize="30" Text="Customize Pecos Pulled Pork!"/>
+
+            <StackPanel Orientation="Horizontal">
+                <Label>Bread</Label>
+                <CheckBox IsChecked="{Binding Path=Bread}"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal">
+                <Label>Pickle</Label>
+                <CheckBox IsChecked="{Binding Path=Pickle}"/>
+            </StackPanel>
+
+        </StackPanel>
+
     </Grid>
 </UserControl>

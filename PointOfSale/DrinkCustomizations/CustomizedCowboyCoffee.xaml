@@ -7,6 +7,36 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
-        <TextBlock FontSize="30" Text="Customize Cowboy Coffee!"/>
+
+        <StackPanel Background="White">
+            <TextBlock FontSize="30" Text="Customize Cowboy Coffee!"/>
+
+            <StackPanel Orientation="Horizontal">
+                <Label>Room For Cream</Label>
+                <CheckBox IsChecked="{Binding Path=RoomForCream}"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal">
+                <Label>Decaf</Label>
+                <CheckBox IsChecked="{Binding Path=Decaf}"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal">
+                <Label>Small</Label>
+                <CheckBox IsChecked="{Binding Path=Small}"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal">
+                <Label>Medium</Label>
+                <CheckBox IsChecked="{Binding Path=Medium}"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal">
+                <Label>Large</Label>
+                <CheckBox IsChecked="{Binding Path=Large}"/>
+            </StackPanel>
+
+        </StackPanel>
+
     </Grid>
 </UserControl>

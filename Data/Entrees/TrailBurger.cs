@@ -3,14 +3,17 @@
  * Description: Handles Trail burger entree*/
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 
 namespace CowboyCafe.Data
 {
     /// <summary>
     /// A class representing the Trailburger entree
     /// </summary>
-    public class TrailBurger : Entree
+    public class TrailBurger : Entree, INotifyPropertyChanged
     {
+
+        public event PropertyChangedEventHandler PropertyChanged;
 
         private bool bun = true;
         /// <summary>

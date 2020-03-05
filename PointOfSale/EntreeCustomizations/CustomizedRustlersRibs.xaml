@@ -7,6 +7,26 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
-        <TextBlock FontSize="30" Text="Customize Rustlers Ribs!"/>
+
+        <StackPanel Background="White">
+            <TextBlock FontSize="30" Text="Customize Angry Chicken!"/>
+
+            <StackPanel Orientation="Horizontal">
+                <Label>Green Onions</Label>
+                <CheckBox IsChecked="{Binding Path=GreenOnions}"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal">
+                <Label>Sour Cream</Label>
+                <CheckBox IsChecked="{Binding Path=SourCream}"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal">
+                <Label>Cheese</Label>
+                <CheckBox IsChecked="{Binding Path=Cheese}"/>
+            </StackPanel>
+
+        </StackPanel>
+
     </Grid>
 </UserControl>

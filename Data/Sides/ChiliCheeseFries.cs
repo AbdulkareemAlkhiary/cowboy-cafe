@@ -3,14 +3,17 @@
  * Description: Handles the Chili Cheese Fries side */
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 
 namespace CowboyCafe.Data
 {
     /// <summary>
     /// A class representing the Chili Cheese Fries side
     /// </summary>
-    public class ChiliCheeseFries : Side
+    public class ChiliCheeseFries : Side, INotifyPropertyChanged
     {
+
+        public event PropertyChangedEventHandler PropertyChanged;
 
         /// <summary>
         /// The price of the Chili Cheese Fries

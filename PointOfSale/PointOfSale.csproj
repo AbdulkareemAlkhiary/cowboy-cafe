@@ -40,7 +40,7 @@
     <Compile Update="SideCustomizations\CustomizedCornDodgers.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="SideCustomizations\CustomizedChiliChesseFries.xaml.cs">
+    <Compile Update="SideCustomizations\CustomizedChiliCheeseFries.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="EntreeCustomizations\CustomizedAngryChicken.xaml.cs">
@@ -86,7 +86,7 @@
     <Page Update="SideCustomizations\CustomizedCornDodgers.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="SideCustomizations\CustomizedChiliChesseFries.xaml">
+    <Page Update="SideCustomizations\CustomizedChiliCheeseFries.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="EntreeCustomizations\CustomizedAngryChicken.xaml">

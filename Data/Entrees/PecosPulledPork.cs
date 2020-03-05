@@ -3,14 +3,17 @@
  * Description: Handles Pecos Pulled Pork entree */
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 
 namespace CowboyCafe.Data
 {
     /// <summary>
     /// A class representing the Pecos Pulled Pork entree
     /// </summary>
-    public class PecosPulledPork : Entree
+    public class PecosPulledPork : Entree, INotifyPropertyChanged
     {
+
+        public event PropertyChangedEventHandler PropertyChanged;
 
         private bool bread = true;
         /// <summary>
