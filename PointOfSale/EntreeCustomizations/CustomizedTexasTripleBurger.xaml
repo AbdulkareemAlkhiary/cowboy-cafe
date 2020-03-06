@@ -6,62 +6,98 @@
              xmlns:local="clr-namespace:PointOfSale"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Resources>
+        <Style TargetType="Button">
+            <Setter Property="Width" Value="200"/>
+            <Setter Property="Height" Value="70"/>
+            <Setter Property="FontStyle" Value="Normal"/>
+            <Setter Property="FontFamily" Value="Times New Roman"/>
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="Margin" Value="20"/>
+            <Setter Property="Background" Value="White"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Name="border"
+                   BorderThickness="4"
+                   Padding="4,2"
+                   BorderBrush="SaddleBrown"
+                   CornerRadius="5"
+                   Background="{TemplateBinding Background}">
+                            <Grid >
+                                <ContentPresenter HorizontalAlignment="Center"
+                                  VerticalAlignment="Center" >
+                                    <ContentPresenter.RenderTransform>
+                                        <TranslateTransform X="1.0" Y="1.0" />
+                                    </ContentPresenter.RenderTransform>
+                                </ContentPresenter>
+                                <ContentPresenter HorizontalAlignment="Center"
+                               VerticalAlignment="Center" Name="content"/>
+                            </Grid>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </UserControl.Resources>
+
+
+
     <Grid>
 
-        <StackPanel Background="White">
-            <TextBlock FontSize="30" Text="Customize Texas Triple Burger!"/>
+        <Grid.Background>
+            <ImageBrush ImageSource="tray.jpg"/>
+        </Grid.Background>
 
-            <StackPanel Orientation="Horizontal">
-                <Label>Bun</Label>
-                <CheckBox IsChecked="{Binding Path=Bun}"/>
-            </StackPanel>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="200"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
 
-            <StackPanel Orientation="Horizontal">
-                <Label>Tomato</Label>
-                <CheckBox IsChecked="{Binding Path=Tomato}"/>
-            </StackPanel>
 
-            <StackPanel Orientation="Horizontal">
-                <Label>Lettuce</Label>
-                <CheckBox IsChecked="{Binding Path=Lettuce}"/>
-            </StackPanel>
+        <TextBlock Text="Customize Dakota Double Burger!" FontSize="35" Grid.ColumnSpan="2" TextAlignment="Center" VerticalAlignment="Center"/>
 
-            <StackPanel Orientation="Horizontal">
-                <Label>Cheese</Label>
-                <CheckBox IsChecked="{Binding Path=Cheese}"/>
-            </StackPanel>
+        <StackPanel Orientation="Horizontal" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Center">
 
-            <StackPanel Orientation="Horizontal">
-                <Label>Pickle</Label>
-                <CheckBox IsChecked="{Binding Path=Pickle}"/>
-            </StackPanel>
+            <Label VerticalAlignment="Bottom">Bun</Label>
+            <CheckBox VerticalAlignment="Bottom" Margin="9" IsChecked="{Binding Path=Bun}"/>
 
-            <StackPanel Orientation="Horizontal">
-                <Label>Mustard</Label>
-                <CheckBox IsChecked="{Binding Path=Mustard}"/>
-            </StackPanel>
+            <Label VerticalAlignment="Bottom">Tomato</Label>
+            <CheckBox VerticalAlignment="Bottom" Margin="9" IsChecked="{Binding Path=Tomato}"/>
 
-            <StackPanel Orientation="Horizontal">
-                <Label>Ketchup</Label>
-                <CheckBox IsChecked="{Binding Path=Ketchup}"/>
-            </StackPanel>
+            <Label VerticalAlignment="Bottom">Lettuce</Label>
+            <CheckBox VerticalAlignment="Bottom" Margin="9" IsChecked="{Binding Path=Lettuce}"/>
 
-            <StackPanel Orientation="Horizontal">
-                <Label>Bacon</Label>
-                <CheckBox IsChecked="{Binding Path=Bacon}"/>
-            </StackPanel>
+            <Label VerticalAlignment="Bottom">Mayo</Label>
+            <CheckBox VerticalAlignment="Bottom" Margin="9" IsChecked="{Binding Path=Mayo}"/>
 
-            <StackPanel Orientation="Horizontal">
-                <Label>Egg</Label>
-                <CheckBox IsChecked="{Binding Path=Egg}"/>
-            </StackPanel>
+            <Label VerticalAlignment="Bottom">Cheese</Label>
+            <CheckBox VerticalAlignment="Bottom" Margin="9" IsChecked="{Binding Path=Cheese}"/>
 
-            <StackPanel Orientation="Horizontal">
-                <Label>Mayo</Label>
-                <CheckBox IsChecked="{Binding Path=Mayo}"/>
-            </StackPanel>
+            <Label VerticalAlignment="Bottom">Pickle</Label>
+            <CheckBox VerticalAlignment="Bottom" Margin="9" IsChecked="{Binding Path=Pickle}"/>
+
+            <Label VerticalAlignment="Bottom">Mustard</Label>
+            <CheckBox VerticalAlignment="Bottom" Margin="9" IsChecked="{Binding Path=Mustard}"/>
+
+            <Label VerticalAlignment="Bottom">Ketchup</Label>
+            <CheckBox VerticalAlignment="Bottom" Margin="9" IsChecked="{Binding Path=Ketchup}"/>
+
+            <Label VerticalAlignment="Bottom">Bacon</Label>
+            <CheckBox VerticalAlignment="Bottom" Margin="9" IsChecked="{Binding Path=Bacon}"/>
+
+            <Label VerticalAlignment="Bottom">Egg</Label>
+            <CheckBox VerticalAlignment="Bottom" Margin="9" IsChecked="{Binding Path=Egg}"/>
 
         </StackPanel>
+
+        <Button Name="Done" Click="DoneClick" Height=" 100" Width="300" Grid.Row="4" Grid.Column="0">Done Customizing</Button>
 
     </Grid>
 </UserControl>

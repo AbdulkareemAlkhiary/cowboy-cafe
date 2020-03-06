@@ -7,7 +7,9 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="DrinkCustomizations\tray.jpg" />
     <None Remove="images.jpg" />
+    <None Remove="SideCustomizations\tray.jpg" />
   </ItemGroup>
 
   <ItemGroup>
@@ -15,7 +17,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="DrinkCustomizations\tray.jpg" />
     <Resource Include="images.jpg" />
+    <Resource Include="EntreeCustomizations\tray.jpg" />
+    <Resource Include="SideCustomizations\tray.jpg" />
   </ItemGroup>
 
   <ItemGroup>

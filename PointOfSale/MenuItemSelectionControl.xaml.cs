@@ -45,7 +45,7 @@ namespace PointOfSale
             {
                 var entree = new CowpokeChili();
                 var screen = new CustomizedCowpokeChili();
-                screen.DataContext = screen;
+                screen.DataContext = entree;
                 order.Add(entree);
                 orderControl.SwapScreen(screen);
                 
@@ -81,7 +81,7 @@ namespace PointOfSale
             {
                 var entree = new PecosPulledPork();
                 var screen = new CustomizedPecosPulledPork();
-                screen.DataContext = screen;
+                screen.DataContext = entree;
                 order.Add(entree);
                 orderControl.SwapScreen(screen);
             }
@@ -100,7 +100,7 @@ namespace PointOfSale
             {
                 var entree = new TrailBurger();
                 var screen = new CustomizedTrailBurger();
-                screen.DataContext = screen;
+                screen.DataContext = entree;
                 order.Add(entree);
                 orderControl.SwapScreen(screen);
             }
@@ -119,7 +119,7 @@ namespace PointOfSale
             {
                 var entree = new DakotaDoubleBurger();
                 var screen = new CustomizedDakotaDoubleBurger();
-                screen.DataContext = screen;
+                screen.DataContext = entree;
                 order.Add(entree);
                 orderControl.SwapScreen(screen);
             }
@@ -157,7 +157,7 @@ namespace PointOfSale
             {
                 var entree = new AngryChicken();
                 var screen = new CustomizedAngryChicken();
-                screen.DataContext = screen;
+                screen.DataContext = entree;
                 order.Add(entree);
                 orderControl.SwapScreen(screen);
             }
@@ -174,10 +174,10 @@ namespace PointOfSale
 
             if (DataContext is Order order)
             {
-                var entree = new ChiliCheeseFries();
+                var side = new ChiliCheeseFries();
                 var screen = new CustomizedChiliCheeseFries();
-                screen.DataContext = screen;
-                order.Add(entree);
+                screen.DataContext = side;
+                order.Add(side);
                 orderControl.SwapScreen(screen);
             }
         }
@@ -193,10 +193,10 @@ namespace PointOfSale
 
             if (DataContext is Order order)
             {
-                var entree = new CornDodgers();
+                var side = new CornDodgers();
                 var screen = new CustomizedCornDodgers();
-                screen.DataContext = screen;
-                order.Add(entree);
+                screen.DataContext = side;
+                order.Add(side);
                 orderControl.SwapScreen(screen);
             }
         }
@@ -212,10 +212,10 @@ namespace PointOfSale
 
             if (DataContext is Order order)
             {
-                var entree = new PanDeCampo();
+                var side = new PanDeCampo();
                 var screen = new CustomizedPanDeCampo();
-                screen.DataContext = screen;
-                order.Add(entree);
+                screen.DataContext = side;
+                order.Add(side);
                 orderControl.SwapScreen(screen);
             }
         }
@@ -231,10 +231,10 @@ namespace PointOfSale
 
             if (DataContext is Order order)
             {
-                var entree = new BakedBeans();
+                var side = new BakedBeans();
                 var screen = new CustomizedBakedBeans();
-                screen.DataContext = screen;
-                order.Add(entree);
+                screen.DataContext = side;
+                order.Add(side);
                 orderControl.SwapScreen(screen);
             }
         }
@@ -250,10 +250,10 @@ namespace PointOfSale
 
             if (DataContext is Order order)
             {
-                var entree = new JerkedSoda();
+                var drinks = new JerkedSoda();
                 var screen = new CustomizedJerkedSoda();
-                screen.DataContext = screen;
-                order.Add(entree);
+                screen.DataContext = drinks;
+                order.Add(drinks);
                 orderControl.SwapScreen(screen);
             }
         }
@@ -269,10 +269,10 @@ namespace PointOfSale
 
             if (DataContext is Order order)
             {
-                var entree = new TexasTea();
+                var drinks = new TexasTea();
                 var screen = new CustomizedTexasTea();
-                screen.DataContext = screen;
-                order.Add(entree);
+                screen.DataContext = drinks;
+                order.Add(drinks);
                 orderControl.SwapScreen(screen);
             }
         }
@@ -288,10 +288,10 @@ namespace PointOfSale
 
             if (DataContext is Order order)
             {
-                var entree = new CowboyCoffee();
+                var drinks = new CowboyCoffee();
                 var screen = new CustomizedCowboyCoffee();
-                screen.DataContext = screen;
-                order.Add(entree);
+                screen.DataContext = drinks;
+                order.Add(drinks);
                 orderControl.SwapScreen(screen);
             }
         }
@@ -307,10 +307,10 @@ namespace PointOfSale
 
             if (DataContext is Order order)
             {
-                var entree = new Water();
+                var drinks = new Water();
                 var screen = new CustomizedWater();
-                screen.DataContext = screen;
-                order.Add(entree);
+                screen.DataContext = drinks;
+                order.Add(drinks);
                 orderControl.SwapScreen(screen);
             }
         }

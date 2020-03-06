@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CowboyCafe.Data;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
@@ -22,5 +23,15 @@ namespace PointOfSale
         {
             InitializeComponent();
         }
+
+        public void DoneClick(object sender, RoutedEventArgs args)
+        {
+            var orderControl = this.FindAncestor<OrderControl>();
+            if (DataContext is Order order)
+            {
+                orderControl.SwapScreen(new MenuItemSelectionControl()); ;
+            }
+        }
+
     }
 }
