@@ -29,7 +29,30 @@ namespace PointOfSale
         {
             InitializeComponent();
 
-            
+
+        }
+
+
+        void AddItemAndOpenCustomizationScreen(IOrderItem item, FrameworkElement screen)
+        {
+            // We need to have an Order to add this item to
+            var order = DataContext as Order;
+            if (order == null) throw new Exception("DataContext expected to be an Order instace");
+
+            // Not all OrderItems need to be customized
+            if(screen != null)
+            {
+                // We need to have an OrdeControl ancestor to load the customization
+                var orderControl = this.FindAncestor<OrderControl>();
+                if (orderControl == null) throw new Exception("An ancestor of Ordercontrol..");
+
+                // Add the item to the customization screen
+                screen.DataContext = item;
+                orderControl.SwapScreen(screen);
+            }
+
+            // Add the item to the order
+            order.Add(item);
         }
 
         /// <summary>
@@ -39,17 +62,12 @@ namespace PointOfSale
         /// <param name="e"></param>
         private void Cowpoke_Chili(object sender, RoutedEventArgs e)
         {
-            var orderControl = this.FindAncestor<OrderControl>();
 
-            if (DataContext is Order order)
-            {
                 var entree = new CowpokeChili();
                 var screen = new CustomizedCowpokeChili();
-                screen.DataContext = entree;
-                order.Add(entree);
-                orderControl.SwapScreen(screen);
+                AddItemAndOpenCustomizationScreen(entree, screen);
                 
-            }
+            
 
         }
 
@@ -75,16 +93,10 @@ namespace PointOfSale
         /// <param name="e"></param>
         private void Pecos_Pulled_Pork(object sender, RoutedEventArgs e)
         {
-            var orderControl = this.FindAncestor<OrderControl>();
-
-            if (DataContext is Order order)
-            {
                 var entree = new PecosPulledPork();
                 var screen = new CustomizedPecosPulledPork();
-                screen.DataContext = entree;
-                order.Add(entree);
-                orderControl.SwapScreen(screen);
-            }
+                AddItemAndOpenCustomizationScreen(entree, screen);
+            
         }
 
         /// <summary>
@@ -94,16 +106,10 @@ namespace PointOfSale
         /// <param name="e"></param>
         private void Trail_Burger(object sender, RoutedEventArgs e)
         {
-            var orderControl = this.FindAncestor<OrderControl>();
-
-            if (DataContext is Order order)
-            {
                 var entree = new TrailBurger();
                 var screen = new CustomizedTrailBurger();
-                screen.DataContext = entree;
-                order.Add(entree);
-                orderControl.SwapScreen(screen);
-            }
+                AddItemAndOpenCustomizationScreen(entree, screen);
+            
         }
 
         /// <summary>
@@ -113,17 +119,10 @@ namespace PointOfSale
         /// <param name="e"></param>
         private void Dakota_Double_Burger(object sender, RoutedEventArgs e)
         {
-            var orderControl = this.FindAncestor<OrderControl>();
-
-            if (DataContext is Order order)
-            {
                 var entree = new DakotaDoubleBurger();
                 var screen = new CustomizedDakotaDoubleBurger();
-                screen.DataContext = entree;
-                order.Add(entree);
-                orderControl.SwapScreen(screen);
+                AddItemAndOpenCustomizationScreen(entree, screen);
             }
-        }
 
         /// <summary>
         /// Adds Texas Triple Burger
@@ -132,17 +131,10 @@ namespace PointOfSale
         /// <param name="e"></param>
         private void Texas_Triple_Burger(object sender, RoutedEventArgs e)
         {
-            var orderControl = this.FindAncestor<OrderControl>();
-
-            if (DataContext is Order order)
-            {
                 var entree = new TexasTripleBurger();
                 var screen = new CustomizedTexasTripleBurger();
-                screen.DataContext = entree;
-                order.Add(entree);
-                orderControl.SwapScreen(screen);
+                AddItemAndOpenCustomizationScreen(entree, screen);
             }
-        }
 
         /// <summary>
         /// Adds Angry Chicken
@@ -151,17 +143,10 @@ namespace PointOfSale
         /// <param name="e"></param>
         private void Angry_Chicken(object sender, RoutedEventArgs e)
         {
-            var orderControl = this.FindAncestor<OrderControl>();
-
-            if (DataContext is Order order)
-            {
                 var entree = new AngryChicken();
                 var screen = new CustomizedAngryChicken();
-                screen.DataContext = entree;
-                order.Add(entree);
-                orderControl.SwapScreen(screen);
+                AddItemAndOpenCustomizationScreen(entree, screen);
             }
-        }
 
         /// <summary>
         /// Adds Chili Cheese Fries
@@ -170,17 +155,10 @@ namespace PointOfSale
         /// <param name="e"></param>
         private void Chili_Cheese_Fries(object sender, RoutedEventArgs e)
         {
-            var orderControl = this.FindAncestor<OrderControl>();
-
-            if (DataContext is Order order)
-            {
                 var side = new ChiliCheeseFries();
                 var screen = new CustomizedChiliCheeseFries();
-                screen.DataContext = side;
-                order.Add(side);
-                orderControl.SwapScreen(screen);
+                AddItemAndOpenCustomizationScreen(side, screen);
             }
-        }
 
         /// <summary>
         /// Adds Corn Dodgers
@@ -189,17 +167,10 @@ namespace PointOfSale
         /// <param name="e"></param>
         private void Corn_Dodgers(object sender, RoutedEventArgs e)
         {
-            var orderControl = this.FindAncestor<OrderControl>();
-
-            if (DataContext is Order order)
-            {
                 var side = new CornDodgers();
                 var screen = new CustomizedCornDodgers();
-                screen.DataContext = side;
-                order.Add(side);
-                orderControl.SwapScreen(screen);
+                AddItemAndOpenCustomizationScreen(side, screen);
             }
-        }
 
         /// <summary>
         /// Adds Pan de Campo
@@ -208,17 +179,10 @@ namespace PointOfSale
         /// <param name="e"></param>
         private void Pan_de_Campo(object sender, RoutedEventArgs e)
         {
-            var orderControl = this.FindAncestor<OrderControl>();
-
-            if (DataContext is Order order)
-            {
                 var side = new PanDeCampo();
                 var screen = new CustomizedPanDeCampo();
-                screen.DataContext = side;
-                order.Add(side);
-                orderControl.SwapScreen(screen);
+                AddItemAndOpenCustomizationScreen(side, screen);
             }
-        }
 
         /// <summary>
         /// Adds Baked Beans
@@ -227,17 +191,10 @@ namespace PointOfSale
         /// <param name="e"></param>
         private void Baked_Beans(object sender, RoutedEventArgs e)
         {
-            var orderControl = this.FindAncestor<OrderControl>();
-
-            if (DataContext is Order order)
-            {
                 var side = new BakedBeans();
                 var screen = new CustomizedBakedBeans();
-                screen.DataContext = side;
-                order.Add(side);
-                orderControl.SwapScreen(screen);
+                AddItemAndOpenCustomizationScreen(side, screen);
             }
-        }
 
         /// <summary>
         /// Add Jerked Soda
@@ -246,17 +203,10 @@ namespace PointOfSale
         /// <param name="e"></param>
         private void Jerked_Soda(object sender, RoutedEventArgs e)
         {
-            var orderControl = this.FindAncestor<OrderControl>();
-
-            if (DataContext is Order order)
-            {
                 var drinks = new JerkedSoda();
                 var screen = new CustomizedJerkedSoda();
-                screen.DataContext = drinks;
-                order.Add(drinks);
-                orderControl.SwapScreen(screen);
+                AddItemAndOpenCustomizationScreen(drinks, screen);
             }
-        }
 
         /// <summary>
         /// Add Texas Tea
@@ -265,17 +215,10 @@ namespace PointOfSale
         /// <param name="e"></param>
         private void Texas_Tea(object sender, RoutedEventArgs e)
         {
-            var orderControl = this.FindAncestor<OrderControl>();
-
-            if (DataContext is Order order)
-            {
                 var drinks = new TexasTea();
                 var screen = new CustomizedTexasTea();
-                screen.DataContext = drinks;
-                order.Add(drinks);
-                orderControl.SwapScreen(screen);
+                AddItemAndOpenCustomizationScreen(drinks, screen);
             }
-        }
 
         /// <summary>
         /// Adds Cowboy Coffee
@@ -284,17 +227,10 @@ namespace PointOfSale
         /// <param name="e"></param>
         private void Cowboy_Coffee(object sender, RoutedEventArgs e)
         {
-            var orderControl = this.FindAncestor<OrderControl>();
-
-            if (DataContext is Order order)
-            {
                 var drinks = new CowboyCoffee();
                 var screen = new CustomizedCowboyCoffee();
-                screen.DataContext = drinks;
-                order.Add(drinks);
-                orderControl.SwapScreen(screen);
+                AddItemAndOpenCustomizationScreen(drinks, screen);
             }
-        }
 
         /// <summary>
         /// Adds Water
@@ -303,16 +239,9 @@ namespace PointOfSale
         /// <param name="e"></param>
         private void Water(object sender, RoutedEventArgs e)
         {
-            var orderControl = this.FindAncestor<OrderControl>();
-
-            if (DataContext is Order order)
-            {
                 var drinks = new Water();
                 var screen = new CustomizedWater();
-                screen.DataContext = drinks;
-                order.Add(drinks);
-                orderControl.SwapScreen(screen);
+                AddItemAndOpenCustomizationScreen(drinks, screen);
             }
-        }
     }
 }

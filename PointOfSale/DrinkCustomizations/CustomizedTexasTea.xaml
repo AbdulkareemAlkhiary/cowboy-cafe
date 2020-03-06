@@ -81,11 +81,11 @@
 
             <TextBlock VerticalAlignment="Center" FontSize="25" Padding="20">Size:</TextBlock>
 
-            <RadioButton IsChecked="{Binding Path = Size}" VerticalContentAlignment="Center" VerticalAlignment="Center" Margin="10" Content="Large" FontSize="25"></RadioButton>
+            <RadioButton IsChecked="{Binding Path = Size}" VerticalContentAlignment="Center" VerticalAlignment="Center" Margin="10" Content="Small" FontSize="25"></RadioButton>
 
             <RadioButton IsChecked="{Binding Path = Size}" VerticalContentAlignment="Center" VerticalAlignment="Center" Margin="10" Content="Medium" FontSize="25"></RadioButton>
 
-            <RadioButton IsChecked="{Binding Path = Size}" VerticalContentAlignment="Center" VerticalAlignment="Center" Margin="10" Content="Small" FontSize="25"></RadioButton>
+            <RadioButton IsChecked="{Binding Path = Size}" VerticalContentAlignment="Center" VerticalAlignment="Center" Margin="10" Content="Large" FontSize="25"></RadioButton>
         </StackPanel>
 
         <Button Name="Done" Click="DoneClick" Height=" 100" Width="300" Grid.Row="4" Grid.Column="0">Done Customizing</Button>

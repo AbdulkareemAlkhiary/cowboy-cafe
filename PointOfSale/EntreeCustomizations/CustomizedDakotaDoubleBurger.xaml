@@ -47,7 +47,7 @@
         <Grid>
 
             <Grid.Background>
-                <ImageBrush ImageSource="tray.jpg"/>
+                <ImageBrush Stretch="UniformToFill" ImageSource="dakotaburger.jpg"/>
             </Grid.Background>
 
             <Grid.RowDefinitions>
@@ -66,28 +66,31 @@
 
             <StackPanel Orientation="Horizontal" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Center">
 
-                <Label VerticalAlignment="Bottom">Bun</Label>
+            <Label VerticalAlignment="Bottom" FontSize="20">Bun</Label>
                 <CheckBox VerticalAlignment="Bottom" Margin="9" IsChecked="{Binding Path=Bun}"/>
 
-                <Label VerticalAlignment="Bottom">Tomato</Label>
+            <Label VerticalAlignment="Bottom" FontSize="20">Tomato</Label>
                 <CheckBox VerticalAlignment="Bottom" Margin="9" IsChecked="{Binding Path=Tomato}"/>
 
-                <Label VerticalAlignment="Bottom">Lettuce</Label>
+            <Label VerticalAlignment="Bottom" FontSize="20">Lettuce</Label>
                 <CheckBox VerticalAlignment="Bottom" Margin="9" IsChecked="{Binding Path=Lettuce}"/>
 
-                <Label VerticalAlignment="Bottom">Mayo</Label>
-                <CheckBox VerticalAlignment="Bottom" Margin="9" IsChecked="{Binding Path=Mayo}"/>
+            <Label VerticalAlignment="Bottom" FontSize="20">Mayo</Label>
+            <CheckBox VerticalAlignment="Bottom" Margin="9" IsChecked="{Binding Path=Mayo}"/>
 
-                <Label VerticalAlignment="Bottom">Cheese</Label>
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal" Grid.Row="2" Grid.Column="0" HorizontalAlignment="Center">
+            <Label VerticalAlignment="Bottom" FontSize="20">Cheese</Label>
                 <CheckBox VerticalAlignment="Bottom" Margin="9" IsChecked="{Binding Path=Cheese}"/>
 
-                <Label VerticalAlignment="Bottom">Pickle</Label>
+            <Label VerticalAlignment="Bottom" FontSize="20">Pickle</Label>
                 <CheckBox VerticalAlignment="Bottom" Margin="9" IsChecked="{Binding Path=Pickle}"/>
 
-                <Label VerticalAlignment="Bottom">Mustard</Label>
+            <Label VerticalAlignment="Bottom" FontSize="20">Mustard</Label>
                 <CheckBox VerticalAlignment="Bottom" Margin="9" IsChecked="{Binding Path=Mustard}"/>
 
-                <Label VerticalAlignment="Bottom">Ketchup</Label>
+            <Label VerticalAlignment="Bottom" FontSize="20">Ketchup</Label>
                 <CheckBox VerticalAlignment="Bottom" Margin="9" IsChecked="{Binding Path=Ketchup}"/>
 
             </StackPanel>

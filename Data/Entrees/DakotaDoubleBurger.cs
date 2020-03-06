@@ -10,10 +10,8 @@ namespace CowboyCafe.Data
     /// <summary>
     /// A class representing the Dakota Double Burger entree
     /// </summary>
-    public class DakotaDoubleBurger : Entree, INotifyPropertyChanged
+    public class DakotaDoubleBurger : Entree
     {
-
-        public event PropertyChangedEventHandler PropertyChanged;
 
         private bool bun = true;
         /// <summary>
@@ -25,8 +23,7 @@ namespace CowboyCafe.Data
             set
             {
                 bun = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Bun"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+                NotifyOfPropertyChange("Bun");
             }
         }
 
@@ -40,8 +37,7 @@ namespace CowboyCafe.Data
             set
             {
                 tomato = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Tomato"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+                NotifyOfPropertyChange("Tomato");
             }
         }
 
@@ -55,8 +51,7 @@ namespace CowboyCafe.Data
             set
             {
                 lettuce = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Lettuce"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+                NotifyOfPropertyChange("Lettuce");
             }
         }
 
@@ -70,8 +65,7 @@ namespace CowboyCafe.Data
             set
             {
                 mayo = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Mayo"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+                NotifyOfPropertyChange("Mayo");
             }
         }
 
@@ -85,8 +79,7 @@ namespace CowboyCafe.Data
             set
             {
                 cheese = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Cheese"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+                NotifyOfPropertyChange("Cheese");
             }
         }
 
@@ -100,8 +93,7 @@ namespace CowboyCafe.Data
             set
             {
                 pickle = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Pickle"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+                NotifyOfPropertyChange("Pickle");
             }
         }
 
@@ -115,8 +107,7 @@ namespace CowboyCafe.Data
             set
             {
                 mustard = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Mustard"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+                NotifyOfPropertyChange("Mustard");
             }
         }
 
@@ -130,8 +121,7 @@ namespace CowboyCafe.Data
             set
             {
                 ketchup = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Ketchup"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+                NotifyOfPropertyChange("Ketchup");
             }
         }
 

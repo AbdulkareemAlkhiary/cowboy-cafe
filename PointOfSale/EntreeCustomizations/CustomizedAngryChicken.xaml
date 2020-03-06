@@ -47,7 +47,7 @@
     <Grid>
 
         <Grid.Background>
-            <ImageBrush ImageSource="tray.jpg"/>
+            <ImageBrush Stretch="UniformToFill" ImageSource="angrybird.jpg"/>
         </Grid.Background>
 
         <Grid.RowDefinitions>
@@ -66,10 +66,10 @@
 
         <StackPanel Orientation="Horizontal" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Center">
 
-            <Label VerticalAlignment="Bottom">Pickle</Label>
+            <Label VerticalAlignment="Bottom" FontSize="20">Pickle</Label>
             <CheckBox VerticalAlignment="Bottom" Margin="9" IsChecked="{Binding Path=Pickle}"/>
 
-            <Label VerticalAlignment="Bottom">Bread</Label>
+            <Label VerticalAlignment="Bottom" FontSize="20">Bread</Label>
             <CheckBox VerticalAlignment="Bottom" Margin="9" IsChecked="{Binding Path=Bread}"/>
 
 

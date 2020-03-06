@@ -10,15 +10,22 @@ namespace CowboyCafe.Data
     /// <summary>
     /// A class representing the Jerked Soda
     /// </summary>
-    public class JerkedSoda : Drink, INotifyPropertyChanged
+    public class JerkedSoda : Drink
     {
 
-        public event PropertyChangedEventHandler PropertyChanged;
-
+        private SodaFlavor flavor;
         /// <summary>
         /// Gets/Sets soda flavor
         /// </summary>
-        public SodaFlavor Flavor { get; set; }
+        public SodaFlavor Flavor {
+            get { return flavor; }
+            set
+            {
+                flavor = value;
+                NotifyOfPropertyChange("Flavor");
+                NotifyOfPropertyChange("SpecialInstructions");
+            }
+        }
 
 
         /// <summary>
@@ -66,12 +73,17 @@ namespace CowboyCafe.Data
 
         private bool ice = true;
         /// <summary>
-        /// If the Jerked Soda is served with ice
+        /// If the Water is served with ice
         /// </summary>
         public bool Ice
         {
             get { return ice; }
-            set { ice = value; }
+            set
+            {
+                ice = value;
+                NotifyOfPropertyChange("Ice");
+                NotifyOfPropertyChange("SpecialInstructions");
+            }
         }
 
 

@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:PointOfSale"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignHeight="250" d:DesignWidth="800">
 
     <UserControl.Resources>
         <Style TargetType="Button">
@@ -47,13 +47,11 @@
     <Grid>
 
         <Grid.Background>
-            <ImageBrush ImageSource="tray.jpg"/>
+            <ImageBrush Stretch="UniformToFill" ImageSource="cowpokechili.jpg"/>
         </Grid.Background>
 
         <Grid.RowDefinitions>
             <RowDefinition Height="40"/>
-            <RowDefinition Height="50"/>
-            <RowDefinition Height="50"/>
             <RowDefinition Height="50"/>
             <RowDefinition Height="200"/>
         </Grid.RowDefinitions>
@@ -66,14 +64,17 @@
 
         <StackPanel Orientation="Horizontal" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Center">
 
-            <Label VerticalAlignment="Bottom">Sour Cream</Label>
+            <Label VerticalAlignment="Bottom" FontSize="20">Sour Cream</Label>
             <CheckBox VerticalAlignment="Bottom" Margin="9" IsChecked="{Binding Path=SourCream}"/>
 
-            <Label VerticalAlignment="Bottom">Cheese</Label>
+            <Label VerticalAlignment="Bottom" FontSize="20">Cheese</Label>
             <CheckBox VerticalAlignment="Bottom" Margin="9" IsChecked="{Binding Path=Cheese}"/>
 
-            <Label VerticalAlignment="Bottom">Green Onions</Label>
+            <Label VerticalAlignment="Bottom" FontSize="20">Green Onions</Label>
             <CheckBox VerticalAlignment="Bottom" Margin="9" IsChecked="{Binding Path=GreenOnions}"/>
+
+            <Label VerticalAlignment="Bottom" FontSize="20">Tortilla Strips</Label>
+            <CheckBox VerticalAlignment="Bottom" Margin="9" IsChecked="{Binding Path=TortillaStrips}"/>
 
 
         </StackPanel>

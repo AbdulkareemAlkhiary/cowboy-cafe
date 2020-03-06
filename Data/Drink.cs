@@ -4,18 +4,32 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.ComponentModel;
 
 namespace CowboyCafe.Data
 {
     /// <summary>
     /// A base class representing a drink
     /// </summary>
-    public abstract class Drink : IOrderItem
+    public abstract class Drink : IOrderItem, INotifyPropertyChanged
     {
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        private Size size;
         /// <summary>
-        /// Gets the size of the drink
+        /// Gets the size of the side
         /// </summary>
-        public virtual Size Size { get; set; }
+        public virtual Size Size
+        {
+            get { return size; }
+            set
+            {
+                size = value;
+                NotifyOfPropertyChange("Size");
+                NotifyOfPropertyChange("Price");
+                NotifyOfPropertyChange("Calories");
+            }
+        }
 
         /// <summary>
         /// Gets the price of the drink
@@ -27,10 +41,23 @@ namespace CowboyCafe.Data
         /// </summary>
         public abstract uint Calories { get; }
 
+        private bool ice = true;
+
+
+
         /// <summary>
-        /// Sets true if the drink contains ice
+        /// If the Water is served with ice
         /// </summary>
-        public bool Ice { get; set; } = true;
+        public bool Ice
+        {
+            get { return ice; }
+            set
+            {
+                ice = value;
+                NotifyOfPropertyChange("Ice");
+                NotifyOfPropertyChange("SpecialInstructions");
+            }
+        }
 
         /// <summary>
         /// Special instructions for the preparation of the Sodas
@@ -41,5 +68,10 @@ namespace CowboyCafe.Data
         /// Ingredients of the drink
         /// </summary>
         public abstract List<string> Ingredients { get; set; }
+
+        protected void NotifyOfPropertyChange(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
     }
 }

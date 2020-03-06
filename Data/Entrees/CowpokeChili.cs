@@ -10,10 +10,8 @@ namespace CowboyCafe.Data
     /// <summary>
     /// A class representing the Cowpoke Chili entree
     /// </summary>
-    public class CowpokeChili : Entree , INotifyPropertyChanged
+    public class CowpokeChili : Entree
     {
-        
-        public event PropertyChangedEventHandler PropertyChanged;
 
         private bool cheese = true;
         /// <summary>
@@ -25,8 +23,7 @@ namespace CowboyCafe.Data
             set
             {
                 cheese = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Cheese"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+                NotifyOfPropertyChange("Cheese");
             }
         }
 
@@ -40,8 +37,7 @@ namespace CowboyCafe.Data
             set
             {
                 sourCream = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SourCream"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+                NotifyOfPropertyChange("SourCream");
             }
         }
 
@@ -55,8 +51,7 @@ namespace CowboyCafe.Data
             set
             {
                 greenOnions = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("GreenOnions"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+                NotifyOfPropertyChange("GreenOnions");
             }
         }
 
@@ -71,8 +66,7 @@ namespace CowboyCafe.Data
             set
             {
                 tortillaStrips = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("TortillaStrips"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+                NotifyOfPropertyChange("TortillaStrips");
             }
         }
 
@@ -125,6 +119,7 @@ namespace CowboyCafe.Data
                 return "Cowpoke Chili";
             
         }
+
     }
 }
 

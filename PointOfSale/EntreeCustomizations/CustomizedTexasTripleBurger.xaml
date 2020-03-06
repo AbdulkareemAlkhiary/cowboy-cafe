@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:PointOfSale"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignHeight="350" d:DesignWidth="800">
     <UserControl.Resources>
         <Style TargetType="Button">
             <Setter Property="Width" Value="200"/>
@@ -46,12 +46,11 @@
     <Grid>
 
         <Grid.Background>
-            <ImageBrush ImageSource="tray.jpg"/>
+            <ImageBrush Stretch="UniformToFill" ImageSource="tray.jpg"/>
         </Grid.Background>
 
         <Grid.RowDefinitions>
             <RowDefinition Height="40"/>
-            <RowDefinition Height="50"/>
             <RowDefinition Height="50"/>
             <RowDefinition Height="50"/>
             <RowDefinition Height="200"/>
@@ -65,34 +64,36 @@
 
         <StackPanel Orientation="Horizontal" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Center">
 
-            <Label VerticalAlignment="Bottom">Bun</Label>
+            <Label VerticalAlignment="Bottom" FontSize="20">Bun</Label>
             <CheckBox VerticalAlignment="Bottom" Margin="9" IsChecked="{Binding Path=Bun}"/>
 
-            <Label VerticalAlignment="Bottom">Tomato</Label>
+            <Label VerticalAlignment="Bottom" FontSize="20">Tomato</Label>
             <CheckBox VerticalAlignment="Bottom" Margin="9" IsChecked="{Binding Path=Tomato}"/>
 
-            <Label VerticalAlignment="Bottom">Lettuce</Label>
+            <Label VerticalAlignment="Bottom" FontSize="20">Lettuce</Label>
             <CheckBox VerticalAlignment="Bottom" Margin="9" IsChecked="{Binding Path=Lettuce}"/>
 
-            <Label VerticalAlignment="Bottom">Mayo</Label>
+            <Label VerticalAlignment="Bottom" FontSize="20">Mayo</Label>
             <CheckBox VerticalAlignment="Bottom" Margin="9" IsChecked="{Binding Path=Mayo}"/>
 
-            <Label VerticalAlignment="Bottom">Cheese</Label>
+            <Label VerticalAlignment="Bottom" FontSize="20">Cheese</Label>
             <CheckBox VerticalAlignment="Bottom" Margin="9" IsChecked="{Binding Path=Cheese}"/>
-
-            <Label VerticalAlignment="Bottom">Pickle</Label>
+        </StackPanel>
+        
+        <StackPanel Orientation="Horizontal" Grid.Row="2" Grid.Column="0" HorizontalAlignment="Center">
+            <Label VerticalAlignment="Bottom" FontSize="20">Pickle</Label>
             <CheckBox VerticalAlignment="Bottom" Margin="9" IsChecked="{Binding Path=Pickle}"/>
 
-            <Label VerticalAlignment="Bottom">Mustard</Label>
+            <Label VerticalAlignment="Bottom" FontSize="20">Mustard</Label>
             <CheckBox VerticalAlignment="Bottom" Margin="9" IsChecked="{Binding Path=Mustard}"/>
 
-            <Label VerticalAlignment="Bottom">Ketchup</Label>
+            <Label VerticalAlignment="Bottom" FontSize="20">Ketchup</Label>
             <CheckBox VerticalAlignment="Bottom" Margin="9" IsChecked="{Binding Path=Ketchup}"/>
 
-            <Label VerticalAlignment="Bottom">Bacon</Label>
+            <Label VerticalAlignment="Bottom" FontSize="20">Bacon</Label>
             <CheckBox VerticalAlignment="Bottom" Margin="9" IsChecked="{Binding Path=Bacon}"/>
 
-            <Label VerticalAlignment="Bottom">Egg</Label>
+            <Label VerticalAlignment="Bottom" FontSize="20">Egg</Label>
             <CheckBox VerticalAlignment="Bottom" Margin="9" IsChecked="{Binding Path=Egg}"/>
 
         </StackPanel>

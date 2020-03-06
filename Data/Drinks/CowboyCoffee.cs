@@ -10,20 +10,36 @@ namespace CowboyCafe.Data
     /// <summary>
     /// A class representing the Cowboy Coffee
     /// </summary>
-    public class CowboyCoffee : Drink, INotifyPropertyChanged
+    public class CowboyCoffee : Drink
     {
 
-        public event PropertyChangedEventHandler PropertyChanged;
-
+        private bool roomForCream = false;
         /// <summary>
         /// Sets true if the drink needs room for cream
         /// </summary>
-        public bool RoomForCream { get; set; } = false;
+        public bool RoomForCream {
+            get { return roomForCream; }
+            set
+            {
+                roomForCream = value;
+                NotifyOfPropertyChange("RoomForCream");
+                NotifyOfPropertyChange("SpecialInstructions");
+            }
+        }
 
+        private bool decaf = false;
         /// <summary>
         /// Sets true if the coffee is decaf
         /// </summary>
-        public bool Decaf { get; set; } = false;
+        public bool Decaf {
+            get { return decaf; }
+            set
+            {
+                decaf = value;
+                NotifyOfPropertyChange("Decaf");
+                NotifyOfPropertyChange("SpecialInstructions");
+            }
+        }
 
         /// <summary>
         /// The price of the Cowboy Coffee
@@ -68,14 +84,19 @@ namespace CowboyCafe.Data
             }
         }
 
-        private bool ice = false;
+        private bool ice = true;
         /// <summary>
-        /// If the Cowboy Coffee is served with ice
+        /// If the Water is served with ice
         /// </summary>
         public bool Ice
         {
             get { return ice; }
-            set { ice = value; }
+            set
+            {
+                ice = value;
+                NotifyOfPropertyChange("Ice");
+                NotifyOfPropertyChange("SpecialInstructions");
+            }
         }
 
         /// <summary>

@@ -10,20 +10,37 @@ namespace CowboyCafe.Data
     /// <summary>
     /// A class representing the Texas Tea
     /// </summary>
-    public class TexasTea : Drink, INotifyPropertyChanged
+    public class TexasTea : Drink
     {
 
-        public event PropertyChangedEventHandler PropertyChanged;
-
+        private bool sweet = true;
         /// <summary>
         /// Sets true if the drink needs to be sweet
         /// </summary>
-        public bool Sweet { get; set; } = true;
+        public bool Sweet {
+            get { return sweet; }
+            set
+            {
+                sweet = value;
+                NotifyOfPropertyChange("Sweet");
+                NotifyOfPropertyChange("SpecialInstructions");
+            }
+        }
 
+        private bool lemon = false;
         /// <summary>
         /// Sets true if the drink needs lemons
         /// </summary>
-        public bool Lemon { get; set; } = false;
+        public bool Lemon
+        {
+            get { return lemon; }
+            set
+            {
+                lemon = value;
+                NotifyOfPropertyChange("Lemon");
+                NotifyOfPropertyChange("SpecialInstructions");
+            }
+        }
 
         /// <summary>
         /// The price of the Texas Tea
@@ -74,12 +91,17 @@ namespace CowboyCafe.Data
 
         private bool ice = true;
         /// <summary>
-        /// If the Texas Teaa is served with ice
+        /// If the Water is served with ice
         /// </summary>
         public bool Ice
         {
             get { return ice; }
-            set { ice = value; }
+            set
+            {
+                ice = value;
+                NotifyOfPropertyChange("Ice");
+                NotifyOfPropertyChange("SpecialInstructions");
+            }
         }
 
         /// <summary>

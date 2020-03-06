@@ -10,10 +10,8 @@ namespace CowboyCafe.Data
     /// <summary>
     /// A class representing the Angry Chicken entree
     /// </summary>
-    public class AngryChicken : Entree , INotifyPropertyChanged
+    public class AngryChicken : Entree
     {
-        
-        public event PropertyChangedEventHandler PropertyChanged;
 
 
         private bool bread = true;
@@ -26,8 +24,7 @@ namespace CowboyCafe.Data
             set
             {
                 bread = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Bread"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+                NotifyOfPropertyChange("Bread");
             }
         }
 
@@ -44,8 +41,7 @@ namespace CowboyCafe.Data
             set
             {
                 pickle = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Pickle"));
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+                NotifyOfPropertyChange("Pickle");
             }
         }
 
@@ -94,6 +90,7 @@ namespace CowboyCafe.Data
         {
             return "Angry Chicken";
         }
+
     }
 }
 

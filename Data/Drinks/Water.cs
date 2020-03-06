@@ -10,15 +10,17 @@ namespace CowboyCafe.Data
     /// <summary>
     /// A class representing the Water
     /// </summary>
-    public class Water : Drink, INotifyPropertyChanged
+    public class Water : Drink
     {
 
-        public event PropertyChangedEventHandler PropertyChanged;
-
+        private bool lemon = false;
         /// <summary>
         /// Sets true if the drink needs lemons
         /// </summary>
-        public bool Lemon { get; set; } = false;
+        public bool Lemon { get { return lemon; } set { lemon = value;
+                NotifyOfPropertyChange("Lemon");
+                NotifyOfPropertyChange("SpecialInstructions");
+            } }
 
         /// <summary>
         /// The price of the Water
@@ -70,7 +72,10 @@ namespace CowboyCafe.Data
         public bool Ice
         {
             get { return ice; }
-            set { ice = value; }
+            set { ice = value;
+                NotifyOfPropertyChange("Ice");
+                NotifyOfPropertyChange("SpecialInstructions");
+            }
         }
 
         /// <summary>

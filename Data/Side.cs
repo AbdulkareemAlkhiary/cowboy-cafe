@@ -4,18 +4,27 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.ComponentModel;
 
 namespace CowboyCafe.Data
 {
     /// <summary>
     /// A base class representing a side
     /// </summary>
-    public abstract class Side : IOrderItem
+    public abstract class Side : IOrderItem, INotifyPropertyChanged
     {
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        private Size size;
         /// <summary>
         /// Gets the size of the side
         /// </summary>
-        public virtual Size Size { get; set; }
+        public virtual Size Size { get { return size; } set {
+                size = value;
+                NotifyOfPropertyChange("Size");
+                NotifyOfPropertyChange("Price");
+                NotifyOfPropertyChange("Calories");
+            } }
 
         /// <summary>
         /// Gets the price of the side
@@ -31,5 +40,12 @@ namespace CowboyCafe.Data
         /// empty special instructions
         /// </summary>
         public abstract List<string> SpecialInstructions { get; }
+
+        protected void NotifyOfPropertyChange(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+
+
     }
 }

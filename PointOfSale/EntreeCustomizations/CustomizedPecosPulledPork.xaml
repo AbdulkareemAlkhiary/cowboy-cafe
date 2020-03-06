@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:PointOfSale"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignHeight="250" d:DesignWidth="800">
     <UserControl.Resources>
         <Style TargetType="Button">
             <Setter Property="Width" Value="200"/>
@@ -46,13 +46,11 @@
     <Grid>
 
         <Grid.Background>
-            <ImageBrush ImageSource="tray.jpg"/>
+            <ImageBrush Stretch="UniformToFill" ImageSource="tray.jpg"/>
         </Grid.Background>
 
         <Grid.RowDefinitions>
             <RowDefinition Height="40"/>
-            <RowDefinition Height="50"/>
-            <RowDefinition Height="50"/>
             <RowDefinition Height="50"/>
             <RowDefinition Height="200"/>
         </Grid.RowDefinitions>
@@ -65,10 +63,10 @@
 
         <StackPanel Orientation="Horizontal" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Center">
 
-            <Label VerticalAlignment="Bottom">Bread</Label>
+            <Label VerticalAlignment="Bottom" FontSize="20">Bread</Label>
             <CheckBox VerticalAlignment="Bottom" Margin="9" IsChecked="{Binding Path=Bread}"/>
 
-            <Label VerticalAlignment="Bottom">Pickle</Label>
+            <Label VerticalAlignment="Bottom" FontSize="20">Pickle</Label>
             <CheckBox VerticalAlignment="Bottom" Margin="9" IsChecked="{Binding Path=Pickle}"/>
 
         </StackPanel>
