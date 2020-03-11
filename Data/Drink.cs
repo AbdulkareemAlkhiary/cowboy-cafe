@@ -56,6 +56,10 @@ namespace CowboyCafe.Data
         /// </summary>
         public abstract List<string> Ingredients { get; set; }
 
+        /// <summary>
+        /// Invokes changes to properties
+        /// </summary>
+        /// <param name="propertyName"></param>
         protected void NotifyOfPropertyChange(string propertyName)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));

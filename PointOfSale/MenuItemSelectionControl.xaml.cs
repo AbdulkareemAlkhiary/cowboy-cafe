@@ -33,7 +33,11 @@ namespace PointOfSale
             InitializeComponent();
         }
 
-
+        /// <summary>
+        /// Method that errors checks and adds item
+        /// </summary>
+        /// <param name="item"></param>
+        /// <param name="screen"></param>
         private void AddItemAndOpenCustomizationScreen(IOrderItem item, FrameworkElement screen)
         {
             // We need to have an Order to add this item to

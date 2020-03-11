@@ -1,4 +1,7 @@
-﻿using System;
+﻿/* Author: Abdulkareem Alkhiary
+ * Class: ExtensionMethods.cs 
+ * Description: Handles I/O interface */
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;

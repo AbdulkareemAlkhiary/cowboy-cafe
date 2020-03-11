@@ -41,6 +41,10 @@ namespace CowboyCafe.Data
         /// </summary>
         public abstract List<string> SpecialInstructions { get; }
 
+        /// <summary>
+        /// Automatically invokes changes the values of items
+        /// </summary>
+        /// <param name="propertyName"></param>
         private protected void NotifyOfPropertyChange(string propertyName)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));

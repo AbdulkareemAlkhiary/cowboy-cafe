@@ -81,6 +81,11 @@ namespace CowboyCafe.Data
             }
         }
 
+        /// <summary>
+        /// Invokes items and subtotal
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void OnItemPropertyChanged(object sender, PropertyChangedEventArgs e)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Items"));

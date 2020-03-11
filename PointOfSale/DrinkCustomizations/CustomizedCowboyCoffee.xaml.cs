@@ -4,6 +4,9 @@ using System.Collections.Generic;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
+/* Author: Abdulkareem Alkhiary
+ * Class: CustomizedCowboyCoffee.xaml.cs 
+ * Description: The window for customizations of this item */
 using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;

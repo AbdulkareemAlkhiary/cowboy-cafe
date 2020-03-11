@@ -1,4 +1,7 @@
-﻿using CowboyCafe.Data;
+﻿/* Author: Abdulkareem Alkhiary
+ * Class: CustomizedCowpokeChili.xaml.cs 
+ * Description: The window for customizations of this item */
+using CowboyCafe.Data;
 using System;
 using System.Collections.Generic;
 using System.Text;

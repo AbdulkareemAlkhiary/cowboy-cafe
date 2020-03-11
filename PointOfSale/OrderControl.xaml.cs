@@ -40,7 +40,10 @@ namespace PointOfSale
         }
 
         
-
+        /// <summary>
+        /// Changes from main screen to options
+        /// </summary>
+        /// <param name="element"></param>
         public void SwapScreen(FrameworkElement element) 
         {
             if (element != null)
@@ -49,14 +52,31 @@ namespace PointOfSale
             }
         }
 
+        /// <summary>
+        /// Go back to main window
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         public void ItemSelectButtonClicked(object sender, RoutedEventArgs e)
         {
             Container.Child = new MenuItemSelectionControl();
         }
+
+        /// <summary>
+        /// Goes to new order
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         public void CompleteOrderButtonClicked(object sender, RoutedEventArgs e)
         {
             this.DataContext = new Order();
         }
+
+        /// <summary>
+        /// Goes to new order
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         public void CancelOrderButtonClicked(object sender, RoutedEventArgs e)
         {
             this.DataContext = new Order();

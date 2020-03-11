@@ -1,4 +1,7 @@
-﻿using System;
+﻿/* Author: Abdulkareem Alkhiary
+ * Class: CustomizedTexasTea.xaml.cs 
+ * Description: The window for customizations of this item */
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
