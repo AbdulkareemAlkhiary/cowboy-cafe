@@ -17,10 +17,13 @@ namespace CowboyCafe.Data
         /// <summary>
         /// Sets true if the drink needs lemons
         /// </summary>
-        public bool Lemon { get { return lemon; } set { lemon = value;
+        public bool Lemon
+        { 
+            get { return lemon; } 
+            set { lemon = value;
                 NotifyOfPropertyChange("Lemon");
-                NotifyOfPropertyChange("SpecialInstructions");
-            } }
+            } 
+        }
 
         /// <summary>
         /// The price of the Water
@@ -69,12 +72,11 @@ namespace CowboyCafe.Data
         /// <summary>
         /// If the Water is served with ice
         /// </summary>
-        public bool Ice
+        public override bool Ice
         {
             get { return ice; }
             set { ice = value;
                 NotifyOfPropertyChange("Ice");
-                NotifyOfPropertyChange("SpecialInstructions");
             }
         }
 

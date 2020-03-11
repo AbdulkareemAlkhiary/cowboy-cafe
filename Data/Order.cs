@@ -57,11 +57,13 @@ namespace CowboyCafe.Data
         /// <param name="item">item added</param>
         public void Add(IOrderItem item)
         {
+            items.Add(item);
+            OnItemPropertyChanged(this, new PropertyChangedEventArgs("Price"));
+
             if (item is INotifyPropertyChanged notifier) 
             {
                 notifier.PropertyChanged += OnItemPropertyChanged;
             }
-            items.Add(item);
         }
 
         /// <summary>
@@ -70,11 +72,13 @@ namespace CowboyCafe.Data
         /// <param name="item">item removed</param>
         public void Remove(IOrderItem item)
         {
+            items.Remove(item);
+            OnItemPropertyChanged(this, new PropertyChangedEventArgs("Price"));
+
             if (item is INotifyPropertyChanged notifier)
             {
                 notifier.PropertyChanged -= OnItemPropertyChanged;
             }
-            items.Remove(item);
         }
 
         private void OnItemPropertyChanged(object sender, PropertyChangedEventArgs e)

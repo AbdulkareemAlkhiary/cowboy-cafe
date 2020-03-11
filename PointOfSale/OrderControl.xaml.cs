@@ -17,14 +17,16 @@ using CowboyCafe.Data;
 using System.Drawing;
 using System.IO;
 using System.Resources;
+using System.ComponentModel;
 
 namespace PointOfSale
 {
     /// <summary>
     /// Interaction logic for OrderControl.xaml
     /// </summary>
-    public partial class OrderControl : UserControl
+    public partial class OrderControl : UserControl, INotifyPropertyChanged
     {
+        public event PropertyChangedEventHandler PropertyChanged;
 
         public OrderControl()
         {
@@ -35,17 +37,21 @@ namespace PointOfSale
             CompleteOrderButton.Click += CompleteOrderButtonClicked;
             CancelOrderButton.Click += CancelOrderButtonClicked;
 
-            DataContext = new Order();
         }
 
-        public void SwapScreen(UIElement element) 
+        
+
+        public void SwapScreen(FrameworkElement element) 
         {
-            Container.Child = element;
+            if (element != null)
+            {
+                Container.Child = element;
+            }
         }
 
         public void ItemSelectButtonClicked(object sender, RoutedEventArgs e)
         {
-            throw new NotImplementedException("To be implemented");
+            Container.Child = new MenuItemSelectionControl();
         }
         public void CompleteOrderButtonClicked(object sender, RoutedEventArgs e)
         {

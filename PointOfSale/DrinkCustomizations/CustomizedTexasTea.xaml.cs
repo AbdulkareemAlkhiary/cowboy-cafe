@@ -1,5 +1,4 @@
-﻿using CowboyCafe.Data;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
@@ -11,8 +10,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using CowboyCafe.Data;
 
-namespace PointOfSale
+namespace PointOfSale.DrinkCustomizations
 {
     /// <summary>
     /// Interaction logic for CustomizedTexasTea.xaml
@@ -22,14 +22,6 @@ namespace PointOfSale
         public CustomizedTexasTea()
         {
             InitializeComponent();
-        }
-        public void DoneClick(object sender, RoutedEventArgs args)
-        {
-            var orderControl = this.FindAncestor<OrderControl>();
-            if (DataContext is Order order)
-            {
-                orderControl.SwapScreen(new MenuItemSelectionControl()); ;
-            }
         }
     }
 }

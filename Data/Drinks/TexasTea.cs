@@ -23,7 +23,6 @@ namespace CowboyCafe.Data
             {
                 sweet = value;
                 NotifyOfPropertyChange("Sweet");
-                NotifyOfPropertyChange("SpecialInstructions");
             }
         }
 
@@ -38,7 +37,6 @@ namespace CowboyCafe.Data
             {
                 lemon = value;
                 NotifyOfPropertyChange("Lemon");
-                NotifyOfPropertyChange("SpecialInstructions");
             }
         }
 
@@ -93,14 +91,13 @@ namespace CowboyCafe.Data
         /// <summary>
         /// If the Water is served with ice
         /// </summary>
-        public bool Ice
+        public override bool Ice
         {
             get { return ice; }
             set
             {
                 ice = value;
                 NotifyOfPropertyChange("Ice");
-                NotifyOfPropertyChange("SpecialInstructions");
             }
         }
 

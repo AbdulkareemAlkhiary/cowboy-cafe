@@ -19,7 +19,7 @@ namespace CowboyCafe.Data
         /// <summary>
         /// Gets the size of the side
         /// </summary>
-        public virtual Size Size { get { return size; } set {
+        public Size Size { get { return size; } set {
                 size = value;
                 NotifyOfPropertyChange("Size");
                 NotifyOfPropertyChange("Price");
@@ -41,9 +41,10 @@ namespace CowboyCafe.Data
         /// </summary>
         public abstract List<string> SpecialInstructions { get; }
 
-        protected void NotifyOfPropertyChange(string propertyName)
+        private protected void NotifyOfPropertyChange(string propertyName)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
         }
 
 

@@ -12,7 +12,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace PointOfSale
+namespace PointOfSale.EntreeCustomizations
 {
     /// <summary>
     /// Interaction logic for CustomizedCowpokeChili.xaml
@@ -22,15 +22,6 @@ namespace PointOfSale
         public CustomizedPecosPulledPork()
         {
             InitializeComponent();
-        }
-
-        public void DoneClick(object sender, RoutedEventArgs args)
-        {
-            var orderControl = this.FindAncestor<OrderControl>();
-            if (DataContext is Order order)
-            {
-                orderControl.SwapScreen(new MenuItemSelectionControl()); ;
-            }
         }
     }
 }

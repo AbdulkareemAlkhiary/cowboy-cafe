@@ -14,6 +14,9 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using CowboyCafe.Data;
+using PointOfSale.SideCustomizations;
+using PointOfSale.DrinkCustomizations;
+using PointOfSale.EntreeCustomizations;
 
 
 
@@ -28,12 +31,10 @@ namespace PointOfSale
         public MenuItemSelectionControl()
         {
             InitializeComponent();
-
-
         }
 
 
-        void AddItemAndOpenCustomizationScreen(IOrderItem item, FrameworkElement screen)
+        private void AddItemAndOpenCustomizationScreen(IOrderItem item, FrameworkElement screen)
         {
             // We need to have an Order to add this item to
             var order = DataContext as Order;
@@ -44,7 +45,7 @@ namespace PointOfSale
             {
                 // We need to have an OrdeControl ancestor to load the customization
                 var orderControl = this.FindAncestor<OrderControl>();
-                if (orderControl == null) throw new Exception("An ancestor of Ordercontrol..");
+                if (orderControl == null) throw new Exception("An ancestor of Ordercontrol expected");
 
                 // Add the item to the customization screen
                 screen.DataContext = item;

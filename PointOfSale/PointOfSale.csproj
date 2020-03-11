@@ -10,6 +10,7 @@
     <None Remove="DrinkCustomizations\tray.jpg" />
     <None Remove="EntreeCustomizations\angrybird.jpg" />
     <None Remove="EntreeCustomizations\cowpokechili.jpg" />
+    <None Remove="EntreeCustomizations\dakotaburger.jpg" />
     <None Remove="images.jpg" />
     <None Remove="SideCustomizations\tray.jpg" />
   </ItemGroup>
@@ -22,6 +23,7 @@
     <Resource Include="DrinkCustomizations\tray.jpg" />
     <Resource Include="EntreeCustomizations\angrybird.jpg" />
     <Resource Include="EntreeCustomizations\cowpokechili.jpg" />
+    <Resource Include="EntreeCustomizations\dakotaburger.jpg" />
     <Resource Include="images.jpg" />
     <Resource Include="EntreeCustomizations\tray.jpg" />
     <Resource Include="SideCustomizations\tray.jpg" />

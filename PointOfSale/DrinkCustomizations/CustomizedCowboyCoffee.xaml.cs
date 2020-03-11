@@ -12,7 +12,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace PointOfSale
+namespace PointOfSale.DrinkCustomizations
 {
     /// <summary>
     /// Interaction logic for CustomizedCowboyCoffee.xaml
@@ -22,14 +22,6 @@ namespace PointOfSale
         public CustomizedCowboyCoffee()
         {
             InitializeComponent();
-        }
-        public void DoneClick(object sender, RoutedEventArgs args)
-        {
-            var orderControl = this.FindAncestor<OrderControl>();
-            if (DataContext is Order order)
-            {
-                orderControl.SwapScreen(new MenuItemSelectionControl()); ;
-            }
         }
     }
 }

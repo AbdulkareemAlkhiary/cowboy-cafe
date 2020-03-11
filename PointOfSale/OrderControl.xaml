@@ -54,21 +54,25 @@
             <ColumnDefinition Width="2*"/>
             <ColumnDefinition Width="600"/>
         </Grid.ColumnDefinitions>
+
         <Grid.RowDefinitions>
-            <RowDefinition Height="100px"/>
-            <RowDefinition/>
+            <RowDefinition Height="125px"/>
+            <RowDefinition Height="970"/>
         </Grid.RowDefinitions>
+        
         <StackPanel Orientation="Horizontal">
             <Button Name="ItemSelectButton">Item Selection</Button>
             <Button Name="CancelOrderButton">Cancel Order</Button>
             <Button Name="CompleteOrderButton">Complete Order</Button>
         </StackPanel>
 
-       
-        <local:OrderSummaryControl  Height="830" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center"/>
 
+        <StackPanel Grid.Column= "1" Grid.Row="1">
+            <local:OrderSummaryControl x:Name ="OrderSummary" Padding="6" MinHeight ="845" Width="510"></local:OrderSummaryControl>
+        </StackPanel>
+        
         <Border x:Name="Container" Grid.Column="0" Grid.Row="1">
-             <local:MenuItemSelectionControl/>
+            <local:MenuItemSelectionControl MinHeight = "500" Width="800"></local:MenuItemSelectionControl>
         </Border>
         
     </Grid>

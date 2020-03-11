@@ -19,7 +19,7 @@ namespace CowboyCafe.Data
         /// <summary>
         /// Gets the size of the side
         /// </summary>
-        public virtual Size Size
+        public Size Size
         {
             get { return size; }
             set
@@ -41,23 +41,10 @@ namespace CowboyCafe.Data
         /// </summary>
         public abstract uint Calories { get; }
 
-        private bool ice = true;
-
-
-
         /// <summary>
         /// If the Water is served with ice
         /// </summary>
-        public bool Ice
-        {
-            get { return ice; }
-            set
-            {
-                ice = value;
-                NotifyOfPropertyChange("Ice");
-                NotifyOfPropertyChange("SpecialInstructions");
-            }
-        }
+        public abstract bool Ice { get; set; }
 
         /// <summary>
         /// Special instructions for the preparation of the Sodas
@@ -72,6 +59,7 @@ namespace CowboyCafe.Data
         protected void NotifyOfPropertyChange(string propertyName)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
         }
     }
 }
