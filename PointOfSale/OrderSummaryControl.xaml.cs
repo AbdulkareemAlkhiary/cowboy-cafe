@@ -27,5 +27,23 @@ namespace PointOfSale
             InitializeComponent();
         }
 
+        private void Delete_Click(object sender, RoutedEventArgs e)
+        {
+            if (DataContext is Order order)
+            {
+                if (sender is FrameworkElement orderElement)
+                {
+                    if (orderElement.DataContext is IOrderItem item)
+                    {
+                        order.Remove(item);
+                    }
+                }
+            }
+        }
+
+        private void listBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
     }
 }

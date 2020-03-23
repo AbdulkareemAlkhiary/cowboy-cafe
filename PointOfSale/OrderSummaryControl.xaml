@@ -38,7 +38,7 @@
         </StackPanel>
 
         <StackPanel Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2">
-            <ListBox ItemsSource="{Binding Path=Items}" Height="820" BorderBrush="Black" BorderThickness="2" HorizontalContentAlignment="Stretch">
+            <ListBox Name="listBox" SelectionChanged="listBox_SelectionChanged" ItemsSource="{Binding Path=Items}" IsSynchronizedWithCurrentItem="False" Height="820" BorderBrush="Black" BorderThickness="2" HorizontalContentAlignment="Stretch">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <Grid>
@@ -49,10 +49,12 @@
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition/>
                                 <ColumnDefinition/>
+                                <ColumnDefinition/>
                             </Grid.ColumnDefinitions>
                             
                             <TextBlock Grid.Row="0" Grid.Column="0" FontSize="25" Text="{Binding}"/>
                             <TextBlock Grid.Row="0" Grid.Column="1" TextAlignment="Right" FontSize="25" Text="{Binding Path=Price, StringFormat=c}"/>
+                            <Button Click="Delete_Click" Grid.Row="0" Grid.Column="2" BorderBrush="Black"  BorderThickness="1" Background="Red" Width="60" Margin="4" HorizontalAlignment="Center" Height="50">X</Button>
                             <ListView Grid.Row="1" Grid.ColumnSpan="2" FontSize="25" ItemsSource="{Binding Path=SpecialInstructions}"/>
                         </Grid>
                     </DataTemplate>
