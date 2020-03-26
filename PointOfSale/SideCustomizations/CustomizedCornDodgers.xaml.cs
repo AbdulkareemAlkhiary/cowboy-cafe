@@ -26,5 +26,12 @@ namespace PointOfSale.SideCustomizations
         {
             InitializeComponent();
         }
+
+        private CornDodgers c;
+        public CustomizedCornDodgers(CornDodgers cc)
+        {
+            c = cc;
+            InitializeComponent();
+        }
     }
 }

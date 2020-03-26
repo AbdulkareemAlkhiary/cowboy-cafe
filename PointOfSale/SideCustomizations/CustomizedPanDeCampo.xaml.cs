@@ -26,5 +26,12 @@ namespace PointOfSale.SideCustomizations
         {
             InitializeComponent();
         }
+
+        private PanDeCampo c;
+        public CustomizedPanDeCampo(PanDeCampo cc)
+        {
+            c = cc;
+            InitializeComponent();
+        }
     }
 }

@@ -27,6 +27,13 @@ namespace PointOfSale.EntreeCustomizations
             InitializeComponent();
         }
 
+        private TexasTripleBurger c;
+        public CustomizedTexasTripleBurger(TexasTripleBurger cc)
+        {
+            c = cc;
+            InitializeComponent();
+        }
+
 
     }
 }

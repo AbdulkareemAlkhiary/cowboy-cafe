@@ -27,5 +27,12 @@ namespace PointOfSale.EntreeCustomizations
             InitializeComponent();
         }
 
+        private AngryChicken c;
+        public CustomizedAngryChicken(AngryChicken cc)
+        {
+            c = cc;
+            InitializeComponent();
+        }
+
     }
 }

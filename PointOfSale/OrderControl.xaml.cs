@@ -70,6 +70,7 @@ namespace PointOfSale
         public void CompleteOrderButtonClicked(object sender, RoutedEventArgs e)
         {
             this.DataContext = new Order();
+            SwapScreen(new MenuItemSelectionControl());
         }
 
         /// <summary>
@@ -80,6 +81,7 @@ namespace PointOfSale
         public void CancelOrderButtonClicked(object sender, RoutedEventArgs e)
         {
             this.DataContext = new Order();
+            SwapScreen(new MenuItemSelectionControl());
         }
 
     }

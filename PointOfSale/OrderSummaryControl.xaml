@@ -38,7 +38,7 @@
         </StackPanel>
 
         <StackPanel Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2">
-            <ListBox Name="listBox" SelectionChanged="listBox_SelectionChanged" ItemsSource="{Binding Path=Items}" IsSynchronizedWithCurrentItem="False" Height="820" BorderBrush="Black" BorderThickness="2" HorizontalContentAlignment="Stretch">
+            <ListBox Name="orderList" SelectionChanged="listBox_SelectionChanged" ItemsSource="{Binding Path=Items}" IsSynchronizedWithCurrentItem="False" Height="820" BorderBrush="Black" BorderThickness="2" HorizontalContentAlignment="Stretch">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <Grid>

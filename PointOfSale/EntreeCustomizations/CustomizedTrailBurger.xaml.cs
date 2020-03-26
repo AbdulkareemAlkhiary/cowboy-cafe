@@ -27,5 +27,11 @@ namespace PointOfSale.EntreeCustomizations
             InitializeComponent();
         }
 
+        private TrailBurger c;
+        public CustomizedTrailBurger(TrailBurger cc)
+        {
+            c = cc;
+            InitializeComponent();
+        }
     }
 }

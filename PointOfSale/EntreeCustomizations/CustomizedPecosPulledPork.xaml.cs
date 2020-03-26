@@ -26,5 +26,12 @@ namespace PointOfSale.EntreeCustomizations
         {
             InitializeComponent();
         }
+
+        private PecosPulledPork c;
+        public CustomizedPecosPulledPork(PecosPulledPork cc)
+        {
+            c = cc;
+            InitializeComponent();
+        }
     }
 }

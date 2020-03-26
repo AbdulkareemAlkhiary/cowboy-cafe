@@ -26,5 +26,12 @@ namespace PointOfSale.DrinkCustomizations
         {
             InitializeComponent();
         }
+
+        private TexasTea c;
+        public CustomizedTexasTea(TexasTea cc)
+        {
+            c = cc;
+            InitializeComponent();
+        }
     }
 }

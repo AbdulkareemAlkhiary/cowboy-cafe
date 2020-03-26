@@ -27,5 +27,12 @@ namespace PointOfSale.EntreeCustomizations
             InitializeComponent();
         }
 
+        private CowpokeChili c;
+        public CustomizedCowpokeChili(CowpokeChili cc)
+        {
+            c = cc;
+            InitializeComponent();
+        }
+
     }
 }
