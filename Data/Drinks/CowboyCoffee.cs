@@ -82,7 +82,7 @@ namespace CowboyCafe.Data
             }
         }
 
-        private bool ice = true;
+        private bool ice = false;
         /// <summary>
         /// If the Water is served with ice
         /// </summary>

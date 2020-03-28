@@ -30,6 +30,11 @@ namespace PointOfSale
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Delete button to delete items
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Delete_Click(object sender, RoutedEventArgs e)
         {
             if (DataContext is Order order)
@@ -44,6 +49,11 @@ namespace PointOfSale
             }
         }
 
+        /// <summary>
+        /// Goes to the screen of item clicked
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void listBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             FrameworkElement screen;

@@ -1,6 +1,6 @@
 ﻿/* Author: Abdulkareem Alkhiary
- * Class: AngryChickenPropertyChangedTests.cs 
- * Description: Handles the Angry Chicken Property Changed Tests */
+ * Class: PecosPulledPorkPropertyChangedTests.cs 
+ * Description: Handles the Pecos Pulled Pork Property Changed Tests */
 using System;
 using System.Collections.Generic;
 using Xunit;
@@ -9,16 +9,16 @@ using System.ComponentModel;
 
 namespace CowboyCafe.DataTests.PropertyChangedTests
 {
-    public class AngryChickenPropertyChangedTests
+    public class PecosPulledPorkPropertyChangedTests
     {
         /// <summary>
         /// Ensures class implements INotifyChangedProperty
         /// </summary>
         [Fact]
-        public void AngryChickenShouldImplrementINotifyPropertyChanged()
+        public void PecosPulledPorkShouldImplrementINotifyPropertyChanged()
         {
-            var chicken = new AngryChicken();
-            Assert.IsAssignableFrom<INotifyPropertyChanged>(chicken);
+            var pork = new PecosPulledPork();
+            Assert.IsAssignableFrom<INotifyPropertyChanged>(pork);
         }
 
         /// <summary>
@@ -27,52 +27,50 @@ namespace CowboyCafe.DataTests.PropertyChangedTests
         [Fact]
         public void ChangingBreadPropertyShouldInvokePropertyChangedForBread()
         {
-            var chicken = new AngryChicken();
-            Assert.PropertyChanged(chicken, "Bread", () =>
+            var pork = new PecosPulledPork();
+            Assert.PropertyChanged(pork, "Bread", () =>
             {
-                chicken.Bread = false;
+                pork.Bread = false;
             });
         }
 
         /// <summary>
-        /// Testing pickle property
+        /// Testing bread property
         /// </summary>
         [Fact]
         public void ChangingPicklePropertyShouldInvokePropertyChangedForPickle()
         {
-            var chicken = new AngryChicken();
-            Assert.PropertyChanged(chicken, "Pickle", () =>
+            var pork = new PecosPulledPork();
+            Assert.PropertyChanged(pork, "Pickle", () =>
             {
-                chicken.Pickle = false;
+                pork.Pickle = false;
             });
         }
 
         /// <summary>
-        /// Changing the Bread property 
+        /// Changing the Bread property
         /// </summary>
         [Fact]
         public void ChangingBreadShouldInvokePropertyChangedForSpecialInstructions()
         {
-            var chicken = new AngryChicken();
-            Assert.PropertyChanged(chicken, "SpecialInstructions", () =>
+            var pork = new PecosPulledPork();
+            Assert.PropertyChanged(pork, "SpecialInstructions", () =>
             {
-                chicken.Bread = false;
+                pork.Bread = false;
             });
         }
 
         /// <summary>
-        /// Changing the Pickle property 
+        /// Changing the Pickle property
         /// </summary>
         [Fact]
         public void ChangingPickleShouldInvokePropertyChangedForSpecialInstructions()
         {
-            var chicken = new AngryChicken();
-            Assert.PropertyChanged(chicken, "SpecialInstructions", () =>
+            var pork = new PecosPulledPork();
+            Assert.PropertyChanged(pork, "SpecialInstructions", () =>
             {
-                chicken.Pickle = false;
+                pork.Pickle = false;
             });
         }
     }
-
-
 }

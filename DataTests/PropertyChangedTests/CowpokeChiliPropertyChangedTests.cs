@@ -1,11 +1,13 @@
-﻿using CowboyCafe.Data;
+﻿/* Author: Abdulkareem Alkhiary
+ * Class: CowpokeChiliPropertyChangedTests.cs 
+ * Description: Handles the Cowpoke Chili Property Changed Tests */
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Text;
 using Xunit;
+using CowboyCafe.Data;
+using System.ComponentModel;
 
-namespace CowboyCafe.DataTests.UnitTests
+namespace CowboyCafe.DataTests.PropertyChangedTests
 {
     public class CowpokeChiliPropertyChangedTests
     {
@@ -13,14 +15,14 @@ namespace CowboyCafe.DataTests.UnitTests
         /// Ensures class implements INotifyChangedProperty
         /// </summary>
         [Fact]
-        public void AngryChickenShouldImplrementINotifyPropertyChanged()
+        public void CowpokeChiliShouldImplrementINotifyPropertyChanged()
         {
             var chili = new CowpokeChili();
             Assert.IsAssignableFrom<INotifyPropertyChanged>(chili);
         }
 
         /// <summary>
-        /// Testing Cheese property for invocation of PropertyChanged for Cheese
+        /// Testing Cheese property
         /// </summary>
         [Fact]
         public void ChangingCheesePropertyShouldInvokePropertyChangedForCheese()
@@ -33,7 +35,7 @@ namespace CowboyCafe.DataTests.UnitTests
         }
 
         /// <summary>
-        /// Testing Sour Cream property for invocation of PropertyChanged for Sour Cream
+        /// Testing Sour Cream property
         /// </summary>
         [Fact]
         public void ChangingSourCreamPropertyShouldInvokePropertyChangedForSourCream()
@@ -46,7 +48,7 @@ namespace CowboyCafe.DataTests.UnitTests
         }
 
         /// <summary>
-        /// Testing Green Onions property for invocation of PropertyChanged for Green Onions
+        /// Testing Green Onions property
         /// </summary>
         [Fact]
         public void ChangingGreenOnionsPropertyShouldInvokePropertyChangedForGreenOnions()
@@ -59,7 +61,7 @@ namespace CowboyCafe.DataTests.UnitTests
         }
 
         /// <summary>
-        /// Testing Tortilla Strips property for invocation of PropertyChanged for Tortilla Strips
+        /// Testing Tortilla Strips property
         /// </summary>
         [Fact]
         public void ChangingTortillaStripsPropertyShouldInvokePropertyChangedForTortillaStrips()
@@ -72,7 +74,7 @@ namespace CowboyCafe.DataTests.UnitTests
         }
 
         /// <summary>
-        /// Changing the Cheese property should invoke PropertyChanged for SpecialInstructions
+        /// Changing the Cheese property
         /// </summary>
         [Fact]
         public void ChangingCheeseShouldInvokePropertyChangedForSpecialInstructions()
@@ -85,7 +87,7 @@ namespace CowboyCafe.DataTests.UnitTests
         }
 
         /// <summary>
-        /// Changing the Sour Cream property should invoke PropertyChanged for SpecialInstructions
+        /// Changing the Sour Cream property
         /// </summary>
         [Fact]
         public void ChangingSourCreamShouldInvokePropertyChangedForSpecialInstructions()
@@ -98,7 +100,7 @@ namespace CowboyCafe.DataTests.UnitTests
         }
 
         /// <summary>
-        /// Changing the Green Onions property should invoke PropertyChanged for SpecialInstructions
+        /// Changing the Green Onions property
         /// </summary>
         [Fact]
         public void ChangingGreenOnionsShouldInvokePropertyChangedForSpecialInstructions()
@@ -111,7 +113,7 @@ namespace CowboyCafe.DataTests.UnitTests
         }
 
         /// <summary>
-        /// Changing the Tortilla Strips property should invoke PropertyChanged for SpecialInstructions
+        /// Changing the Tortilla Strips property
         /// </summary>
         [Fact]
         public void ChangingTortillaStripsShouldInvokePropertyChangedForSpecialInstructions()
