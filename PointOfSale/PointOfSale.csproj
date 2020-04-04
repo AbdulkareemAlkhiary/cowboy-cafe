@@ -20,6 +20,12 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Reference Include="CashRegister">
+      <HintPath>..\..\MVVM\MVVMDataBinding\CashRegister.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
     <Resource Include="DrinkCustomizations\tray.jpg" />
     <Resource Include="EntreeCustomizations\angrybird.jpg" />
     <Resource Include="EntreeCustomizations\cowpokechili.jpg" />
