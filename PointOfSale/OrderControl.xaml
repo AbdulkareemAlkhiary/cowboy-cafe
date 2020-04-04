@@ -43,8 +43,8 @@
     </UserControl.Resources>
 
 
-
-    <Grid>
+    <Border x:Name="OrderScreen">
+        <Grid>
 
         <Grid.Background>
             <ImageBrush ImageSource="images.jpg"/>
@@ -75,5 +75,6 @@
             <local:MenuItemSelectionControl MinHeight = "500" Width="800"></local:MenuItemSelectionControl>
         </Border>
         
-    </Grid>
+     </Grid>
+    </Border>
 </UserControl>

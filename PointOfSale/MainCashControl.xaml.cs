@@ -10,19 +10,17 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using System.ComponentModel;
-using CashRegister;
 
 namespace PointOfSale
 {
-
-    public partial class CashControl : UserControl 
-    { 
-
-        public CashControl()
+    /// <summary>
+    /// Interaction logic for MainCashControl.xaml
+    /// </summary>
+    public partial class MainCashControl : UserControl
+    {
+        public MainCashControl()
         {
             InitializeComponent();
         }
-
     }
 }

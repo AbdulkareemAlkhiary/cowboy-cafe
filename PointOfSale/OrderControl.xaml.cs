@@ -29,6 +29,8 @@ namespace PointOfSale
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
+        public CashDrawer drawer = new CashDrawer();
+
         public OrderControl()
         {
 
@@ -61,6 +63,7 @@ namespace PointOfSale
         public void ItemSelectButtonClicked(object sender, RoutedEventArgs e)
         {
             Container.Child = new MenuItemSelectionControl();
+            CompleteOrderButton.IsEnabled = true;
         }
 
         /// <summary>
@@ -70,10 +73,12 @@ namespace PointOfSale
         /// <param name="e"></param>
         public void CompleteOrderButtonClicked(object sender, RoutedEventArgs e)
         {
-            var transactionControl = new TransactionControl();
-            transactionControl.DataContext = this.DataContext;
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("OrderNumber"));
-            SwapScreen(transactionControl);
+            if (DataContext is Order order)
+            {
+                SwapOrderScreen(new TransactionControl(drawer));
+            }
+            CompleteOrderButton.IsEnabled = false;
+            ItemSelectButton.IsEnabled = false;
         }
 
         /// <summary>
@@ -85,7 +90,38 @@ namespace PointOfSale
         {
             this.DataContext = new Order();
             SwapScreen(new MenuItemSelectionControl());
+            CompleteOrderButton.IsEnabled = true;
+            ItemSelectButton.IsEnabled = true;
         }
+
+        /// <summary>
+        /// Changes from main screen to order
+        /// </summary>
+        /// <param name="element"></param>
+        public void SwapOrderScreen(FrameworkElement element)
+        {
+            if (element != null)
+            {
+                OrderScreen.Child = element;
+            }
+        }
+
+       /* public void FillRegister() 
+        {
+            drawer.AddBill(Bills.Hundred, 5);
+            drawer.AddBill(Bills.Fifty, 3);
+            drawer.AddBill(Bills.Twenty, 10);
+            drawer.AddBill(Bills.Ten, 10);
+            drawer.AddBill(Bills.Five, 7);
+            drawer.AddBill(Bills.Two, 7);
+            drawer.AddBill(Bills.One, 40);
+            drawer.AddCoin(Coins.Dollar, 10);
+            drawer.AddCoin(Coins.HalfDollar, 2);
+            drawer.AddCoin(Coins.Quarter, 10);
+            drawer.AddCoin(Coins.Dime, 25);
+            drawer.AddCoin(Coins.Nickel, 45);
+            drawer.AddCoin(Coins.Penny, 30);
+        }*/
 
     }
 }
