@@ -5,25 +5,28 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:PointOfSale"
              mc:Ignorable="d" 
-             Height="120" Width="120"
-             d:DesignHeight="120" d:DesignWidth="120">
-    <Border Margin="5" BorderBrush="DarkGray" BorderThickness="1">
+             d:DesignHeight="190" d:DesignWidth="230">
+    <Border Margin="2" BorderBrush="DarkGray" BorderThickness="1">
         <Grid>
             <Grid.RowDefinitions>
-                <RowDefinition Height="4*"/>
-                <RowDefinition Height="3*"/>
+                <RowDefinition Height="6*"/>
+                <RowDefinition Height="1.5*"/>
+                <RowDefinition Height="1.5*"/>
+                <RowDefinition Height="5*"/>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="3*"/>
-                <ColumnDefinition Width="4*"/>
                 <ColumnDefinition Width="3*"/>
             </Grid.ColumnDefinitions>
-            <Border Grid.Column="1" BorderThickness="6" BorderBrush="DarkGreen"  Background="ForestGreen" Margin="-30 0">
-                <TextBlock Text="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:BillControl}}, Path=Denomination}" Foreground="Black" TextAlignment="Center" VerticalAlignment="Center" FontWeight="Bold"/>
+            <Border Grid.Column="0" Grid.ColumnSpan="2" BorderThickness="5" BorderBrush="DarkGreen" CornerRadius="0" Background="Green">
+                <TextBlock Text="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:BillControl}}, Path=Denomination}" Foreground="DarkGreen" TextAlignment="Center" VerticalAlignment="Center" FontWeight="Bold"/>
             </Border>
-            <Button Grid.Row="1" Grid.Column="0" Click="OnRemoveClicked">-</Button>
-            <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:BillControl}}, Path=Quantity}" FontSize="30" TextAlignment="Center" VerticalAlignment="Center" Background="White"></TextBlock>
-            <Button Grid.Row="1" Grid.Column="3" Click="OnAddClicked">+</Button>
+            <TextBlock Grid.Row="1" Grid.Column="0" Text="Drawer:" FontSize="16" VerticalAlignment="Center"/>
+            <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:BillControl}}, Path=QuantityDrawer}" FontSize="16" Background="White" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
+            <TextBlock Grid.Row="2" Grid.Column="0" Text="Quantity Given:" FontSize="16" VerticalAlignment="Center"/>
+            <TextBlock Grid.Row="2" Grid.Column="1" Text="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:BillControl}}, Path=QuantityGiven}" FontSize="16" Background="White" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
+            <Button Grid.Row="3" Grid.Column="0" Click="OnRemoveClicked">-</Button>
+            <Button Grid.Row="3" Grid.Column="1" Click="OnAddClicked">+</Button>
         </Grid>
     </Border>
 </UserControl>

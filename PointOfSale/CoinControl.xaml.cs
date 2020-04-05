@@ -43,9 +43,23 @@ namespace PointOfSale
         /// <summary>
         /// The DependencyProperty backing the Quantity property
         /// </summary>
-        public static readonly DependencyProperty QuantityProperty =
+        public static readonly DependencyProperty QuantityGivenProperty =
                 DependencyProperty.Register(
-                    "Quantity",
+                    "QuantityGiven",
+                    typeof(int),
+                    typeof(CoinControl),
+                    new FrameworkPropertyMetadata(
+                        0,
+                        FrameworkPropertyMetadataOptions.BindsTwoWayByDefault
+                    )
+                );
+
+        /// <summary>
+        /// The DependencyProperty backing the Quantity property
+        /// </summary>
+        public static readonly DependencyProperty QuantityDrawerProperty =
+                DependencyProperty.Register(
+                    "QuantityDrawer",
                     typeof(int),
                     typeof(CoinControl),
                     new FrameworkPropertyMetadata(
@@ -57,10 +71,19 @@ namespace PointOfSale
         /// <summary>
         /// The quantity of the coin denomination
         /// </summary>
-        public int Quantity
+        public int QuantityGiven
         {
-            get { return (int)GetValue(QuantityProperty); }
-            set { SetValue(QuantityProperty, value); }
+            get { return (int)GetValue(QuantityGivenProperty); }
+            set { SetValue(QuantityGivenProperty, value); }
+        }
+
+        /// <summary>
+        /// The quantity of the coin denomination
+        /// </summary>
+        public int QuantityDrawer
+        {
+            get { return (int)GetValue(QuantityDrawerProperty); }
+            set { SetValue(QuantityDrawerProperty, value); }
         }
 
         /// <summary>
@@ -70,7 +93,7 @@ namespace PointOfSale
         /// <param name="args">The event args</param>
         public void OnAddClicked(object sender, RoutedEventArgs args)
         {
-            Quantity++;
+            QuantityGiven++;
         }
 
         /// <summary>
@@ -80,7 +103,7 @@ namespace PointOfSale
         /// <param name="args">The event args</param>
         public void OnRemoveClicked(object sender, RoutedEventArgs args)
         {
-            Quantity--;
+            QuantityGiven--;
         }
 
 

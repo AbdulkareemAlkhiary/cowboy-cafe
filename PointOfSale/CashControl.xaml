@@ -6,27 +6,48 @@
              xmlns:local="clr-namespace:PointOfSale"
              mc:Ignorable="d"  
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
+    <Grid Background="Silver">
         <Grid.RowDefinitions>
-            <RowDefinition/>
-            <RowDefinition/>
+            <RowDefinition Height="300"/>
+            <RowDefinition Height="300"/>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="120"/>
         </Grid.RowDefinitions>
-        <StackPanel Orientation="Horizontal" Grid.Row="0" HorizontalAlignment="Center">
-            <local:CoinControl Denomination="Penny" Quantity="{Binding Path=Pennies}"/>
-            <local:CoinControl Denomination="Dime" Quantity="{Binding Path=Dimes}"/>
-            <local:CoinControl Denomination="Nickel" Quantity="{Binding Path=Nickels}"/>
-            <local:CoinControl Denomination="Quarter" Quantity="{Binding Path=Quarters}"/>
-            <local:CoinControl Denomination="HalfDollar" Quantity="{Binding Path=HalfDollar}"/>
-            <local:CoinControl Denomination="Dollar" Quantity="{Binding Path=Dollar}"/>
+
+        <StackPanel Orientation="Horizontal" Grid.Row="0" Margin="4" HorizontalAlignment="Center" >
+            <local:CoinControl Width="175" QuantityDrawer="{Binding Path=Register.Pennies}" QuantityGiven="{Binding Path=cashGiven.Pennies}" Denomination="Penny" />
+            <local:CoinControl Width="175" QuantityDrawer="{Binding Path=Register.Nickels}" QuantityGiven="{Binding Path=cashGiven.Nickels}" Denomination="Nickel" />
+            <local:CoinControl Width="175" QuantityDrawer="{Binding Path=Register.Dimes}" QuantityGiven="{Binding Path=cashGiven.Dimes}" Denomination="Dime" />
+            <local:CoinControl Width="175" QuantityDrawer="{Binding Path=Register.Quarters}" QuantityGiven="{Binding Path=cashGiven.Quarters}" Denomination="Quarter" />
+            <local:CoinControl Width="175" QuantityDrawer="{Binding Path=Register.HalfDollars}" QuantityGiven="{Binding Path=cashGiven.HalfDollars}" Denomination="HalfDollar" />
+            <local:CoinControl Width="175" QuantityDrawer="{Binding Path=Register.Dollars}" QuantityGiven="{Binding Path=cashGiven.Dollars}" Denomination="Dollar" />
         </StackPanel>
-        <StackPanel Orientation="Horizontal" Grid.Row="1" HorizontalAlignment="Center">
-            <local:BillControl Denomination="One" Quantity="{Binding Path=Ones}"/>
-            <local:BillControl Denomination="Two" Quantity="{Binding Path=Twos}"/>
-            <local:BillControl Denomination="Five" Quantity="{Binding Path=Fives}"/>
-            <local:BillControl Denomination="Ten" Quantity="{Binding Path=Tens}"/>
-            <local:BillControl Denomination="Twenty" Quantity="{Binding Path=Twenty}"/>
-            <local:BillControl Denomination="Fifty" Quantity="{Binding Path=Fifty}"/>
-            <local:BillControl Denomination="Hundred" Quantity="{Binding Path=Hundred}"/>
+
+        <StackPanel Orientation="Horizontal" Grid.Row="1" Margin="4" HorizontalAlignment="Center">
+            <local:BillControl QuantityDrawer="{Binding Path=Register.Ones}" QuantityGiven="{Binding Path=cashGiven.Ones}" Denomination="One" />
+            <local:BillControl QuantityDrawer="{Binding Path=Register.Twos}" QuantityGiven="{Binding Path=cashGiven.Twos}" Denomination="Two" />
+            <local:BillControl QuantityDrawer="{Binding Path=Register.Fives}" QuantityGiven="{Binding Path=cashGiven.Fives}" Denomination="Five" />
+            <local:BillControl QuantityDrawer="{Binding Path=Register.Tens}" QuantityGiven="{Binding Path=cashGiven.Tens}" Denomination="Ten" />
+            <local:BillControl QuantityDrawer="{Binding Path=Register.Twenties}" QuantityGiven="{Binding Path=cashGiven.Twenties}" Denomination="Twenty" />
+            <local:BillControl QuantityDrawer="{Binding Path=Register.Fifties}" QuantityGiven="{Binding Path=cashGiven.Fifties}" Denomination="Fifty" />
+            <local:BillControl QuantityDrawer="{Binding Path=Register.Hundreds}" QuantityGiven="{Binding Path=cashGiven.Hundreds}" Denomination="Hundred" />
+        </StackPanel>
+
+        <TextBlock Grid.Row="2" Margin="10,10,10,10" TextAlignment="Left" FontSize="20" FontWeight="Bold" Width="300">
+            <Run Text="Total Paid: "/>
+            <Run Text="{Binding Path=cashGiven.TotalValueGiven, Mode=OneWay, StringFormat=C}"/>
+        </TextBlock>
+
+        <TextBlock Grid.Row="3" Margin="10,10,10,10" TextAlignment="Left" FontSize="20" FontWeight="Bold" Width="300">
+            <Run Text="Total Owed: "/>
+            <Run Text="{Binding Path=cashGiven Mode=OneWay, StringFormat=C}"/>
+        </TextBlock>
+
+        <StackPanel Grid.Row="4" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Top">
+            <Button Click="OnCalculateChange" Name="ChangeButton">Calculate Change</Button>
+            <Button Click="OnDone" IsEnabled="False" Name="DoneButton">Done</Button>
         </StackPanel>
     </Grid>
+
 </UserControl>
