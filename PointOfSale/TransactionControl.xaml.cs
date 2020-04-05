@@ -60,7 +60,7 @@ namespace PointOfSale
         private void CashPayment(object sender, RoutedEventArgs e)
         {
             var orderControl = this.FindAncestor<OrderControl>();
-            FrameworkElement screen = new MainCashControl();
+            FrameworkElement screen = new  CashControl();
             screen.DataContext = drawer;
 
             orderControl.SwapOrderScreen(screen);
