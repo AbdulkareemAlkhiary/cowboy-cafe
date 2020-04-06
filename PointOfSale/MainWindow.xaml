@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:PointOfSale"
         mc:Ignorable="d"
         Title="MainWindow" Height="1100" Width="1350">
-    <Grid>
-        <local:OrderControl Width="1350"></local:OrderControl>
-    </Grid>
+    <ContentControl Name="Screen">
+        <local:OrderControl/>
+    </ContentControl>
 </Window>

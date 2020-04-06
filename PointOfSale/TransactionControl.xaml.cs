@@ -1,11 +1,8 @@
 ﻿/* Author: Abdulkareem Alkhiary
  * Class: TransactionControl.xaml.cs 
  * Description: Handles the transactions */
-using CashRegister;
-using CowboyCafe.Data;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
@@ -16,65 +13,62 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using CashRegister;
+using PointOfSale;
+using CowboyCafe.Data;
+using System.ComponentModel;
 
 namespace PointOfSale
 {
     /// <summary>
     /// Interaction logic for TransactionControl.xaml
     /// </summary>
-    public partial class TransactionControl : UserControl, INotifyPropertyChanged
+    public partial class TransactionControl : UserControl
     {
-        public event PropertyChangedEventHandler PropertyChanged;
+        public TransactionControl control;
 
-        public Order order = null;
+        // The data for this transaction. The order
+        public CurrentOrder currentOrder { get; private set; }
 
-        public CashDrawer drawer;
+        // For screen switching
+        MainWindow Window;
 
-        public double amountPaid = 0;
-
-        public string paymentType = "";
-
-        public TransactionControl(CashDrawer drawer)
+        /// <summary>
+        /// Initialize the TransactionControl
+        /// </summary>
+        /// <param name="order">The transaction control that order links to</param>
+        public TransactionControl(Order order)
         {
             InitializeComponent();
-            order = this.DataContext as Order;
+            control = this;
+            currentOrder = new CurrentOrder(order);
+            DataContext = currentOrder;
         }
 
-        // Need ancestor to load customization screen
-
-        private double salesTax = 0.16;
-
-        private double total;
-        public double Total
+        /// <summary>
+        /// Handles Cash payments when button is clicked
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void CashPayment_Click(object sender, RoutedEventArgs e)
         {
-            get { return total; }
-            set
-            {
-                total = order.Subtotal + (salesTax * order.Subtotal);
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Total"));
-
-            }
+            currentOrder.payment = TypeOfPayment.Cash;
+            Window = this.FindAncestor<MainWindow>();
+            FrameworkElement screen = new CashControl(currentOrder.Total, control);
+            Window.SwapScreen(screen);
         }
 
-
-        private void CashPayment(object sender, RoutedEventArgs e)
+        /// <summary>
+        /// Handles credit card payment when button is clicked
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void CreditPayment_Click(object sender, RoutedEventArgs e)
         {
-            var orderControl = this.FindAncestor<OrderControl>();
-            FrameworkElement screen = new  CashControl();
-            screen.DataContext = drawer;
-
-            orderControl.SwapOrderScreen(screen);
-
-
-        }
-
-        private void CreditPayment(object sender, RoutedEventArgs e)
-        {
-            order = (Order)DataContext;
             CardTerminal cardTerminal = new CardTerminal();
-            paymentType = TypeOfPayment.Credit.ToString();
-            amountPaid = order.TotalTax;
-            ResultCode code = cardTerminal.ProcessTransaction(order.TotalTax);
+            currentOrder.payment = TypeOfPayment.Credit;
+            currentOrder.AmountPaid = currentOrder.Total;
+            ResultCode code = cardTerminal.ProcessTransaction(currentOrder.Total);
 
             switch (code)
             {
@@ -97,13 +91,17 @@ namespace PointOfSale
             }
         }
 
-        private void CancelTransaction(object sender, RoutedEventArgs e)
+        /// <summary>
+        /// Handles order wpf when cancel button is clicked
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void CancelTransaction_Click(object sender, RoutedEventArgs e)
         {
-            var orderControl = this.FindAncestor<OrderControl>();
-            FrameworkElement screen = new MenuItemSelectionControl();
-            screen.DataContext = null;
-
-            orderControl.SwapOrderScreen(new OrderControl());
+            OrderControl newOrderControl = new OrderControl();
+            newOrderControl.CompleteOrderButton.IsEnabled = true;
+            newOrderControl.ItemSelectButton.IsEnabled = true;
+            Window.SwapScreen(newOrderControl);
         }
 
         /// <summary>
@@ -115,40 +113,44 @@ namespace PointOfSale
             ReceiptPrinter receiptPrint = new ReceiptPrinter();
             receiptPrint.Print(ReceiptBuilder());
 
-            var currentOrderInfo = this.FindAncestor<OrderControl>();
+            MessageBox.Show("Transaction Complete, returning for next order");
             OrderControl newOrderControl = new OrderControl();
+            Window.SwapScreen(newOrderControl);
 
-            currentOrderInfo.SwapOrderScreen(newOrderControl);
             newOrderControl.CompleteOrderButton.IsEnabled = true;
             newOrderControl.ItemSelectButton.IsEnabled = true;
         }
 
-
-
         /// <summary>
         /// Generates a string to print into log file
         /// </summary>
-        /// <returns></returns>
+        /// <returns>stringbuilder with all of order details</returns>
         public string ReceiptBuilder()
         {
-            order = (Order)DataContext;
-            int printCharacterMax = 60;
             StringBuilder receipt = new StringBuilder();
+            int printCharacterMax = 60;
             double TaxRate = 0.16;
+            uint orderNumber = currentOrder.Order.OrderNumber;
+            DateTime dateTime = DateTime.Now;
+            double subtotal = currentOrder.Order.Subtotal;
+            double total = currentOrder.Total;
+            double tax = Math.Round((subtotal * TaxRate), 2);
+            TypeOfPayment formOfPayment = currentOrder.payment;
+            double amountPaid = currentOrder.AmountPaid;
+            double change = currentOrder.AmountPaid - currentOrder.Total;
 
             receipt.AppendLine("Cowboy Cafe");
-            receipt.AppendLine($"Order: {order.OrderNumber}");
-            receipt.AppendLine(DateTime.Now.ToString());
-            receipt.Append('-', printCharacterMax); // Add a horizontal line
-            receipt.AppendLine();
+            receipt.AppendLine($"Order: {orderNumber}");
+            receipt.AppendLine(dateTime.ToString());
+            receipt.Append('-', printCharacterMax); receipt.AppendLine();
             receipt.AppendLine("Items:");
 
-            foreach (IOrderItem item in order.Items)
+            foreach (IOrderItem item in currentOrder.Order.Items)
             {
                 string itemName = item.ToString();
-                string price = item.Price.ToString("C"); // Format as currency
+                string price = item.Price.ToString("C");
                 if (itemName.Length + price.Length + 1 > printCharacterMax)
-                { // Truncate item name if too long
+                {
                     receipt.Append(itemName, 0, printCharacterMax - price.Length - 1);
                     receipt.Append(" ");
                     receipt.Append(price);
@@ -172,51 +174,53 @@ namespace PointOfSale
                 }
             }
 
-            receipt.Append('-', printCharacterMax);
-            receipt.AppendLine();
+            receipt.Append('-', printCharacterMax); receipt.AppendLine();
 
-            string subtotal = order.Subtotal.ToString("C");
             receipt.Append(' ', printCharacterMax - 15 - 9);
-            receipt.Append("Subtotal:"); // 9 char long
-            receipt.Append(' ', 15 - subtotal.Length);
-            receipt.AppendLine(subtotal);
+            receipt.Append("Subtotal:");
+            receipt.Append(' ', 15 - subtotal.ToString("C").Length);
+            receipt.AppendLine(subtotal.ToString("C"));
 
-            string tax = Math.Round((order.Subtotal * TaxRate)).ToString("C");
             receipt.Append(' ', printCharacterMax - 15 - 4);
-            receipt.Append("Tax:"); // 4 char long
-            receipt.Append(' ', 15 - tax.Length);
-            receipt.AppendLine(tax);
+            receipt.Append("Tax:");
+            receipt.Append(' ', 15 - tax.ToString("C").Length);
+            receipt.AppendLine(tax.ToString("C"));
 
-            receipt.Append('-', printCharacterMax);
-            receipt.AppendLine();
+            receipt.Append('-', printCharacterMax); receipt.AppendLine();
 
-            string total = order.TotalTax.ToString("C");
-            receipt.Append(' ', printCharacterMax - 15 - 12);
+            receipt.Append(' ', printCharacterMax - 15 - 6);
             receipt.Append("Total:");
-            receipt.Append(' ', 15 - total.Length);
-            receipt.AppendLine(total);
+            receipt.Append(' ', 15 - total.ToString("C").Length);
+            receipt.AppendLine(total.ToString("C"));
 
-            receipt.Append('-', printCharacterMax);
-            receipt.AppendLine();
+            receipt.Append('-', printCharacterMax); receipt.AppendLine();
 
-            receipt.Append(paymentType);
-            string payedAmount = amountPaid.ToString("C");
-            receipt.Append(' ', printCharacterMax - payedAmount.Length - paymentType.Length);
-            receipt.AppendLine(payedAmount);
-            receipt.AppendLine();
+            receipt.Append("Payment Type:" + formOfPayment.ToString());
 
-            string balance = (amountPaid - order.TotalTax).ToString("C");
+            if (formOfPayment == TypeOfPayment.Credit) receipt.Append(' ', 19 - amountPaid.ToString("C").Length);
+            else receipt.Append(' ', 21 - amountPaid.ToString("C").Length);
+
+            receipt.Append("Amount Paid:          " + amountPaid.ToString("C"));
+            receipt.AppendLine(); receipt.AppendLine();
+
             receipt.Append(' ', printCharacterMax - 15 - 8);
-            receipt.Append("Balance:"); // 8 char long
-            receipt.Append(' ', 15 - tax.Length);
-            receipt.AppendLine(balance);
-            receipt.AppendLine();
-            receipt.AppendLine();
-            receipt.AppendLine();
-            receipt.AppendLine();
+            receipt.Append(" Change:");
+            receipt.Append(' ', 15 - tax.ToString("C").Length);
+            receipt.AppendLine(change.ToString("C"));
+            receipt.AppendLine(); receipt.AppendLine(); receipt.AppendLine(); receipt.AppendLine();
 
             return receipt.ToString();
         }
 
+        /// <summary>
+        /// Initializes ancestor variable upon initialization
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ControlStart(object sender, RoutedEventArgs e)
+        {
+            Window = this.FindAncestor<MainWindow>();
+        }
     }
 }
+

@@ -29,7 +29,7 @@ namespace PointOfSale
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
-        public CashDrawer drawer = new CashDrawer();
+        MainWindow Window;
 
         public OrderControl()
         {
@@ -42,12 +42,12 @@ namespace PointOfSale
 
         }
 
-        
+
         /// <summary>
         /// Changes from main screen to options
         /// </summary>
         /// <param name="element"></param>
-        public void SwapScreen(FrameworkElement element) 
+        public void SwapScreen(FrameworkElement element)
         {
             if (element != null)
             {
@@ -75,7 +75,8 @@ namespace PointOfSale
         {
             if (DataContext is Order order)
             {
-                SwapOrderScreen(new TransactionControl(drawer));
+                Window = this.FindAncestor<MainWindow>();
+                Window.SwapScreen(new TransactionControl(order));
             }
             CompleteOrderButton.IsEnabled = false;
             ItemSelectButton.IsEnabled = false;
@@ -98,30 +99,11 @@ namespace PointOfSale
         /// Changes from main screen to order
         /// </summary>
         /// <param name="element"></param>
-        public void SwapOrderScreen(FrameworkElement element)
+        private void ControlStart(object sender, RoutedEventArgs e)
         {
-            if (element != null)
-            {
-                OrderScreen.Child = element;
-            }
+            Window = this.FindAncestor<MainWindow>();
         }
 
-       /* public void FillRegister() 
-        {
-            drawer.AddBill(Bills.Hundred, 5);
-            drawer.AddBill(Bills.Fifty, 3);
-            drawer.AddBill(Bills.Twenty, 10);
-            drawer.AddBill(Bills.Ten, 10);
-            drawer.AddBill(Bills.Five, 7);
-            drawer.AddBill(Bills.Two, 7);
-            drawer.AddBill(Bills.One, 40);
-            drawer.AddCoin(Coins.Dollar, 10);
-            drawer.AddCoin(Coins.HalfDollar, 2);
-            drawer.AddCoin(Coins.Quarter, 10);
-            drawer.AddCoin(Coins.Dime, 25);
-            drawer.AddCoin(Coins.Nickel, 45);
-            drawer.AddCoin(Coins.Penny, 30);
-        }*/
 
     }
 }

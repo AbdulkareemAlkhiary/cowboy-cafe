@@ -26,11 +26,6 @@ namespace PointOfSale
         TransactionControl transaction;
 
         /// <summary>
-        /// The total cost of this current transaction
-        /// </summary>
-        private double total;
-
-        /// <summary>
         /// Handler that takes care of register and customer money
         /// </summary>
         private Money money;
@@ -38,14 +33,14 @@ namespace PointOfSale
         /// <summary>
         /// Initialize the CashControl with order
         /// </summary>
-        public CashControl(double total)
+        public CashControl(double total, TransactionControl control)
         {
             InitializeComponent();
 
+            transaction = control;
             money = new Money();
             DataContext = money;
-            //transaction = this.FindAncestor<TransactionControl>();
-            this.total = total;
+            money.Total = total;
         }
 
         /// <summary>
@@ -55,13 +50,17 @@ namespace PointOfSale
         /// <param name="e"></param>
         private void OnCalculateChange(object sender, RoutedEventArgs e)
         {
-            if (money.cash.TotalValueGiven < total)
+            transaction.currentOrder.AmountPaid = money.cash.TotalValueGiven;
+            if (money.cash.TotalValueGiven < money.Total)
             {
-                MessageBox.Show("Error: Not Enough Money for Transaction");
+                MessageBox.Show($"Error: \n{"Not Enough Money for Transaction"}");
             }
             else
             {
-                MessageBox.Show($"Change To Give:\n{money.CalculateChangeToGiveBack(total)}");
+                MessageBox.Show ($"Change To Give: " + (money.cash.TotalValueGiven - money.Total).ToString("C") +
+                                  $"\nChange To Give (Quantity):\n{money.CalculateChangeToGiveBack(money.Total)}");
+                Bills.IsEnabled = false;
+                Coins.IsEnabled = false;
                 DoneButton.IsEnabled = true;
                 ChangeButton.IsEnabled = false;
             }
@@ -74,10 +73,9 @@ namespace PointOfSale
         /// <param name="e">Routed Event Args</param>
         private void OnDone(object sender, RoutedEventArgs e)
         {
-            if (transaction != null)
-            {
-                transaction.FinishCurrentTransaction();
-            }
+            Bills.IsEnabled = true;
+            Conis.IsEnabled = true;
+            transaction.FinishCurrentTransaction();
         }
     }
 }

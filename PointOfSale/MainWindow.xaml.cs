@@ -28,7 +28,11 @@ namespace PointOfSale
         {
             InitializeComponent();
             
-           
+        }
+
+        public void SwapScreen(FrameworkElement elem)
+        {
+            Screen.Content = elem;
         }
     }
 }
