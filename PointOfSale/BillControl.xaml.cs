@@ -1,4 +1,7 @@
-﻿using CashRegister;
+﻿/* Author: Abdulkareem Alkhiary
+ * Class: BillControl.xaml.cs 
+ * Description: Handles bills interface */
+using CashRegister;
 using System;
 using System.Collections.Generic;
 using System.Text;

@@ -1,4 +1,7 @@
-﻿using System;
+﻿/* Author: Abdulkareem Alkhiary
+ * Class: CashControl.xaml.cs 
+ * Description: Handles all bills and coins interface */
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
@@ -20,14 +23,9 @@ namespace PointOfSale
     /// </summary>
     public partial class CashControl : UserControl
     {
-        /// <summary>
-        /// This current transaction
-        /// </summary>
+
         TransactionControl transaction;
 
-        /// <summary>
-        /// Handler that takes care of register and customer money
-        /// </summary>
         private Money money;
 
         /// <summary>
@@ -44,13 +42,13 @@ namespace PointOfSale
         }
 
         /// <summary>
-        /// Generates the specefic amount of change to give back to customer
+        /// Amount of change
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void OnCalculateChange(object sender, RoutedEventArgs e)
         {
-            transaction.currentOrder.AmountPaid = money.cash.TotalValueGiven;
+            transaction.current.AmountPaid = money.cash.TotalValueGiven;
             if (money.cash.TotalValueGiven < money.Total)
             {
                 MessageBox.Show($"Error: \n{"Not Enough Money for Transaction"}");
@@ -67,14 +65,14 @@ namespace PointOfSale
         }
 
         /// <summary>
-        /// Complete the transaction upon order satisfaction
+        /// Complete the transaction
         /// </summary>
         /// <param name="sender">Sending Object</param>
         /// <param name="e">Routed Event Args</param>
         private void OnDone(object sender, RoutedEventArgs e)
         {
             Bills.IsEnabled = true;
-            Conis.IsEnabled = true;
+            Coins.IsEnabled = true;
             transaction.FinishCurrentTransaction();
         }
     }

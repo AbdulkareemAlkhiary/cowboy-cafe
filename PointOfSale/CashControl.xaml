@@ -5,17 +5,56 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:PointOfSale"
              mc:Ignorable="d"  
-             d:DesignHeight="450" d:DesignWidth="800">
-    <Grid Background="Silver">
+             d:DesignHeight="970" d:DesignWidth="1350">
+    <UserControl.Resources>
+        <Style TargetType="Button">
+            <Setter Property="Width" Value="200"/>
+            <Setter Property="Height" Value="70"/>
+            <Setter Property="FontStyle" Value="Normal"/>
+            <Setter Property="FontFamily" Value="Times New Roman"/>
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="Margin" Value="20"/>
+            <Setter Property="Background" Value="White"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Name="border"
+                   BorderThickness="4"
+                   Padding="4,2"
+                   BorderBrush="Blue"
+                   CornerRadius="5"
+                   Background="{TemplateBinding Background}">
+                            <Grid >
+                                <ContentPresenter HorizontalAlignment="Center"
+                                  VerticalAlignment="Center" >
+                                    <ContentPresenter.RenderTransform>
+                                        <TranslateTransform X="1.0" Y="1.0" />
+                                    </ContentPresenter.RenderTransform>
+                                </ContentPresenter>
+                                <ContentPresenter HorizontalAlignment="Center"
+                               VerticalAlignment="Center" Name="content"/>
+                            </Grid>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </UserControl.Resources>
+
+    <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="300"/>
-            <RowDefinition Height="300"/>
-            <RowDefinition Height="60"/>
-            <RowDefinition Height="60"/>
-            <RowDefinition Height="120"/>
+            <RowDefinition Height="250"/>
+            <RowDefinition Height="250"/>
+            <RowDefinition Height="110"/>
+            <RowDefinition Height="275"/>
         </Grid.RowDefinitions>
 
-        <StackPanel x:Name="Coins" Orientation="Horizontal" Grid.Row="0" Margin="4" HorizontalAlignment="Center" >
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="700"/>
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Name="Coins" Orientation="Horizontal" Grid.ColumnSpan="2" Grid.Row="0" Margin="4" HorizontalAlignment="Center" >
             <local:CoinControl Width="175" QuantityDrawer="{Binding Path=Register.Pennies}" QuantityGiven="{Binding Path=cash.Pennies}" Denomination="Penny" />
             <local:CoinControl Width="175" QuantityDrawer="{Binding Path=Register.Nickels}" QuantityGiven="{Binding Path=cash.Nickels}" Denomination="Nickel" />
             <local:CoinControl Width="175" QuantityDrawer="{Binding Path=Register.Dimes}" QuantityGiven="{Binding Path=cash.Dimes}" Denomination="Dime" />
@@ -24,14 +63,14 @@
             <local:CoinControl Width="175" QuantityDrawer="{Binding Path=Register.Dollars}" QuantityGiven="{Binding Path=cash.Dollars}" Denomination="Dollar" />
         </StackPanel>
 
-        <StackPanel x:Name="Bills" Orientation="Horizontal" Grid.Row="1" Margin="4" HorizontalAlignment="Center">
-            <local:BillControl QuantityDrawer="{Binding Path=Register.Ones}" QuantityGiven="{Binding Path=cash.Ones}" Denomination="One" />
-            <local:BillControl QuantityDrawer="{Binding Path=Register.Twos}" QuantityGiven="{Binding Path=cash.Twos}" Denomination="Two" />
-            <local:BillControl QuantityDrawer="{Binding Path=Register.Fives}" QuantityGiven="{Binding Path=cash.Fives}" Denomination="Five" />
-            <local:BillControl QuantityDrawer="{Binding Path=Register.Tens}" QuantityGiven="{Binding Path=cash.Tens}" Denomination="Ten" />
-            <local:BillControl QuantityDrawer="{Binding Path=Register.Twenties}" QuantityGiven="{Binding Path=cash.Twenties}" Denomination="Twenty" />
-            <local:BillControl QuantityDrawer="{Binding Path=Register.Fifties}" QuantityGiven="{Binding Path=cash.Fifties}" Denomination="Fifty" />
-            <local:BillControl QuantityDrawer="{Binding Path=Register.Hundreds}" QuantityGiven="{Binding Path=cash.Hundreds}" Denomination="Hundred" />
+        <StackPanel Name="Bills" Orientation="Horizontal" Grid.ColumnSpan="2" Grid.Row="1" Margin="4" HorizontalAlignment="Center">
+            <local:BillControl Width="175" QuantityDrawer="{Binding Path=Register.Ones}" QuantityGiven="{Binding Path=cash.Ones}" Denomination="One" />
+            <local:BillControl Width="175" QuantityDrawer="{Binding Path=Register.Twos}" QuantityGiven="{Binding Path=cash.Twos}" Denomination="Two" />
+            <local:BillControl Width="175" QuantityDrawer="{Binding Path=Register.Fives}" QuantityGiven="{Binding Path=cash.Fives}" Denomination="Five" />
+            <local:BillControl Width="175" QuantityDrawer="{Binding Path=Register.Tens}" QuantityGiven="{Binding Path=cash.Tens}" Denomination="Ten" />
+            <local:BillControl  Width="175" QuantityDrawer="{Binding Path=Register.Twenties}" QuantityGiven="{Binding Path=cash.Twenties}" Denomination="Twenty" />
+            <local:BillControl Width="175" QuantityDrawer="{Binding Path=Register.Fifties}" QuantityGiven="{Binding Path=cash.Fifties}" Denomination="Fifty" />
+            <local:BillControl Width="175" QuantityDrawer="{Binding Path=Register.Hundreds}" QuantityGiven="{Binding Path=cash.Hundreds}" Denomination="Hundred" />
         </StackPanel>
 
         <StackPanel Margin="5"  Background="White" Orientation="Vertical" Grid.Row="2" Grid.Column="0" HorizontalAlignment="Right">
@@ -47,13 +86,13 @@
         </StackPanel>
 
 
-
-        <StackPanel Orientation="Vertical" Grid.Row="4" Grid.Column="1" HorizontalAlignment="Center">
+        <StackPanel Orientation="Vertical" Grid.Row="4" Grid.Column="0" HorizontalAlignment="Center">
             <Button Click="OnCalculateChange" Grid.Row="0" Grid.Column="1" Name="ChangeButton">Calculate Change</Button>
             <Button Click="OnDone" IsEnabled="False" Name="DoneButton">Done</Button>
         </StackPanel>
 
-        <TextBlock Grid.Row="4" Grid.Column="1" Margin="10,10,10,10" VerticalAlignment="Bottom" TextAlignment="Center" FontSize="20" FontWeight="Bold" TextWrapping="Wrap">*Change Generated may not be exact due to precision of rounding</TextBlock>
+        
+
 
     </Grid>
 

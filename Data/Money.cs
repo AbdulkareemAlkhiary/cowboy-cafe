@@ -1,4 +1,7 @@
-﻿using System;
+﻿/* Author: Abdulkareem Alkhiary
+ * Class: Money.cs 
+ * Description: Handles money in register */
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.ComponentModel;
@@ -11,7 +14,7 @@ namespace CowboyCafe.Data
     public class Money
     {
         /// <summary>
-        /// The cash in register
+        /// cash in register
         /// </summary>
         public static ModelView Register { get; private set; } = new ModelView();
 
@@ -23,7 +26,7 @@ namespace CowboyCafe.Data
         public double Total { get; set; }
 
         /// <summary>
-        /// Add the hand to the register and calculate how much change we need to give.
+        /// calculate change
         /// </summary>
         /// <param name="total">Total amount required to complete transaction</param>
         /// <returns>String of bill/coin values to return back to customer</returns>
@@ -81,7 +84,7 @@ namespace CowboyCafe.Data
             else return changeAmounts.ToString();
         }
         /// <summary>
-        /// Find the number of currency to return back to customer as change
+        /// change to customer
         /// </summary>
         /// <param name="numberAvailable">Number of available coins or bills</param>
         /// <param name="valueOfDenomination">The worth of this denomination</param>

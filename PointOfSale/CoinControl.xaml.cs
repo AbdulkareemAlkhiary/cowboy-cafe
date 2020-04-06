@@ -1,4 +1,7 @@
-﻿using CashRegister;
+﻿/* Author: Abdulkareem Alkhiary
+ * Class: CoinControl.xaml.cs 
+ * Description: Handles coins interface */
+using CashRegister;
 using System;
 using System.Collections.Generic;
 using System.Text;

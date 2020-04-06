@@ -1,4 +1,7 @@
-﻿using System;
+﻿/* Author: Abdulkareem Alkhiary
+ * Class: OrderNow.cs 
+ * Description: Handles current order */
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.ComponentModel;
@@ -8,17 +11,15 @@ namespace CowboyCafe.Data
     /// <summary>
     /// Holds all the data for an order transaction
     /// </summary>
-    public class CurrentOrder
+    public class OrderNow
     {
-        /// <summary>
-        /// The actual over held in this transaction
-        /// </summary>
+
         public Order Order { get; private set; }
 
         public const double TaxRate = 0.16;
 
         /// <summary>
-        /// Calculate the cost added due to tax
+        /// Calculate the cost 
         /// </summary>
         public double AddedTax
         {
@@ -34,13 +35,13 @@ namespace CowboyCafe.Data
         }
 
         /// <summary>
-        /// The method used to pay this transaction
+        /// Type of payment
         /// </summary>
         public TypeOfPayment payment { get; set; }
 
         double amountPaid;
         /// <summary>
-        /// The amount that the customer paid
+        /// amount paid
         /// </summary>
         public double AmountPaid
         {
@@ -56,7 +57,7 @@ namespace CowboyCafe.Data
         /// Initialize the transaction object
         /// </summary>
         /// <param name="order">The order to hold</param>
-        public CurrentOrder(Order order)
+        public OrderNow(Order order)
         {
             Order = order;
         }

@@ -56,7 +56,7 @@ namespace PointOfSale
         }
 
         /// <summary>
-        /// Go back to main window
+        /// Main window
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -67,7 +67,7 @@ namespace PointOfSale
         }
 
         /// <summary>
-        /// Goes to new order
+        /// New order
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -83,7 +83,7 @@ namespace PointOfSale
         }
 
         /// <summary>
-        /// Goes to new order
+        /// new order
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -96,10 +96,10 @@ namespace PointOfSale
         }
 
         /// <summary>
-        /// Changes from main screen to order
+        /// main screen to order
         /// </summary>
         /// <param name="element"></param>
-        private void ControlStart(object sender, RoutedEventArgs e)
+        private void Begin(object sender, RoutedEventArgs e)
         {
             Window = this.FindAncestor<MainWindow>();
         }

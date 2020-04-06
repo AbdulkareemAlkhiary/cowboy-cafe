@@ -5,8 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:PointOfSale"
              mc:Ignorable="d" 
-             Height="120" Width="120"
-             d:DesignHeight="120" d:DesignWidth="120">
+             d:DesignHeight="230" d:DesignWidth="190">
     <Border Margin="5" BorderBrush="DarkGray" BorderThickness="1">
         <Grid>
             <Grid.RowDefinitions>

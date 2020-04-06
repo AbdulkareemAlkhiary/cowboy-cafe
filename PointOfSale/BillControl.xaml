@@ -5,9 +5,9 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:PointOfSale"
              mc:Ignorable="d" 
-             d:DesignHeight="190" d:DesignWidth="230">
+             d:DesignHeight="230" d:DesignWidth="190">
     <Border Margin="2" BorderBrush="DarkGray" BorderThickness="1">
-        <Grid>
+        <Grid Background="Silver">
             <Grid.RowDefinitions>
                 <RowDefinition Height="6*"/>
                 <RowDefinition Height="1.5*"/>
@@ -22,8 +22,8 @@
                 <TextBlock Text="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:BillControl}}, Path=Denomination}" Foreground="DarkGreen" TextAlignment="Center" VerticalAlignment="Center" FontWeight="Bold"/>
             </Border>
             <TextBlock Grid.Row="1" Grid.Column="0" Text="Drawer:" FontSize="16" VerticalAlignment="Center"/>
-            <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:BillControl}}, Path=QuantityDrawer}" FontSize="16" Background="White" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
-            <TextBlock Grid.Row="2" Grid.Column="0" Text="Quantity Given:" FontSize="16" VerticalAlignment="Center"/>
+            <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:BillControl}}, Path=QuantityInDrawer}" FontSize="16" Background="White" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
+            <TextBlock Grid.Row="2" Grid.Column="0" Text="Quantity:" FontSize="16" VerticalAlignment="Center"/>
             <TextBlock Grid.Row="2" Grid.Column="1" Text="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:BillControl}}, Path=QuantityGiven}" FontSize="16" Background="White" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
             <Button Grid.Row="3" Grid.Column="0" Click="OnRemoveClicked">-</Button>
             <Button Grid.Row="3" Grid.Column="1" Click="OnAddClicked">+</Button>

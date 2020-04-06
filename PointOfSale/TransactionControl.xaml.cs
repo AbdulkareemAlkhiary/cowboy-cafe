@@ -27,10 +27,8 @@ namespace PointOfSale
     {
         public TransactionControl control;
 
-        // The data for this transaction. The order
-        public CurrentOrder currentOrder { get; private set; }
+        public OrderNow current { get; private set; }
 
-        // For screen switching
         MainWindow Window;
 
         /// <summary>
@@ -41,34 +39,34 @@ namespace PointOfSale
         {
             InitializeComponent();
             control = this;
-            currentOrder = new CurrentOrder(order);
-            DataContext = currentOrder;
+            current = new OrderNow(order);
+            DataContext = current;
         }
 
         /// <summary>
-        /// Handles Cash payments when button is clicked
+        /// Handles Cash payments
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void CashPayment_Click(object sender, RoutedEventArgs e)
+        private void CashPayment(object sender, RoutedEventArgs e)
         {
-            currentOrder.payment = TypeOfPayment.Cash;
+            current.payment = TypeOfPayment.Cash;
             Window = this.FindAncestor<MainWindow>();
-            FrameworkElement screen = new CashControl(currentOrder.Total, control);
+            FrameworkElement screen = new CashControl(current.Total, control);
             Window.SwapScreen(screen);
         }
 
         /// <summary>
-        /// Handles credit card payment when button is clicked
+        /// Handles credit card payment
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void CreditPayment_Click(object sender, RoutedEventArgs e)
+        private void CreditPayment(object sender, RoutedEventArgs e)
         {
             CardTerminal cardTerminal = new CardTerminal();
-            currentOrder.payment = TypeOfPayment.Credit;
-            currentOrder.AmountPaid = currentOrder.Total;
-            ResultCode code = cardTerminal.ProcessTransaction(currentOrder.Total);
+            current.payment = TypeOfPayment.Credit;
+            current.AmountPaid = current.Total;
+            ResultCode code = cardTerminal.ProcessTransaction(current.Total);
 
             switch (code)
             {
@@ -92,20 +90,20 @@ namespace PointOfSale
         }
 
         /// <summary>
-        /// Handles order wpf when cancel button is clicked
+        /// Handles order wpf
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void CancelTransaction_Click(object sender, RoutedEventArgs e)
+        private void CancelTransaction(object sender, RoutedEventArgs e)
         {
-            OrderControl newOrderControl = new OrderControl();
-            newOrderControl.CompleteOrderButton.IsEnabled = true;
-            newOrderControl.ItemSelectButton.IsEnabled = true;
-            Window.SwapScreen(newOrderControl);
+            OrderControl Order = new OrderControl();
+            Order.CompleteOrderButton.IsEnabled = true;
+            Order.ItemSelectButton.IsEnabled = true;
+            Window.SwapScreen(Order);
         }
 
         /// <summary>
-        /// Finishes the transaction and prints the receipt with all information
+        /// Finishes the transaction and prints
         /// </summary>
         public void FinishCurrentTransaction()
         {
@@ -122,7 +120,7 @@ namespace PointOfSale
         }
 
         /// <summary>
-        /// Generates a string to print into log file
+        /// Generates a string to print
         /// </summary>
         /// <returns>stringbuilder with all of order details</returns>
         public string ReceiptBuilder()
@@ -130,14 +128,14 @@ namespace PointOfSale
             StringBuilder receipt = new StringBuilder();
             int printCharacterMax = 60;
             double TaxRate = 0.16;
-            uint orderNumber = currentOrder.Order.OrderNumber;
+            uint orderNumber = current.Order.OrderNumber;
             DateTime dateTime = DateTime.Now;
-            double subtotal = currentOrder.Order.Subtotal;
-            double total = currentOrder.Total;
+            double subtotal = current.Order.Subtotal;
+            double total = current.Total;
             double tax = Math.Round((subtotal * TaxRate), 2);
-            TypeOfPayment formOfPayment = currentOrder.payment;
-            double amountPaid = currentOrder.AmountPaid;
-            double change = currentOrder.AmountPaid - currentOrder.Total;
+            TypeOfPayment formOfPayment = current.payment;
+            double amountPaid = current.AmountPaid;
+            double change = current.AmountPaid - current.Total;
 
             receipt.AppendLine("Cowboy Cafe");
             receipt.AppendLine($"Order: {orderNumber}");
@@ -145,7 +143,7 @@ namespace PointOfSale
             receipt.Append('-', printCharacterMax); receipt.AppendLine();
             receipt.AppendLine("Items:");
 
-            foreach (IOrderItem item in currentOrder.Order.Items)
+            foreach (IOrderItem item in current.Order.Items)
             {
                 string itemName = item.ToString();
                 string price = item.Price.ToString("C");
@@ -213,11 +211,11 @@ namespace PointOfSale
         }
 
         /// <summary>
-        /// Initializes ancestor variable upon initialization
+        /// Initializes ancestor
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void ControlStart(object sender, RoutedEventArgs e)
+        private void Begin(object sender, RoutedEventArgs e)
         {
             Window = this.FindAncestor<MainWindow>();
         }

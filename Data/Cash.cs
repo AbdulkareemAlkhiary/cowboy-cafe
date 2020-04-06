@@ -1,4 +1,7 @@
-﻿using System;
+﻿/* Author: Abdulkareem Alkhiary
+ * Class: Cash.cs 
+ * Description: Handles cash in register */
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.ComponentModel;
@@ -11,13 +14,11 @@ namespace CowboyCafe.Data
     /// </summary>
     public class Cash : INotifyPropertyChanged
     {
-        /// <summary>
-        /// Event handler for property changes
-        /// </summary>
+
         public event PropertyChangedEventHandler PropertyChanged;
 
         /// <summary>
-        /// Invokes the PropertyChanged event for specific denomination and total cash given/
+        /// Invokes the PropertyChanged event 
         /// </summary>
         /// <param name="denomination">Changing property</param>
         void InvokePropertyChanged(string denomination)

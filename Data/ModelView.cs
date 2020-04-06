@@ -1,4 +1,7 @@
-﻿using System;
+﻿/* Author: Abdulkareem Alkhiary
+ * Class: ModelView.cs 
+ * Description: Handles model view */
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.ComponentModel;
@@ -11,14 +14,8 @@ namespace CowboyCafe.Data
     /// </summary>
     public class ModelView : INotifyPropertyChanged
     {
-        /// <summary>
-        /// Event that notifies when properties change
-        /// </summary>
         public event PropertyChangedEventHandler PropertyChanged;
 
-        /// <summary>
-        /// The Model class for this ModelView
-        /// </summary> 
         CashDrawer drawer = new CashDrawer();
 
         /// <summary>
