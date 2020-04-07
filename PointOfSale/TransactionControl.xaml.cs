@@ -96,10 +96,11 @@ namespace PointOfSale
         /// <param name="e"></param>
         private void CancelTransaction(object sender, RoutedEventArgs e)
         {
+            Window = this.FindAncestor<MainWindow>();
             OrderControl Order = new OrderControl();
             Order.CompleteOrderButton.IsEnabled = true;
             Order.ItemSelectButton.IsEnabled = true;
-            Window.SwapScreen(Order);
+            Window.SwapScreen(new OrderControl());
         }
 
         /// <summary>

@@ -64,7 +64,7 @@
         </StackPanel>
 
         <StackPanel Name="Bills" Orientation="Horizontal" Grid.ColumnSpan="2" Grid.Row="1" Margin="4" HorizontalAlignment="Center">
-            <local:BillControl Width="175" QuantityDrawer="{Binding Path=Register.Ones}" QuantityGiven="{Binding Path=cash.Ones}" Denomination="One" />
+            <local:BillControl Width="175" QuantityDrawer="{Binding Path=Register.Ones}" QuantityGiven="{Binding Path=cash.Ones}" Denomination="One" Loaded="BillControl_Loaded" />
             <local:BillControl Width="175" QuantityDrawer="{Binding Path=Register.Twos}" QuantityGiven="{Binding Path=cash.Twos}" Denomination="Two" />
             <local:BillControl Width="175" QuantityDrawer="{Binding Path=Register.Fives}" QuantityGiven="{Binding Path=cash.Fives}" Denomination="Five" />
             <local:BillControl Width="175" QuantityDrawer="{Binding Path=Register.Tens}" QuantityGiven="{Binding Path=cash.Tens}" Denomination="Ten" />
@@ -86,7 +86,7 @@
         </StackPanel>
 
 
-        <StackPanel Orientation="Vertical" Grid.Row="4" Grid.Column="0" HorizontalAlignment="Center">
+        <StackPanel Orientation="Vertical" Grid.Row="4" Grid.Column="1" HorizontalAlignment="Center">
             <Button Click="OnCalculateChange" Grid.Row="0" Grid.Column="1" Name="ChangeButton">Calculate Change</Button>
             <Button Click="OnDone" IsEnabled="False" Name="DoneButton">Done</Button>
         </StackPanel>
