@@ -30,9 +30,9 @@ namespace PointOfSale
             
         }
 
-        public void SwapScreen(FrameworkElement elem)
+        public void SwapScreen(FrameworkElement element)
         {
-            Screen.Content = elem;
+            Screen.Content = element;
         }
     }
 }

@@ -48,15 +48,15 @@ namespace PointOfSale
         /// <param name="e"></param>
         private void OnCalculateChange(object sender, RoutedEventArgs e)
         {
-            transaction.current.AmountPaid = money.cash.TotalValueGiven;
-            if (money.cash.TotalValueGiven < money.Total)
+            transaction.current.AmountPaid = money.cash.Changetotal;
+            if (money.cash.Changetotal < money.Total)
             {
                 MessageBox.Show($"Error: \n{"Not Enough Money for Transaction"}");
             }
             else
             {
-                MessageBox.Show ($"Change To Give: " + (money.cash.TotalValueGiven - money.Total).ToString("C") +
-                                  $"\nChange To Give (Quantity):\n{money.CalculateChangeToGiveBack(money.Total)}");
+                MessageBox.Show ($"Change To Give: " + (money.cash.Changetotal - money.Total).ToString("C") +
+                                  $"\nChange To Give (Quantity):\n{money.TotalChange(money.Total)}");
                 Bills.IsEnabled = false;
                 Coins.IsEnabled = false;
                 DoneButton.IsEnabled = true;

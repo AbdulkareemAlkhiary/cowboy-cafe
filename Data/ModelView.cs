@@ -19,19 +19,19 @@ namespace CowboyCafe.Data
         CashDrawer drawer = new CashDrawer();
 
         /// <summary>
-        /// The total current value of the drawer
+        /// current value of the drawer
         /// </summary>
-        double TotalValue => drawer.TotalValue;
+        double Currentvalue => drawer.TotalValue;
 
         /// <summary>
         /// Invokes the PropertyChanged event for denomination properties
-        /// and the TotalValue
+        /// and the Currentvalue
         /// </summary>
         /// <param name="denomination">The property that is changing</param>
         void InvokePropertyChanged(string denomination)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(denomination));
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("TotalValue"));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Currentvalue"));
         }
 
         /// <summary>

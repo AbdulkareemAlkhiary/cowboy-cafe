@@ -24,10 +24,10 @@ namespace CowboyCafe.Data
         void InvokePropertyChanged(string denomination)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(denomination));
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("TotalValueGiven"));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Changetotal"));
         }
 
-        public double TotalValueGiven
+        public double Changetotal
         {
             get
             {
