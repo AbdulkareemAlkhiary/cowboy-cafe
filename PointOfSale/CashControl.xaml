@@ -64,11 +64,11 @@
         </StackPanel>
 
         <StackPanel Name="Bills" Orientation="Horizontal" Grid.ColumnSpan="2" Grid.Row="1" Margin="4" HorizontalAlignment="Center">
-            <local:BillControl Width="175" QuantityDrawer="{Binding Path=Register.Ones}" QuantityGiven="{Binding Path=cash.Ones}" Denomination="One" Loaded="BillControl_Loaded" />
+            <local:BillControl Width="175" QuantityDrawer="{Binding Path=Register.Ones}" QuantityGiven="{Binding Path=cash.Ones}" Denomination="One" />
             <local:BillControl Width="175" QuantityDrawer="{Binding Path=Register.Twos}" QuantityGiven="{Binding Path=cash.Twos}" Denomination="Two" />
             <local:BillControl Width="175" QuantityDrawer="{Binding Path=Register.Fives}" QuantityGiven="{Binding Path=cash.Fives}" Denomination="Five" />
             <local:BillControl Width="175" QuantityDrawer="{Binding Path=Register.Tens}" QuantityGiven="{Binding Path=cash.Tens}" Denomination="Ten" />
-            <local:BillControl  Width="175" QuantityDrawer="{Binding Path=Register.Twenties}" QuantityGiven="{Binding Path=cash.Twenties}" Denomination="Twenty" />
+            <local:BillControl Width="175" QuantityDrawer="{Binding Path=Register.Twenties}" QuantityGiven="{Binding Path=cash.Twenties}" Denomination="Twenty" />
             <local:BillControl Width="175" QuantityDrawer="{Binding Path=Register.Fifties}" QuantityGiven="{Binding Path=cash.Fifties}" Denomination="Fifty" />
             <local:BillControl Width="175" QuantityDrawer="{Binding Path=Register.Hundreds}" QuantityGiven="{Binding Path=cash.Hundreds}" Denomination="Hundred" />
         </StackPanel>
@@ -76,7 +76,7 @@
         <StackPanel Margin="5"  Background="White" Orientation="Vertical" Grid.Row="2" Grid.Column="0" HorizontalAlignment="Right">
             <TextBlock Background="White" TextWrapping="Wrap" Grid.Row="2" Margin="10,10,10,10" TextAlignment="Right" FontSize="20" FontWeight="Bold" >
             <Run Text="Total Paid: "/>
-            <Run Text="{Binding Path=cash.TotalValueGiven, Mode=OneWay, StringFormat=C}"/>
+            <Run Text="{Binding Path=cash.Changetotal, Mode=OneWay, StringFormat=C}"/>
             </TextBlock>
 
             <TextBlock Background="White"  Margin="10,10,10,10" TextAlignment="Right" FontSize="20" FontWeight="Bold" >
@@ -85,13 +85,10 @@
             </TextBlock>
         </StackPanel>
 
-
         <StackPanel Orientation="Vertical" Grid.Row="4" Grid.Column="1" HorizontalAlignment="Center">
             <Button Click="OnCalculateChange" Grid.Row="0" Grid.Column="1" Name="ChangeButton">Calculate Change</Button>
             <Button Click="OnDone" IsEnabled="False" Name="DoneButton">Done</Button>
         </StackPanel>
-
-        
 
 
     </Grid>

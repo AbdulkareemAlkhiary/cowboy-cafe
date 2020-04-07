@@ -103,8 +103,8 @@
 
         <StackPanel Orientation="Vertical" Margin="15" Grid.Row ="5" Grid.ColumnSpan="2" Height="180" VerticalAlignment="Top" HorizontalAlignment="Center">
             <StackPanel Orientation="Horizontal">
-                <Button Click="CashPayment" Margin ="5" >Pay with Cash</Button>
-                <Button Click="CreditPayment" Margin ="5">Pay with Card</Button>
+                <Button Click="CashPayment" Margin ="5" >Cash</Button>
+                <Button Click="CreditPayment" Margin ="5">Card</Button>
             </StackPanel>
             <Button Click="CancelTransaction" Margin ="20" >Cancel Transaction</Button>
         </StackPanel>

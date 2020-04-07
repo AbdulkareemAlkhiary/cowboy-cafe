@@ -89,18 +89,18 @@ namespace CowboyCafe.Data
         /// <param name="numberAvailable">Number of available coins or bills</param>
         /// <param name="valueOfDenomination">The worth of this denomination</param>
         /// <param name="changeAmounts">Change amounts to give</param>
-        /// <param name="changeToGiveBack">Total cost reference</param>
+        /// <param name="totalChange">Total cost reference</param>
         /// <param name="denominationName">An array of strings for single and multiple denomination types</param>
         /// <returns>Number of this denomination</returns>
-        private int ChangeAmount(int numberOfChangeAvailable, double valueOfDenomination, StringBuilder changeAmounts, ref double changeToGiveBack, string[] denominationName)
+        private int ChangeAmount(int numberOfChangeAvailable, double valueOfDenomination, StringBuilder changeAmounts, ref double totalChange, string[] denominationName)
         {
-            int neededAmount = (int)Math.Round((changeToGiveBack / valueOfDenomination), MidpointRounding.ToZero);
+            int neededAmount = (int)Math.Round((totalChange / valueOfDenomination), MidpointRounding.ToZero);
             int specificNumber = (Math.Min(numberOfChangeAvailable, neededAmount));
 
             if (specificNumber == 1) changeAmounts.AppendLine(specificNumber + " " + denominationName[0]);
             if (specificNumber > 1) changeAmounts.AppendLine(specificNumber + " " + denominationName[1]);
 
-            changeToGiveBack -= specificNumber * valueOfDenomination;
+            totalChange -= specificNumber * valueOfDenomination;
             return specificNumber;
         }
     }
