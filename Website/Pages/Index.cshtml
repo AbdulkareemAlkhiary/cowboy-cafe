@@ -7,35 +7,57 @@
 
 
     <div class="text-center">
-        <h1 style="font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif" class="display-4">Welcome to Cowboy Cafe!</h1>
-        <p>
-            We at Cowboy Cafe are proud to bring you authentic trail meals from the American West.
-            Shake off the dust on your boots and sake your thirst with one of our old-fashioned hand-jerked sodas.
-            Dip your Pan de Campo into a bowl of beans. Or conquer the the mighty Texas Triple Burger! You’ve had a hard ride - so take it easy with us.
-        </p>
 
-        <div class="col-sm">
-            <h2>Entrees</h2>
-            @foreach (CowboyCafe.Data.Entree entree in CowboyCafe.Data.Menu.entreeItems())
-            {
+        <div class="row">
 
-            }
-        </div>
 
-        <div class="col-sm">
-            <h2>Sides</h2>
-            @foreach (CowboyCafe.Data.Entree side in CowboyCafe.Data.Menu.sideItems())
-            {
+            <h1 style="font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif" class="display-4">Welcome to Cowboy Cafe!</h1>
+            <p>
+                We at Cowboy Cafe are proud to bring you authentic trail meals from the American West.
+                Shake off the dust on your boots and sake your thirst with one of our old-fashioned hand-jerked sodas.
+                Dip your Pan de Campo into a bowl of beans. Or conquer the the mighty Texas Triple Burger! You’ve had a hard ride - so take it easy with us.
+            </p>
 
-            }
-        </div>
+            <div class="entrees col-3">
+                <h2 style="font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif">Entrees</h2>
+                @foreach (CowboyCafe.Data.Entree entree in CowboyCafe.Data.Menu.Entrees())
+                {
+                    <div class="menu-item">
+                        
+                        <span>@entree<br /></span>
+                        <span>Price: @string.Format("{0:C}", entree.Price)<br /></span>
+                        <span>Calories: @entree.Calories<br /></span>
+                    </div>
+                    <br />
+                }
+            </div>
 
-        <div class="col-sm">
-            <h2>Drinks</h2>
-            @foreach (CowboyCafe.Data.Entree drink in CowboyCafe.Data.Menu.drinkItems())
-            {
+            <div class="drinks col-5">
+                <h2 style="font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif">Sides</h2>
+                @foreach (CowboyCafe.Data.Side side in CowboyCafe.Data.Menu.Sides())
+                {
+                    <div class="menu-item">
+                        <span>@side<br /></span>
+                        <span>Price: @string.Format("{0:C}", side.Price)<br /></span>
+                        <span>Calories: @side.Calories<br /></span>
+                    </div>
+                    <br />
+                }
+            </div>
 
-            }
+            <div class="sides col-6">
+                <h2 style="font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif">Drinks</h2>
+                @foreach (CowboyCafe.Data.Drink drink in CowboyCafe.Data.Menu.Drinks())
+                {
+                    <div class="menu-item">
+                        <span>@drink<br /></span>
+                        <span>Price: @string.Format("{0:C}", drink.Price)<br /></span>
+                        <span>Calories: @drink.Calories<br /></span>
+                    </div>
+                    <br />
+                }
+            </div>
+
         </div>
 
     </div>
