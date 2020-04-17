@@ -6,58 +6,67 @@
 }
 
 
-    <div class="text-center">
+<div class="text-center">
 
-        <div class="row">
+    <div class="row">
 
 
-            <h1 style="font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif" class="display-4">Welcome to Cowboy Cafe!</h1>
-            <p>
-                We at Cowboy Cafe are proud to bring you authentic trail meals from the American West.
-                Shake off the dust on your boots and sake your thirst with one of our old-fashioned hand-jerked sodas.
-                Dip your Pan de Campo into a bowl of beans. Or conquer the the mighty Texas Triple Burger! You’ve had a hard ride - so take it easy with us.
-            </p>
+        <h1 style="font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif" class="display-4">Welcome to Cowboy Cafe!</h1>
+        <p>
+            We at Cowboy Cafe are proud to bring you authentic trail meals from the American West.
+            Shake off the dust on your boots and sake your thirst with one of our old-fashioned hand-jerked sodas.
+            Dip your Pan de Campo into a bowl of beans. Or conquer the the mighty Texas Triple Burger! You’ve had a hard ride - so take it easy with us.
+        </p>
 
-            <div class="entrees col-3">
-                <h2 style="font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif">Entrees</h2>
-                @foreach (CowboyCafe.Data.Entree entree in CowboyCafe.Data.Menu.Entrees())
+        <div class="entrees col-auto">
+            <h2 style="font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif">Entrees</h2>
+            @foreach (CowboyCafe.Data.Entree entree in CowboyCafe.Data.Menu.Entrees())
+            {
+                <div class="menu-item">
+
+                    <span>@entree<br /></span>
+                    <span>Price: @string.Format("{0:C}", entree.Price)<br /></span>
+                    <span>Calories: @entree.Calories<br /></span>
+                </div>
+                <br />
+            }
+        </div>
+
+        <div class="drinks col-auto">
+            <h2 style="font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif">Sides</h2>
+            @foreach (CowboyCafe.Data.Side side in CowboyCafe.Data.Menu.Sides())
+            {
+                @foreach (CowboyCafe.Data.Size size in Enum.GetValues(typeof(CowboyCafe.Data.Size)))
                 {
-                    <div class="menu-item">
-                        
-                        <span>@entree<br /></span>
-                        <span>Price: @string.Format("{0:C}", entree.Price)<br /></span>
-                        <span>Calories: @entree.Calories<br /></span>
-                    </div>
-                    <br />
-                }
-            </div>
 
-            <div class="drinks col-5">
-                <h2 style="font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif">Sides</h2>
-                @foreach (CowboyCafe.Data.Side side in CowboyCafe.Data.Menu.Sides())
-                {
+                    CowboyCafe.Data.Menu.SizeSide(side, size);
                     <div class="menu-item">
                         <span>@side<br /></span>
                         <span>Price: @string.Format("{0:C}", side.Price)<br /></span>
                         <span>Calories: @side.Calories<br /></span>
                     </div>
-                    <br />
                 }
-            </div>
+                <br />
+            }
+        </div>
 
-            <div class="sides col-6">
-                <h2 style="font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif">Drinks</h2>
-                @foreach (CowboyCafe.Data.Drink drink in CowboyCafe.Data.Menu.Drinks())
+        <div class="sides col-auto">
+            <h2 style="font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif">Drinks</h2>
+            @foreach (CowboyCafe.Data.Drink drink in CowboyCafe.Data.Menu.Drinks())
+            {
+                @foreach (CowboyCafe.Data.Size size in Enum.GetValues(typeof(CowboyCafe.Data.Size)))
                 {
+                    CowboyCafe.Data.Menu.SizeDrink(drink, size);
                     <div class="menu-item">
                         <span>@drink<br /></span>
                         <span>Price: @string.Format("{0:C}", drink.Price)<br /></span>
                         <span>Calories: @drink.Calories<br /></span>
                     </div>
-                    <br />
                 }
-            </div>
-
+                <br />
+            }
         </div>
 
     </div>
+
+</div>

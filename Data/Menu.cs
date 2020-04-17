@@ -10,6 +10,26 @@ namespace CowboyCafe.Data
     public static class Menu
     {
         /// <summary>
+        /// Changes size of drink
+        /// </summary>
+        /// <param name="d"></param>
+        /// <param name="s"></param>
+        public static void SizeDrink(Drink d, Size s)
+        {
+            d.Size = s;
+        }
+
+        /// <summary>
+        /// Changes size of side
+        /// </summary>
+        /// <param name="s"></param>
+        /// <param name="size"></param>
+        public static void SizeSide(Side s, Size size)
+        {
+            s.Size = size;
+        }
+                
+        /// <summary>
         /// Data refactoring
         /// </summary>
         /// <returns></returns>
