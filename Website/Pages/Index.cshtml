@@ -1,10 +1,41 @@
 ﻿@page
 @model IndexModel
+@using CowboyCafe.Data
 @{
     ViewData["Title"] = "Home page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+
+    <div class="text-center">
+        <h1 style="font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif" class="display-4">Welcome to Cowboy Cafe!</h1>
+        <p>
+            We at Cowboy Cafe are proud to bring you authentic trail meals from the American West.
+            Shake off the dust on your boots and sake your thirst with one of our old-fashioned hand-jerked sodas.
+            Dip your Pan de Campo into a bowl of beans. Or conquer the the mighty Texas Triple Burger! You’ve had a hard ride - so take it easy with us.
+        </p>
+
+        <div class="col-sm">
+            <h2>Entrees</h2>
+            @foreach (CowboyCafe.Data.Entree entree in CowboyCafe.Data.Menu.entreeItems())
+            {
+
+            }
+        </div>
+
+        <div class="col-sm">
+            <h2>Sides</h2>
+            @foreach (CowboyCafe.Data.Entree side in CowboyCafe.Data.Menu.sideItems())
+            {
+
+            }
+        </div>
+
+        <div class="col-sm">
+            <h2>Drinks</h2>
+            @foreach (CowboyCafe.Data.Entree drink in CowboyCafe.Data.Menu.drinkItems())
+            {
+
+            }
+        </div>
+
+    </div>
