@@ -10,13 +10,6 @@ namespace CowboyCafe.Data
     public static class Menu
     {
 
-        static List<IOrderItem> orderItems = new List<IOrderItem>();
-
-        /// <summary>
-        /// Gets all the items in the database
-        /// </summary>
-        public static IEnumerable<IOrderItem> All { get { return orderItems; } }
-
         /// <summary>
         /// Changes size of drink
         /// </summary>
@@ -126,11 +119,11 @@ namespace CowboyCafe.Data
             List<IOrderItem> results = new List<IOrderItem>();
 
             // Return all movies if there are no search terms
-            if (terms == null) return All;
+            if (terms == null) return OrderItems();
 
 
             // return each movie in the database containing the terms substring
-            foreach (IOrderItem item in All)
+            foreach (IOrderItem item in OrderItems())
             {
                 if (item.ToString() != null && item.ToString().Contains(terms, StringComparison.InvariantCultureIgnoreCase))
                 {
@@ -148,24 +141,37 @@ namespace CowboyCafe.Data
         /// <param name="movies">The collection of movies to filter</param>
         /// <param name="ratings">The ratings to include</param>
         /// <returns>A collection containing only movies that match the filter</returns>
-        public static IEnumerable<IOrderItem> FilterByType(IEnumerable<IOrderItem> items, string[] type)
+        public static IEnumerable<IOrderItem> FilterByType(IEnumerable<IOrderItem> items, string[] types)
         {
-            // TODO: Filter the list
-            // If no filter is specified, just return the provided collection
-            if (type == null || type.Count() == 0) return items;
-
-            // Filter the supplied collection of movies
-            List<IOrderItem> results = new List<IOrderItem>();
-            foreach (IOrderItem item in items)
+            if (types == null || types.Length == 0) return items;
+            List<IOrderItem> result = new List<IOrderItem>();
+            foreach (string type in types)
             {
-                if (type != null && type.Contains(item))
+                switch (type)
                 {
-                    results.Add(item);
+                    case "Entree":
+                        foreach (IOrderItem item in items)
+                        {
+                            if (item is Entree) result.Add(item);
+                        }
+                        break;
+                    case "Side":
+                        foreach (IOrderItem item in items)
+                        {
+                            if (item is Side) result.Add(item);
+                        }
+                        break;
+                    case "Drink":
+                        foreach (IOrderItem item in items)
+                        {
+                            if (item is Drink) result.Add(item);
+                        }
+                        break;
+                    default:
+                        return items;
                 }
             }
-
-            return results;
-
+            return result;
         }
 
         /// <summary>

@@ -13,18 +13,7 @@ a {
   color: #0366d6;
 }
 
-.roman {
-    list-style-type: lower-roman;
-}
-
-.square {
-    list-style-type: square;
-    margin-left: -2em;
-}
-
 #search {
-    grid-column-start: 1;
-    grid-column-end: 3;
     text-align: center;
 }
 
@@ -40,6 +29,7 @@ a {
     #filters h4 {
         margin-bottom: 0.2rem;
     }
+
 
 .btn-primary {
     color: #fff;

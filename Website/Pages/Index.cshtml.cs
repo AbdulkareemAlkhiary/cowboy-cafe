@@ -19,7 +19,7 @@ namespace Website.Pages
         }
 
         /// <summary>
-        /// The movies to display on the index page 
+        /// The items of the order 
         /// </summary>
         public IEnumerable<IOrderItem> Items { get; protected set; }
 
@@ -53,15 +53,24 @@ namespace Website.Pages
         [BindProperty]
         public double? CaloriesMax { get; set; }
 
+        /// <summary>
+        /// Gets and sets the type of item
+        /// </summary>
+        [BindProperty]
+        public string[] Types { get; set; }
+
         public void OnGet(double? PriceMin, double? PriceMax, double? CaloriesMin, double? CaloriesMax)
         {
             this.PriceMax = PriceMax;
             this.PriceMin = PriceMin;
             this.CaloriesMax = CaloriesMax;
             this.CaloriesMin = CaloriesMin;
+            SearchTerms = Request.Query["SearchTerms"];
+            Types = Request.Query["Types"];
             Items = Menu.Search(SearchTerms);
             Items = Menu.FilterByPrice(Items, PriceMin, PriceMax);
-            Items = Menu.FilterByPrice(Items, CaloriesMin, CaloriesMax);
+            Items = Menu.FilterByCalories(Items, CaloriesMin, CaloriesMax);
+            Items = Menu.FilterByType(Items, Types);
         }
     }
 }
