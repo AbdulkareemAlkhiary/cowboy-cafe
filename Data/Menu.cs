@@ -11,51 +11,29 @@ namespace CowboyCafe.Data
     {
 
         /// <summary>
-        /// Changes size of drink
-        /// </summary>
-        /// <param name="d"></param>
-        /// <param name="s"></param>
-        public static void SizeDrink(Drink d, Size s)
-        {
-            d.Size = s;
-        }
-
-        /// <summary>
-        /// Changes size of side
-        /// </summary>
-        /// <param name="s"></param>
-        /// <param name="size"></param>
-        public static void SizeSide(Side s, Size size)
-        {
-            s.Size = size;
-        }
-                
-        /// <summary>
         /// Data refactoring
         /// </summary>
         /// <returns></returns>
         public static IEnumerable<IOrderItem> OrderItems()
         {
-            List<IOrderItem> orderItems = new List<IOrderItem>
+            List<IOrderItem> orderItems = new List<IOrderItem>();
+            foreach (IOrderItem item in Entrees())
             {
-                new BakedBeans(),
-                new ChiliCheeseFries(),
-                new CornDodgers(),
-                new PanDeCampo(),
+                orderItems.Add(item);
+            }
 
-                new AngryChicken(),
-                new CowpokeChili(),
-                new DakotaDoubleBurger(),
-                new PecosPulledPork(),
-                new RustlersRibs(),
-                new TexasTripleBurger(),
-                new TrailBurger(),
+            foreach (IOrderItem item in Sides())
+            {
+                orderItems.Add(item);
+            }
 
-                new CowboyCoffee(),
-                new JerkedSoda(),
-                new TexasTea(),
-                new Water()
-            };
+            foreach (IOrderItem item in Drinks())
+            {
+                orderItems.Add(item);
+            }
+
+
+
             return orderItems;
         }
 
@@ -87,13 +65,36 @@ namespace CowboyCafe.Data
         /// <returns></returns>
         public static IEnumerable<IOrderItem> Drinks()
         {
-            List<IOrderItem> drinkItems = new List<IOrderItem>
+            List<IOrderItem> drinkItems = new List<IOrderItem>();
+
+            foreach (Size size in Enum.GetValues(typeof(Size)))
             {
-                new CowboyCoffee(),
-                new JerkedSoda(),
-                new TexasTea(),
-                new Water()
-            };
+                JerkedSoda soda = new JerkedSoda();
+                soda.Size = size;
+                drinkItems.Add(soda);
+            }
+
+            foreach (Size size in Enum.GetValues(typeof(Size)))
+            {
+                Water w = new Water();
+                w.Size = size;
+                drinkItems.Add(w);
+            }
+
+            foreach (Size size in Enum.GetValues(typeof(Size)))
+            {
+                CowboyCoffee coffee = new CowboyCoffee();
+                coffee.Size = size;
+                drinkItems.Add(coffee);
+            }
+
+            foreach (Size size in Enum.GetValues(typeof(Size)))
+            {
+                TexasTea tea = new TexasTea();
+                tea.Size = size;
+                drinkItems.Add(tea);
+            }
+
             return drinkItems;
         }
 
@@ -103,13 +104,36 @@ namespace CowboyCafe.Data
         /// <returns></returns>
         public static IEnumerable<IOrderItem> Sides()
         {
-            List<IOrderItem> sideItems = new List<IOrderItem>
-            { 
-                new BakedBeans(),
-                new ChiliCheeseFries(),
-                new CornDodgers(),
-                new PanDeCampo()
-            };
+            List<IOrderItem> sideItems = new List<IOrderItem>();
+
+            foreach (Size size in Enum.GetValues(typeof(Size)))
+            {
+                BakedBeans beans = new BakedBeans();
+                beans.Size = size;
+                sideItems.Add(beans);
+            }
+
+            foreach (Size size in Enum.GetValues(typeof(Size)))
+            {
+                ChiliCheeseFries fries = new ChiliCheeseFries();
+                fries.Size = size;
+                sideItems.Add(fries);
+            }
+
+            foreach (Size size in Enum.GetValues(typeof(Size)))
+            {
+                CornDodgers corn = new CornDodgers();
+                corn.Size = size;
+                sideItems.Add(corn);
+            }
+
+            foreach (Size size in Enum.GetValues(typeof(Size)))
+            {
+                PanDeCampo de = new PanDeCampo();
+                de.Size = size;
+                sideItems.Add(de);
+            }
+
             return sideItems;
         }
 

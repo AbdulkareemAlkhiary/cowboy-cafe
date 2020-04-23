@@ -19,6 +19,12 @@ namespace Website.Pages
         }
 
         /// <summary>
+        /// Count for determining items in each column
+        /// </summary>
+        [BindProperty]
+        public int Count { get; set; } = 0;
+
+        /// <summary>
         /// The items of the order 
         /// </summary>
         public IEnumerable<IOrderItem> Items { get; protected set; }
