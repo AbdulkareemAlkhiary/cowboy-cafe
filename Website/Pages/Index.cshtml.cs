@@ -22,12 +22,18 @@ namespace Website.Pages
         /// Count for determining items in each column
         /// </summary>
         [BindProperty]
+        public bool JerkedSodaAvailable { get; set; } = false;
+
+        /// <summary>
+        /// Count for determining items in each column
+        /// </summary>
+        [BindProperty]
         public int Count { get; set; } = 0;
 
         /// <summary>
         /// The items of the order 
         /// </summary>
-        public IEnumerable<IOrderItem> Items { get; protected set; }
+        public IEnumerable<IOrderItem> Items { get; protected set; } = Menu.OrderItems();
 
         /// <summary>
         /// Gets and sets the search terms
@@ -65,6 +71,13 @@ namespace Website.Pages
         [BindProperty]
         public string[] Types { get; set; }
 
+        /// <summary>
+        /// filters items
+        /// </summary>
+        /// <param name="PriceMin"></param>
+        /// <param name="PriceMax"></param>
+        /// <param name="CaloriesMin"></param>
+        /// <param name="CaloriesMax"></param>
         public void OnGet(double? PriceMin, double? PriceMax, double? CaloriesMin, double? CaloriesMax)
         {
             this.PriceMax = PriceMax;
@@ -73,7 +86,7 @@ namespace Website.Pages
             this.CaloriesMin = CaloriesMin;
             SearchTerms = Request.Query["SearchTerms"];
             Types = Request.Query["Types"];
-            Items = Menu.Search(SearchTerms);
+            Items = Menu.Search(SearchTerms, Items);
             Items = Menu.FilterByPrice(Items, PriceMin, PriceMax);
             Items = Menu.FilterByCalories(Items, CaloriesMin, CaloriesMax);
             Items = Menu.FilterByType(Items, Types);

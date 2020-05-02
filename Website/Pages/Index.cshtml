@@ -5,9 +5,9 @@
     ViewData["Title"] = "Home page";
 }
 
-    <center>
-        <img class="marginauto" src="~/images/CowboyCafe.png" alt="centered image" width="200" height="120" />
-    </center>
+<center>
+    <img class="marginauto" src="~/images/CowboyCafe.png" alt="centered image" width="200" height="120" />
+</center>
 
 <form id="Menu">
 
@@ -20,7 +20,7 @@
         Shake off the dust on your boots and sake your thirst with one of our old-fashioned hand-jerked sodas.
         Dip your Pan de Campo into a bowl of beans. Or conquer the the mighty Texas Triple Burger! You’ve had a hard ride - so take it easy with us.
     </p><br />
-    
+
 
 
 
@@ -30,105 +30,136 @@
     }
     else
     {
-        <div id="items" class="text-center">
-            <div class="row">
-
-                <div class="col-sm">
-
-                    <div id="search">
-                        <input type="text" name="SearchTerms" value="@Model.SearchTerms" />
-                        <input type="submit" value="Search">
-                    </div>
-
-                    <div id="filters">
+        <div class="flex-columns">
+            <div class="flex-item">
 
 
-                        <label>
-                            Entrees
-                            <input type="checkbox" name="Types" value="Entree" checked="@Model.Types.Contains("Entree")" />
-                        </label>
-
-                        <label>
-                            Sides
-                            <input type="checkbox" name="Types" value="Side" checked="@Model.Types.Contains("Side")" />
-                        </label>
-
-                        <label>
-                            Drinks
-                            <input type="checkbox" name="Types" value="Drink" checked="@Model.Types.Contains("Drink")" />
-                        </label>
-
-
-                        <h4>Price</h4>
-                        <div>
-                            Between
-                            <input name="PriceMin" type="number" min="0" max="10" step="0.1" placeholder="min" />
-                            and
-                            <input name="PriceMax" type="number" min="0" max="10" step="0.1" placeholder="max" />
-                        </div><br/>
-
-                        <h4>Calories</h4>
-                        <div>
-                            Between
-                            <input name="CaloriesMin" type="number" min="0" max="1000" step="10" placeholder="min" />
-                            and
-                            <input name="CaloriesMax" type="number" min="0" max="1000" step="10" placeholder="max" />
-                        </div>
-
-
-                    </div>
+                <div id="search">
+                    <input type="text" name="SearchTerms" value="@Model.SearchTerms" />
+                    <input type="submit" value="Search">
                 </div>
 
+                <div id="filters">
 
-                
-                <div class="col-sm">
-                    <h4>Drinks</h4>
-                    @foreach (IOrderItem item in @Model.Items)
+
+
+
+                    <label>
+                        Entrees
+                        <input type="checkbox" name="Types" value="Entree" checked="@Model.Types.Contains("Entree")" />
+                    </label>
+
+                    <label>
+                        Sides
+                        <input type="checkbox" name="Types" value="Side" checked="@Model.Types.Contains("Side")" />
+                    </label>
+
+                    <label>
+                        Drinks
+                        <input type="checkbox" name="Types" value="Drink" checked="@Model.Types.Contains("Drink")" />
+                    </label>
+
+
+                    <h4>Price</h4>
+                    <div>
+                        Between
+                        <input name="PriceMin" type="number" min="0" max="10" step="0.1" placeholder="min" />
+                        and
+                        <input name="PriceMax" type="number" min="0" max="10" step="0.1" placeholder="max" />
+                    </div><br />
+
+                    <h4>Calories</h4>
+                    <div>
+                        Between
+                        <input name="CaloriesMin" type="number" min="0" max="1000" step="10" placeholder="min" />
+                        and
+                        <input name="CaloriesMax" type="number" min="0" max="1000" step="10" placeholder="max" />
+                    </div><br />
+
+
+
+                    @foreach (IOrderItem item in Model.Items)
                     {
-                        <div class="menu-item">
-                            @if (item is Drink)
+                        if (item is JerkedSoda)
+                        {
+                            Model.JerkedSodaAvailable = true;
+                        }
+                    }
+
+                    @if (Model.JerkedSodaAvailable == true)
+                    {
+
+                        <div class="text-center">
+                            <h4><u>Soda Flavors:</u></h4>
+                            @foreach (SodaFlavor flavor in Enum.GetValues(typeof(SodaFlavor)))
                             {
-                                <span>@item<br /></span>
-                                <span>Price: @string.Format("{0:C}", item.Price)<br /></span>
-                                <span>Calories: @item.Calories<br /><br /></span>
-                                Model.Count++;
+                                if (flavor != SodaFlavor.None)
+                                {
+                                    <span>@flavor<br /></span>
+
+                                }
+                                else
+                                {
+                                    Model.JerkedSodaAvailable = false;
+                                }
                             }
                         </div>
                     }
-                </div>
-                <div class="col-sm">
-                    <h4>Entree</h4>
-                    @foreach (IOrderItem item in @Model.Items)
-                    {
-                        <div class="menu-item">
-                            @if (item is Entree)
-                            {
-                                <span>@item<br /></span>
-                                <span>Price: @string.Format("{0:C}", item.Price)<br /></span>
-                                <span>Calories: @item.Calories<br /><br /></span>
-                                Model.Count++;
-                            }
-                        </div>
-                    }
-                </div>
-                <div class="col-sm">
-                    <h4>Sides</h4>
-                    @foreach (IOrderItem item in @Model.Items)
-                    {
-                        <div class="menu-item">
-                            @if (item is Side)
-                            {
-                                <span>@item<br /></span>
-                                <span>Price: @string.Format("{0:C}", item.Price)<br /></span>
-                                <span>Calories: @item.Calories<br /><br /></span>
-                                Model.Count++;
-                            }
-                        </div>
-                    }
-                </div>
 
 
+
+                </div>
             </div>
+
+
+            <div class="flex-item">
+                <h4><u>Drinks</u></h4>
+                @foreach (IOrderItem item in @Model.Items)
+                {
+                    <div class="menu-item">
+                        @if (item is Drink)
+                        {
+                            <span>@item<br /></span>
+                            <span>Price: @string.Format("{0:C}", item.Price)<br /></span>
+                            <span>Calories: @item.Calories<br /><br /></span>
+                            Model.Count++;
+                        }
+                    </div>
+                }
+            </div>
+            <div class="flex-item">
+                <h4><u>Entree</u></h4>
+                @foreach (IOrderItem item in @Model.Items)
+                {
+                    <div class="menu-item">
+                        @if (item is Entree)
+                        {
+                            <span>@item<br /></span>
+                            <span>Price: @string.Format("{0:C}", item.Price)<br /></span>
+                            <span>Calories: @item.Calories<br /><br /></span>
+                            Model.Count++;
+                        }
+                    </div>
+                }
+            </div>
+            <div class="flex-item">
+                <h4><u>Sides</u></h4>
+                @foreach (IOrderItem item in @Model.Items)
+                {
+                    <div class="menu-item">
+                        @if (item is Side)
+                        {
+                            <span>@item<br /></span>
+                            <span>Price: @string.Format("{0:C}", item.Price)<br /></span>
+                            <span>Calories: @item.Calories<br /><br /></span>
+                            Model.Count++;
+                        }
+                    </div>
+                }
+            </div>
+
+
+
         </div>
     }
 </form>
