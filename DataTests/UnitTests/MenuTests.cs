@@ -183,7 +183,7 @@ namespace CowboyCafe.DataTests
         [InlineData("Chil", 4)]
         public void ThisWillFilterByTerm(string term, int expectedNumberOfItems)
         {
-            Assert.Equal(expectedNumberOfItems, Menu.Search(term).Count());
+            Assert.Equal(expectedNumberOfItems, Menu.Search(term,Menu.OrderItems()).Count());
         }
 
         /// <summary>
